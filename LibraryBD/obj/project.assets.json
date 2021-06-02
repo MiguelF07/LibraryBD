@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\andre\\.nuget\\packages\\": {}
+    "C:\\Users\\MiguelFerreira\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andre\\source\\repos\\LibraryBD\\LibraryBD\\LibraryBD.csproj",
+      "projectUniqueName": "C:\\Users\\MiguelFerreira\\Desktop\\ProjetoBD\\LibraryBD\\LibraryBD\\LibraryBD.csproj",
       "projectName": "LibraryBD",
-      "projectPath": "C:\\Users\\andre\\source\\repos\\LibraryBD\\LibraryBD\\LibraryBD.csproj",
-      "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andre\\source\\repos\\LibraryBD\\LibraryBD\\obj\\",
+      "projectPath": "C:\\Users\\MiguelFerreira\\Desktop\\ProjetoBD\\LibraryBD\\LibraryBD\\LibraryBD.csproj",
+      "packagesPath": "C:\\Users\\MiguelFerreira\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MiguelFerreira\\Desktop\\ProjetoBD\\LibraryBD\\LibraryBD\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MiguelFerreira\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
