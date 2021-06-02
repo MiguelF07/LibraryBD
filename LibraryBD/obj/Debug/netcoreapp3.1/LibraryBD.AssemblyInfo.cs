@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("BDProjeto")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("LibraryBD")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("BDProjeto")]
-[assembly: System.Reflection.AssemblyTitleAttribute("BDProjeto")]
+[assembly: System.Reflection.AssemblyProductAttribute("LibraryBD")]
+[assembly: System.Reflection.AssemblyTitleAttribute("LibraryBD")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.
