@@ -15,3 +15,6 @@ C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryB
 C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryBD.dll
 C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryBD.pdb
 C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryBD.genruntimeconfig.cache
+C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryBD.Atividades.resources
+C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryBD.Entregar.resources
+C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryBD.Reservar.resources

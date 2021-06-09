@@ -46,5 +46,19 @@ namespace LibraryBD
             Entregar cons = new Entregar();
             cons.ShowDialog();
         }
+
+        private void atividades_Click(object sender, EventArgs e)
+        {
+            //botao atividades
+            Atividades cons = new Atividades();
+            cons.ShowDialog();
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            //botao info
+            Infobibl cons = new Infobibl();
+            cons.ShowDialog();
+        }
     }
 }
