@@ -54,5 +54,15 @@ namespace LibraryBD
         {
 
         }
+
+        private void label34_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label31_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
