@@ -83,6 +83,7 @@ namespace LibraryBD
             this.entregar.TabIndex = 2;
             this.entregar.Text = "Entregar";
             this.entregar.UseVisualStyleBackColor = false;
+            this.entregar.Click += new System.EventHandler(this.entregar_Click);
             // 
             // atividades
             // 

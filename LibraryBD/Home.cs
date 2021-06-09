@@ -18,14 +18,16 @@ namespace LibraryBD
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+        { //botao consultar
             Consultar cons = new Consultar();
             cons.ShowDialog();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            //botao reservar
+            Reservar cons = new Reservar();
+            cons.ShowDialog();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -36,6 +38,13 @@ namespace LibraryBD
         private void pictureBox3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void entregar_Click(object sender, EventArgs e)
+        {
+            //botao entregar
+            Entregar cons = new Entregar();
+            cons.ShowDialog();
         }
     }
 }

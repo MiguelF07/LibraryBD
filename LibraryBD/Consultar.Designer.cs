@@ -91,6 +91,10 @@ namespace LibraryBD
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.jornal = new System.Windows.Forms.GroupBox();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.textBox19 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.textBox16 = new System.Windows.Forms.TextBox();
@@ -100,10 +104,6 @@ namespace LibraryBD
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
             this.revista = new System.Windows.Forms.GroupBox();
             this.textBox21 = new System.Windows.Forms.TextBox();
             this.label36 = new System.Windows.Forms.Label();
@@ -119,29 +119,7 @@ namespace LibraryBD
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.filme = new System.Windows.Forms.GroupBox();
-            this.textBox26 = new System.Windows.Forms.TextBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.textBox27 = new System.Windows.Forms.TextBox();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.label45 = new System.Windows.Forms.Label();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.label46 = new System.Windows.Forms.Label();
-            this.textBox30 = new System.Windows.Forms.TextBox();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.textBox31 = new System.Windows.Forms.TextBox();
             this.periferico = new System.Windows.Forms.GroupBox();
-            this.label51 = new System.Windows.Forms.Label();
-            this.textBox34 = new System.Windows.Forms.TextBox();
-            this.textBox35 = new System.Windows.Forms.TextBox();
-            this.label52 = new System.Windows.Forms.Label();
-            this.textBox36 = new System.Windows.Forms.TextBox();
-            this.label53 = new System.Windows.Forms.Label();
-            this.textBox37 = new System.Windows.Forms.TextBox();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
             this.cd = new System.Windows.Forms.GroupBox();
             this.textBox32 = new System.Windows.Forms.TextBox();
             this.textBox33 = new System.Windows.Forms.TextBox();
@@ -156,7 +134,33 @@ namespace LibraryBD
             this.label59 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.textBox34 = new System.Windows.Forms.TextBox();
+            this.textBox35 = new System.Windows.Forms.TextBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.textBox36 = new System.Windows.Forms.TextBox();
+            this.label53 = new System.Windows.Forms.Label();
+            this.textBox37 = new System.Windows.Forms.TextBox();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.textBox31 = new System.Windows.Forms.TextBox();
+            this.textBox26 = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.textBox28 = new System.Windows.Forms.TextBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.textBox29 = new System.Windows.Forms.TextBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.textBox30 = new System.Windows.Forms.TextBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
             this.livro = new System.Windows.Forms.GroupBox();
+            this.textBox49 = new System.Windows.Forms.TextBox();
+            this.textBox48 = new System.Windows.Forms.TextBox();
+            this.label70 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
             this.textBox42 = new System.Windows.Forms.TextBox();
             this.textBox43 = new System.Windows.Forms.TextBox();
             this.label62 = new System.Windows.Forms.Label();
@@ -170,10 +174,7 @@ namespace LibraryBD
             this.label66 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
             this.label68 = new System.Windows.Forms.Label();
-            this.label69 = new System.Windows.Forms.Label();
-            this.label70 = new System.Windows.Forms.Label();
-            this.textBox48 = new System.Windows.Forms.TextBox();
-            this.textBox49 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.funcionario.SuspendLayout();
             this.membro.SuspendLayout();
             this.gerente.SuspendLayout();
@@ -217,7 +218,7 @@ namespace LibraryBD
             // 
             // editar
             // 
-            this.editar.Location = new System.Drawing.Point(336, 439);
+            this.editar.Location = new System.Drawing.Point(318, 440);
             this.editar.Name = "editar";
             this.editar.Size = new System.Drawing.Size(94, 29);
             this.editar.TabIndex = 3;
@@ -226,7 +227,7 @@ namespace LibraryBD
             // 
             // guardar
             // 
-            this.guardar.Location = new System.Drawing.Point(453, 439);
+            this.guardar.Location = new System.Drawing.Point(518, 440);
             this.guardar.Name = "guardar";
             this.guardar.Size = new System.Drawing.Size(94, 29);
             this.guardar.TabIndex = 4;
@@ -235,7 +236,7 @@ namespace LibraryBD
             // 
             // eliminar
             // 
-            this.eliminar.Location = new System.Drawing.Point(568, 439);
+            this.eliminar.Location = new System.Drawing.Point(618, 440);
             this.eliminar.Name = "eliminar";
             this.eliminar.Size = new System.Drawing.Size(94, 29);
             this.eliminar.TabIndex = 5;
@@ -244,7 +245,7 @@ namespace LibraryBD
             // 
             // procurar
             // 
-            this.procurar.Location = new System.Drawing.Point(683, 439);
+            this.procurar.Location = new System.Drawing.Point(718, 440);
             this.procurar.Name = "procurar";
             this.procurar.Size = new System.Drawing.Size(94, 29);
             this.procurar.TabIndex = 6;
@@ -766,6 +767,39 @@ namespace LibraryBD
             this.jornal.TabIndex = 24;
             this.jornal.TabStop = false;
             // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(74, 220);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(294, 27);
+            this.textBox20.TabIndex = 27;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(13, 220);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(54, 20);
+            this.label35.TabIndex = 26;
+            this.label35.Text = "Edição";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(13, 140);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(39, 20);
+            this.label31.TabIndex = 25;
+            this.label31.Text = "Tipo";
+            this.label31.Click += new System.EventHandler(this.label31_Click);
+            // 
+            // textBox19
+            // 
+            this.textBox19.Location = new System.Drawing.Point(74, 140);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(294, 27);
+            this.textBox19.TabIndex = 24;
+            // 
             // textBox15
             // 
             this.textBox15.Location = new System.Drawing.Point(73, 100);
@@ -839,39 +873,6 @@ namespace LibraryBD
             this.label34.TabIndex = 1;
             this.label34.Text = "ID";
             this.label34.Click += new System.EventHandler(this.label34_Click);
-            // 
-            // textBox19
-            // 
-            this.textBox19.Location = new System.Drawing.Point(74, 140);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(294, 27);
-            this.textBox19.TabIndex = 24;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(13, 140);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(39, 20);
-            this.label31.TabIndex = 25;
-            this.label31.Text = "Tipo";
-            this.label31.Click += new System.EventHandler(this.label31_Click);
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(13, 220);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(54, 20);
-            this.label35.TabIndex = 26;
-            this.label35.Text = "Edição";
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(74, 220);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(294, 27);
-            this.textBox20.TabIndex = 27;
             // 
             // revista
             // 
@@ -1021,111 +1022,6 @@ namespace LibraryBD
             this.filme.TabIndex = 29;
             this.filme.TabStop = false;
             // 
-            // textBox26
-            // 
-            this.textBox26.Location = new System.Drawing.Point(74, 220);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(294, 27);
-            this.textBox26.TabIndex = 27;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(13, 220);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(57, 20);
-            this.label43.TabIndex = 26;
-            this.label43.Text = "Género";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(13, 140);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(80, 20);
-            this.label44.TabIndex = 25;
-            this.label44.Text = "Realizador";
-            // 
-            // textBox27
-            // 
-            this.textBox27.Location = new System.Drawing.Point(99, 140);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(269, 27);
-            this.textBox27.TabIndex = 24;
-            // 
-            // textBox28
-            // 
-            this.textBox28.Location = new System.Drawing.Point(73, 100);
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(294, 27);
-            this.textBox28.TabIndex = 23;
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(13, 100);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(47, 20);
-            this.label45.TabIndex = 22;
-            this.label45.Text = "Título";
-            // 
-            // textBox29
-            // 
-            this.textBox29.Location = new System.Drawing.Point(73, 60);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(294, 27);
-            this.textBox29.TabIndex = 21;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(13, 60);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(56, 20);
-            this.label46.TabIndex = 20;
-            this.label46.Text = "Secção";
-            // 
-            // textBox30
-            // 
-            this.textBox30.Location = new System.Drawing.Point(73, 20);
-            this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(294, 27);
-            this.textBox30.TabIndex = 10;
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(13, 180);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(36, 20);
-            this.label47.TabIndex = 9;
-            this.label47.Text = "Ano";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(-21, -23);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(58, 20);
-            this.label48.TabIndex = 2;
-            this.label48.Text = "label48";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(13, 20);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(24, 20);
-            this.label49.TabIndex = 1;
-            this.label49.Text = "ID";
-            // 
-            // textBox31
-            // 
-            this.textBox31.Location = new System.Drawing.Point(74, 182);
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(294, 27);
-            this.textBox31.TabIndex = 28;
-            // 
             // periferico
             // 
             this.periferico.Controls.Add(this.cd);
@@ -1143,79 +1039,6 @@ namespace LibraryBD
             this.periferico.Size = new System.Drawing.Size(377, 368);
             this.periferico.TabIndex = 30;
             this.periferico.TabStop = false;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(13, 140);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(39, 20);
-            this.label51.TabIndex = 25;
-            this.label51.Text = "Tipo";
-            // 
-            // textBox34
-            // 
-            this.textBox34.Location = new System.Drawing.Point(73, 140);
-            this.textBox34.Name = "textBox34";
-            this.textBox34.Size = new System.Drawing.Size(295, 27);
-            this.textBox34.TabIndex = 24;
-            // 
-            // textBox35
-            // 
-            this.textBox35.Location = new System.Drawing.Point(73, 100);
-            this.textBox35.Name = "textBox35";
-            this.textBox35.Size = new System.Drawing.Size(294, 27);
-            this.textBox35.TabIndex = 23;
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(13, 100);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(61, 20);
-            this.label52.TabIndex = 22;
-            this.label52.Text = "Modelo";
-            // 
-            // textBox36
-            // 
-            this.textBox36.Location = new System.Drawing.Point(73, 60);
-            this.textBox36.Name = "textBox36";
-            this.textBox36.Size = new System.Drawing.Size(294, 27);
-            this.textBox36.TabIndex = 21;
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(13, 60);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(50, 20);
-            this.label53.TabIndex = 20;
-            this.label53.Text = "Marca";
-            // 
-            // textBox37
-            // 
-            this.textBox37.Location = new System.Drawing.Point(73, 20);
-            this.textBox37.Name = "textBox37";
-            this.textBox37.Size = new System.Drawing.Size(294, 27);
-            this.textBox37.TabIndex = 10;
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(-21, -23);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(58, 20);
-            this.label55.TabIndex = 2;
-            this.label55.Text = "label55";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(13, 20);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(24, 20);
-            this.label56.TabIndex = 1;
-            this.label56.Text = "ID";
             // 
             // cd
             // 
@@ -1343,6 +1166,184 @@ namespace LibraryBD
             this.label61.TabIndex = 1;
             this.label61.Text = "ID";
             // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(13, 140);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(39, 20);
+            this.label51.TabIndex = 25;
+            this.label51.Text = "Tipo";
+            // 
+            // textBox34
+            // 
+            this.textBox34.Location = new System.Drawing.Point(73, 140);
+            this.textBox34.Name = "textBox34";
+            this.textBox34.Size = new System.Drawing.Size(295, 27);
+            this.textBox34.TabIndex = 24;
+            // 
+            // textBox35
+            // 
+            this.textBox35.Location = new System.Drawing.Point(73, 100);
+            this.textBox35.Name = "textBox35";
+            this.textBox35.Size = new System.Drawing.Size(294, 27);
+            this.textBox35.TabIndex = 23;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(13, 100);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(61, 20);
+            this.label52.TabIndex = 22;
+            this.label52.Text = "Modelo";
+            // 
+            // textBox36
+            // 
+            this.textBox36.Location = new System.Drawing.Point(73, 60);
+            this.textBox36.Name = "textBox36";
+            this.textBox36.Size = new System.Drawing.Size(294, 27);
+            this.textBox36.TabIndex = 21;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(13, 60);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(50, 20);
+            this.label53.TabIndex = 20;
+            this.label53.Text = "Marca";
+            // 
+            // textBox37
+            // 
+            this.textBox37.Location = new System.Drawing.Point(73, 20);
+            this.textBox37.Name = "textBox37";
+            this.textBox37.Size = new System.Drawing.Size(294, 27);
+            this.textBox37.TabIndex = 10;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(-21, -23);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(58, 20);
+            this.label55.TabIndex = 2;
+            this.label55.Text = "label55";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(13, 20);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(24, 20);
+            this.label56.TabIndex = 1;
+            this.label56.Text = "ID";
+            // 
+            // textBox31
+            // 
+            this.textBox31.Location = new System.Drawing.Point(74, 182);
+            this.textBox31.Name = "textBox31";
+            this.textBox31.Size = new System.Drawing.Size(294, 27);
+            this.textBox31.TabIndex = 28;
+            // 
+            // textBox26
+            // 
+            this.textBox26.Location = new System.Drawing.Point(74, 220);
+            this.textBox26.Name = "textBox26";
+            this.textBox26.Size = new System.Drawing.Size(294, 27);
+            this.textBox26.TabIndex = 27;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(13, 220);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(57, 20);
+            this.label43.TabIndex = 26;
+            this.label43.Text = "Género";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(13, 140);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(80, 20);
+            this.label44.TabIndex = 25;
+            this.label44.Text = "Realizador";
+            // 
+            // textBox27
+            // 
+            this.textBox27.Location = new System.Drawing.Point(99, 140);
+            this.textBox27.Name = "textBox27";
+            this.textBox27.Size = new System.Drawing.Size(269, 27);
+            this.textBox27.TabIndex = 24;
+            // 
+            // textBox28
+            // 
+            this.textBox28.Location = new System.Drawing.Point(73, 100);
+            this.textBox28.Name = "textBox28";
+            this.textBox28.Size = new System.Drawing.Size(294, 27);
+            this.textBox28.TabIndex = 23;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(13, 100);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(47, 20);
+            this.label45.TabIndex = 22;
+            this.label45.Text = "Título";
+            // 
+            // textBox29
+            // 
+            this.textBox29.Location = new System.Drawing.Point(73, 60);
+            this.textBox29.Name = "textBox29";
+            this.textBox29.Size = new System.Drawing.Size(294, 27);
+            this.textBox29.TabIndex = 21;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(13, 60);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(56, 20);
+            this.label46.TabIndex = 20;
+            this.label46.Text = "Secção";
+            // 
+            // textBox30
+            // 
+            this.textBox30.Location = new System.Drawing.Point(73, 20);
+            this.textBox30.Name = "textBox30";
+            this.textBox30.Size = new System.Drawing.Size(294, 27);
+            this.textBox30.TabIndex = 10;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(13, 180);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(36, 20);
+            this.label47.TabIndex = 9;
+            this.label47.Text = "Ano";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(-21, -23);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(58, 20);
+            this.label48.TabIndex = 2;
+            this.label48.Text = "label48";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(13, 20);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(24, 20);
+            this.label49.TabIndex = 1;
+            this.label49.Text = "ID";
+            // 
             // livro
             // 
             this.livro.Controls.Add(this.textBox49);
@@ -1367,6 +1368,38 @@ namespace LibraryBD
             this.livro.Size = new System.Drawing.Size(377, 368);
             this.livro.TabIndex = 30;
             this.livro.TabStop = false;
+            // 
+            // textBox49
+            // 
+            this.textBox49.Location = new System.Drawing.Point(74, 300);
+            this.textBox49.Name = "textBox49";
+            this.textBox49.Size = new System.Drawing.Size(294, 27);
+            this.textBox49.TabIndex = 32;
+            // 
+            // textBox48
+            // 
+            this.textBox48.Location = new System.Drawing.Point(73, 260);
+            this.textBox48.Name = "textBox48";
+            this.textBox48.Size = new System.Drawing.Size(294, 27);
+            this.textBox48.TabIndex = 31;
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(13, 300);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(41, 20);
+            this.label70.TabIndex = 30;
+            this.label70.Text = "ISBN";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(13, 260);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(57, 20);
+            this.label69.TabIndex = 29;
+            this.label69.Text = "Editora";
             // 
             // textBox42
             // 
@@ -1473,43 +1506,21 @@ namespace LibraryBD
             this.label68.TabIndex = 1;
             this.label68.Text = "ID";
             // 
-            // label69
+            // button1
             // 
-            this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(13, 260);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(57, 20);
-            this.label69.TabIndex = 29;
-            this.label69.Text = "Editora";
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(13, 300);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(41, 20);
-            this.label70.TabIndex = 30;
-            this.label70.Text = "ISBN";
-            // 
-            // textBox48
-            // 
-            this.textBox48.Location = new System.Drawing.Point(73, 260);
-            this.textBox48.Name = "textBox48";
-            this.textBox48.Size = new System.Drawing.Size(294, 27);
-            this.textBox48.TabIndex = 31;
-            // 
-            // textBox49
-            // 
-            this.textBox49.Location = new System.Drawing.Point(74, 300);
-            this.textBox49.Name = "textBox49";
-            this.textBox49.Size = new System.Drawing.Size(294, 27);
-            this.textBox49.TabIndex = 32;
+            this.button1.Location = new System.Drawing.Point(418, 440);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 29);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "Editar";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Consultar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1202, 500);
+            this.ClientSize = new System.Drawing.Size(841, 489);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.livro);
             this.Controls.Add(this.filme);
             this.Controls.Add(this.revista);
@@ -1698,5 +1709,6 @@ namespace LibraryBD
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.Button button1;
     }
 }
