@@ -18,3 +18,4 @@ C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryB
 C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryBD.Atividades.resources
 C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryBD.Entregar.resources
 C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryBD.Reservar.resources
+C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryBD.Infobibl.resources

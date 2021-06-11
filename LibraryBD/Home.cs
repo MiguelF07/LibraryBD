@@ -6,17 +6,38 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace LibraryBD
 {
     public partial class Home : Form
     {
+        private SqlConnection cn;
         public Home()
         {
+            cn = getSGBDConnection();
             InitializeComponent();
         }
+        /*private SqlConnection getSGBDConnection()
+        {
+            return new SqlConnection("data source= DESKTOP-3E08FOH\SQLEXPRESS;integrated security=true;initial catalog=Northwind");
+        }*/
+        private SqlConnection getSGBDConnection()
+        {   
+            //Andreia
+            return new SqlConnection("data source= LAPTOP-1MGUSQ2L\SQLEXPRESS;integrated security=true;initial catalog=Projeto");
+        }
+        private bool verifySGBDConnection()
+        {
+            if (cn == null)
+                cn = getSGBDConnection();
 
+            if (cn.State != ConnectionState.Open)
+                cn.Open();
+
+            return cn.State == ConnectionState.Open;
+        }
         private void button1_Click(object sender, EventArgs e)
         { //botao consultar
             Consultar cons = new Consultar();
