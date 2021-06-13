@@ -1094,7 +1094,7 @@ namespace LibraryBD
             this.filme.Controls.Add(this.label47);
             this.filme.Controls.Add(this.label48);
             this.filme.Controls.Add(this.label49);
-            this.filme.Location = new System.Drawing.Point(748, 51);
+            this.filme.Location = new System.Drawing.Point(0, 0);
             this.filme.Name = "filme";
             this.filme.Size = new System.Drawing.Size(377, 368);
             this.filme.TabIndex = 29;
@@ -1210,6 +1210,7 @@ namespace LibraryBD
             this.livro.Controls.Add(this.livro_isbn);
             this.livro.Controls.Add(this.livro_editora);
             this.livro.Controls.Add(this.label70);
+            this.livro.Controls.Add(this.filme);
             this.livro.Controls.Add(this.label69);
             this.livro.Controls.Add(this.livro_ano);
             this.livro.Controls.Add(this.livro_genero);
@@ -1390,11 +1391,10 @@ namespace LibraryBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1398, 489);
+            this.ClientSize = new System.Drawing.Size(830, 489);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.livro);
-            this.Controls.Add(this.filme);
             this.Controls.Add(this.gerente);
             this.Controls.Add(this.funcionario);
             this.Controls.Add(this.procurar);
