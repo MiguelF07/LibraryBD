@@ -19,8 +19,21 @@ namespace LibraryBD
             Debug.WriteLine("Init");
             //this.Load += Home_Load;
             InitializeComponent();
+            HideAll();
 
 
+        }
+        private void HideAll() {
+            membro.Hide();
+            funcionario.Hide();
+            gerente.Hide();
+            emprestimo.Hide();
+            jornal.Hide();
+            revista.Hide();
+            filme.Hide();
+            periferico.Hide();
+            cd.Hide();
+            livro.Hide();
         }
         private void Consultar_Load(Object sender, EventArgs e) {
             Debug.WriteLine("load entered");
@@ -50,7 +63,7 @@ namespace LibraryBD
             if (!verifySGBDConnection()) { 
                 Debug.WriteLine("no conn");
             return; };
-
+            membro.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.membro", cn);
             
             SqlDataReader reader = cmd.ExecuteReader();
