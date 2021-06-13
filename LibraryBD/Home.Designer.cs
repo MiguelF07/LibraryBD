@@ -110,6 +110,7 @@ namespace LibraryBD
             this.label1.Size = new System.Drawing.Size(528, 38);
             this.label1.TabIndex = 5;
             this.label1.Text = "Bem-vindo à Biblioteca Municipal";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
@@ -178,7 +179,7 @@ namespace LibraryBD
             this.Controls.Add(this.consultar);
             this.Name = "Home";
             this.Text = "Início";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Home_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

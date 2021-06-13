@@ -26,7 +26,7 @@ namespace LibraryBD
         private SqlConnection getSGBDConnection()
         {   
             //Andreia
-            return new SqlConnection("data source= LAPTOP-1MGUSQ2L\SQLEXPRESS;integrated security=true;initial catalog=Projeto");
+            return new SqlConnection("data source= LAPTOP-1MGUSQ2L/SQLEXPRESS;integrated security=true;initial catalog=Projeto");
         }
         private bool verifySGBDConnection()
         {
@@ -41,7 +41,7 @@ namespace LibraryBD
         private void button1_Click(object sender, EventArgs e)
         { //botao consultar
             Consultar cons = new Consultar();
-            cons.ShowDialog();
+            cons.Show();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace LibraryBD
             cons.ShowDialog();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Home_Load(object sender, EventArgs e)
         {
 
         }
@@ -80,6 +80,11 @@ namespace LibraryBD
             //botao info
             Infobibl cons = new Infobibl();
             cons.ShowDialog();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
