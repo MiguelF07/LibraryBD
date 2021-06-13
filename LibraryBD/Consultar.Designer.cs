@@ -39,13 +39,77 @@ namespace LibraryBD
             this.funcionario = new System.Windows.Forms.GroupBox();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.fun_nif = new System.Windows.Forms.TextBox();
+            this.fun_ssn = new System.Windows.Forms.TextBox();
+            this.fun_email = new System.Windows.Forms.TextBox();
+            this.fun_morada = new System.Windows.Forms.TextBox();
+            this.fun_nasc = new System.Windows.Forms.DateTimePicker();
+            this.fun_nome = new System.Windows.Forms.TextBox();
+            this.membro = new System.Windows.Forms.GroupBox();
+            this.emprestimo = new System.Windows.Forms.GroupBox();
+            this.periferico = new System.Windows.Forms.GroupBox();
+            this.cd = new System.Windows.Forms.GroupBox();
+            this.cd_ano = new System.Windows.Forms.TextBox();
+            this.cd_genero = new System.Windows.Forms.TextBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.revista = new System.Windows.Forms.GroupBox();
+            this.revista_edicao = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.revista_tipo = new System.Windows.Forms.TextBox();
+            this.revista_marca = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.revista_seccao = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.revista_data = new System.Windows.Forms.DateTimePicker();
+            this.revista_id = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.cd_artista = new System.Windows.Forms.TextBox();
+            this.cd_titulo = new System.Windows.Forms.TextBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.cd_seccao = new System.Windows.Forms.TextBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.cd_id = new System.Windows.Forms.TextBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.per_tipo = new System.Windows.Forms.TextBox();
+            this.per_modelo = new System.Windows.Forms.TextBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.per_marca = new System.Windows.Forms.TextBox();
+            this.label53 = new System.Windows.Forms.Label();
+            this.per_id = new System.Windows.Forms.TextBox();
+            this.label55 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.emp_idmem = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.emp_idf = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.dateTimePicker7 = new System.Windows.Forms.DateTimePicker();
+            this.emp_dataemp = new System.Windows.Forms.DateTimePicker();
+            this.emp_num = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.membro_nif = new System.Windows.Forms.TextBox();
+            this.membro_email = new System.Windows.Forms.TextBox();
+            this.membro_morada = new System.Windows.Forms.TextBox();
+            this.membro_nasc = new System.Windows.Forms.DateTimePicker();
+            this.membro_nome = new System.Windows.Forms.TextBox();
+            this.membro_id = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.fun_id = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -56,121 +120,43 @@ namespace LibraryBD
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.membro = new System.Windows.Forms.GroupBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.gerente = new System.Windows.Forms.GroupBox();
-            this.emprestimo = new System.Windows.Forms.GroupBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.dateTimePicker7 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker8 = new System.Windows.Forms.DateTimePicker();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.ger_fim = new System.Windows.Forms.DateTimePicker();
+            this.ger_inicio = new System.Windows.Forms.DateTimePicker();
+            this.ger_id = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.jornal = new System.Windows.Forms.GroupBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.dateTimePicker9 = new System.Windows.Forms.DateTimePicker();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.revista = new System.Windows.Forms.GroupBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.label39 = new System.Windows.Forms.Label();
-            this.dateTimePicker10 = new System.Windows.Forms.DateTimePicker();
-            this.textBox25 = new System.Windows.Forms.TextBox();
-            this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
             this.filme = new System.Windows.Forms.GroupBox();
-            this.periferico = new System.Windows.Forms.GroupBox();
-            this.cd = new System.Windows.Forms.GroupBox();
-            this.textBox32 = new System.Windows.Forms.TextBox();
-            this.textBox33 = new System.Windows.Forms.TextBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.textBox38 = new System.Windows.Forms.TextBox();
-            this.textBox39 = new System.Windows.Forms.TextBox();
-            this.label57 = new System.Windows.Forms.Label();
-            this.textBox40 = new System.Windows.Forms.TextBox();
-            this.label58 = new System.Windows.Forms.Label();
-            this.textBox41 = new System.Windows.Forms.TextBox();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.textBox34 = new System.Windows.Forms.TextBox();
-            this.textBox35 = new System.Windows.Forms.TextBox();
-            this.label52 = new System.Windows.Forms.Label();
-            this.textBox36 = new System.Windows.Forms.TextBox();
-            this.label53 = new System.Windows.Forms.Label();
-            this.textBox37 = new System.Windows.Forms.TextBox();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
-            this.textBox31 = new System.Windows.Forms.TextBox();
-            this.textBox26 = new System.Windows.Forms.TextBox();
+            this.filme_ano = new System.Windows.Forms.TextBox();
+            this.filme_genero = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
-            this.textBox27 = new System.Windows.Forms.TextBox();
-            this.textBox28 = new System.Windows.Forms.TextBox();
+            this.filme_realizador = new System.Windows.Forms.TextBox();
+            this.filme_titulo = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
-            this.textBox29 = new System.Windows.Forms.TextBox();
+            this.filme_seccao = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
-            this.textBox30 = new System.Windows.Forms.TextBox();
+            this.filme_id = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.livro = new System.Windows.Forms.GroupBox();
-            this.textBox49 = new System.Windows.Forms.TextBox();
-            this.textBox48 = new System.Windows.Forms.TextBox();
+            this.livro_isbn = new System.Windows.Forms.TextBox();
+            this.livro_editora = new System.Windows.Forms.TextBox();
             this.label70 = new System.Windows.Forms.Label();
             this.label69 = new System.Windows.Forms.Label();
-            this.textBox42 = new System.Windows.Forms.TextBox();
-            this.textBox43 = new System.Windows.Forms.TextBox();
+            this.livro_ano = new System.Windows.Forms.TextBox();
+            this.livro_genero = new System.Windows.Forms.TextBox();
             this.label62 = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
-            this.textBox44 = new System.Windows.Forms.TextBox();
-            this.textBox45 = new System.Windows.Forms.TextBox();
+            this.livro_autor = new System.Windows.Forms.TextBox();
+            this.livro_titulo = new System.Windows.Forms.TextBox();
             this.label64 = new System.Windows.Forms.Label();
-            this.textBox46 = new System.Windows.Forms.TextBox();
+            this.livro_seccao = new System.Windows.Forms.TextBox();
             this.label65 = new System.Windows.Forms.Label();
-            this.textBox47 = new System.Windows.Forms.TextBox();
+            this.livro_id = new System.Windows.Forms.TextBox();
             this.label66 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
             this.label68 = new System.Windows.Forms.Label();
@@ -178,13 +164,12 @@ namespace LibraryBD
             this.button2 = new System.Windows.Forms.Button();
             this.funcionario.SuspendLayout();
             this.membro.SuspendLayout();
-            this.gerente.SuspendLayout();
             this.emprestimo.SuspendLayout();
-            this.jornal.SuspendLayout();
-            this.revista.SuspendLayout();
-            this.filme.SuspendLayout();
             this.periferico.SuspendLayout();
             this.cd.SuspendLayout();
+            this.revista.SuspendLayout();
+            this.gerente.SuspendLayout();
+            this.filme.SuspendLayout();
             this.livro.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -259,13 +244,14 @@ namespace LibraryBD
             // 
             this.funcionario.Controls.Add(this.dateTimePicker3);
             this.funcionario.Controls.Add(this.dateTimePicker2);
-            this.funcionario.Controls.Add(this.textBox6);
-            this.funcionario.Controls.Add(this.textBox5);
-            this.funcionario.Controls.Add(this.textBox4);
-            this.funcionario.Controls.Add(this.textBox3);
-            this.funcionario.Controls.Add(this.dateTimePicker1);
-            this.funcionario.Controls.Add(this.textBox2);
-            this.funcionario.Controls.Add(this.textBox1);
+            this.funcionario.Controls.Add(this.fun_nif);
+            this.funcionario.Controls.Add(this.fun_ssn);
+            this.funcionario.Controls.Add(this.fun_email);
+            this.funcionario.Controls.Add(this.fun_morada);
+            this.funcionario.Controls.Add(this.fun_nasc);
+            this.funcionario.Controls.Add(this.fun_nome);
+            this.funcionario.Controls.Add(this.membro);
+            this.funcionario.Controls.Add(this.fun_id);
             this.funcionario.Controls.Add(this.label11);
             this.funcionario.Controls.Add(this.label10);
             this.funcionario.Controls.Add(this.label9);
@@ -296,54 +282,637 @@ namespace LibraryBD
             this.dateTimePicker2.Size = new System.Drawing.Size(303, 27);
             this.dateTimePicker2.TabIndex = 17;
             // 
-            // textBox6
+            // fun_nif
             // 
-            this.textBox6.Location = new System.Drawing.Point(65, 248);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(303, 27);
-            this.textBox6.TabIndex = 16;
+            this.fun_nif.Location = new System.Drawing.Point(65, 248);
+            this.fun_nif.Name = "fun_nif";
+            this.fun_nif.Size = new System.Drawing.Size(303, 27);
+            this.fun_nif.TabIndex = 16;
             // 
-            // textBox5
+            // fun_ssn
             // 
-            this.textBox5.Location = new System.Drawing.Point(65, 211);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(303, 27);
-            this.textBox5.TabIndex = 15;
+            this.fun_ssn.Location = new System.Drawing.Point(65, 211);
+            this.fun_ssn.Name = "fun_ssn";
+            this.fun_ssn.Size = new System.Drawing.Size(303, 27);
+            this.fun_ssn.TabIndex = 15;
             // 
-            // textBox4
+            // fun_email
             // 
-            this.textBox4.Location = new System.Drawing.Point(65, 172);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(303, 27);
-            this.textBox4.TabIndex = 14;
+            this.fun_email.Location = new System.Drawing.Point(65, 172);
+            this.fun_email.Name = "fun_email";
+            this.fun_email.Size = new System.Drawing.Size(303, 27);
+            this.fun_email.TabIndex = 14;
             // 
-            // textBox3
+            // fun_morada
             // 
-            this.textBox3.Location = new System.Drawing.Point(83, 133);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(285, 27);
-            this.textBox3.TabIndex = 13;
+            this.fun_morada.Location = new System.Drawing.Point(83, 133);
+            this.fun_morada.Name = "fun_morada";
+            this.fun_morada.Size = new System.Drawing.Size(285, 27);
+            this.fun_morada.TabIndex = 13;
             // 
-            // dateTimePicker1
+            // fun_nasc
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(110, 96);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(258, 27);
-            this.dateTimePicker1.TabIndex = 12;
+            this.fun_nasc.Location = new System.Drawing.Point(110, 96);
+            this.fun_nasc.Name = "fun_nasc";
+            this.fun_nasc.Size = new System.Drawing.Size(258, 27);
+            this.fun_nasc.TabIndex = 12;
             // 
-            // textBox2
+            // fun_nome
             // 
-            this.textBox2.Location = new System.Drawing.Point(72, 59);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(297, 27);
-            this.textBox2.TabIndex = 11;
+            this.fun_nome.Location = new System.Drawing.Point(72, 59);
+            this.fun_nome.Name = "fun_nome";
+            this.fun_nome.Size = new System.Drawing.Size(297, 27);
+            this.fun_nome.TabIndex = 11;
             // 
-            // textBox1
+            // membro
             // 
-            this.textBox1.Location = new System.Drawing.Point(46, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(322, 27);
-            this.textBox1.TabIndex = 10;
+            this.membro.Controls.Add(this.emprestimo);
+            this.membro.Controls.Add(this.membro_nif);
+            this.membro.Controls.Add(this.membro_email);
+            this.membro.Controls.Add(this.membro_morada);
+            this.membro.Controls.Add(this.membro_nasc);
+            this.membro.Controls.Add(this.membro_nome);
+            this.membro.Controls.Add(this.membro_id);
+            this.membro.Controls.Add(this.label14);
+            this.membro.Controls.Add(this.label15);
+            this.membro.Controls.Add(this.label16);
+            this.membro.Controls.Add(this.label17);
+            this.membro.Controls.Add(this.label19);
+            this.membro.Controls.Add(this.label20);
+            this.membro.Controls.Add(this.label21);
+            this.membro.Location = new System.Drawing.Point(0, 0);
+            this.membro.Name = "membro";
+            this.membro.Size = new System.Drawing.Size(377, 368);
+            this.membro.TabIndex = 19;
+            this.membro.TabStop = false;
+            // 
+            // emprestimo
+            // 
+            this.emprestimo.Controls.Add(this.periferico);
+            this.emprestimo.Controls.Add(this.emp_idmem);
+            this.emprestimo.Controls.Add(this.label28);
+            this.emprestimo.Controls.Add(this.emp_idf);
+            this.emprestimo.Controls.Add(this.label25);
+            this.emprestimo.Controls.Add(this.label18);
+            this.emprestimo.Controls.Add(this.dateTimePicker7);
+            this.emprestimo.Controls.Add(this.emp_dataemp);
+            this.emprestimo.Controls.Add(this.emp_num);
+            this.emprestimo.Controls.Add(this.label22);
+            this.emprestimo.Controls.Add(this.label23);
+            this.emprestimo.Controls.Add(this.label24);
+            this.emprestimo.Location = new System.Drawing.Point(0, 0);
+            this.emprestimo.Name = "emprestimo";
+            this.emprestimo.Size = new System.Drawing.Size(377, 368);
+            this.emprestimo.TabIndex = 20;
+            this.emprestimo.TabStop = false;
+            // 
+            // periferico
+            // 
+            this.periferico.Controls.Add(this.cd);
+            this.periferico.Controls.Add(this.label51);
+            this.periferico.Controls.Add(this.per_tipo);
+            this.periferico.Controls.Add(this.per_modelo);
+            this.periferico.Controls.Add(this.label52);
+            this.periferico.Controls.Add(this.per_marca);
+            this.periferico.Controls.Add(this.label53);
+            this.periferico.Controls.Add(this.per_id);
+            this.periferico.Controls.Add(this.label55);
+            this.periferico.Controls.Add(this.label56);
+            this.periferico.Location = new System.Drawing.Point(0, 0);
+            this.periferico.Name = "periferico";
+            this.periferico.Size = new System.Drawing.Size(377, 368);
+            this.periferico.TabIndex = 30;
+            this.periferico.TabStop = false;
+            // 
+            // cd
+            // 
+            this.cd.Controls.Add(this.cd_ano);
+            this.cd.Controls.Add(this.cd_genero);
+            this.cd.Controls.Add(this.label50);
+            this.cd.Controls.Add(this.label54);
+            this.cd.Controls.Add(this.revista);
+            this.cd.Controls.Add(this.cd_artista);
+            this.cd.Controls.Add(this.cd_titulo);
+            this.cd.Controls.Add(this.label57);
+            this.cd.Controls.Add(this.cd_seccao);
+            this.cd.Controls.Add(this.label58);
+            this.cd.Controls.Add(this.cd_id);
+            this.cd.Controls.Add(this.label59);
+            this.cd.Controls.Add(this.label60);
+            this.cd.Controls.Add(this.label61);
+            this.cd.Location = new System.Drawing.Point(0, 0);
+            this.cd.Name = "cd";
+            this.cd.Size = new System.Drawing.Size(377, 368);
+            this.cd.TabIndex = 30;
+            this.cd.TabStop = false;
+            // 
+            // cd_ano
+            // 
+            this.cd_ano.Location = new System.Drawing.Point(74, 182);
+            this.cd_ano.Name = "cd_ano";
+            this.cd_ano.Size = new System.Drawing.Size(294, 27);
+            this.cd_ano.TabIndex = 28;
+            // 
+            // cd_genero
+            // 
+            this.cd_genero.Location = new System.Drawing.Point(74, 220);
+            this.cd_genero.Name = "cd_genero";
+            this.cd_genero.Size = new System.Drawing.Size(294, 27);
+            this.cd_genero.TabIndex = 27;
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(13, 220);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(57, 20);
+            this.label50.TabIndex = 26;
+            this.label50.Text = "Género";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(13, 140);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(52, 20);
+            this.label54.TabIndex = 25;
+            this.label54.Text = "Artista";
+            // 
+            // revista
+            // 
+            this.revista.Controls.Add(this.revista_edicao);
+            this.revista.Controls.Add(this.label36);
+            this.revista.Controls.Add(this.label37);
+            this.revista.Controls.Add(this.revista_tipo);
+            this.revista.Controls.Add(this.revista_marca);
+            this.revista.Controls.Add(this.label38);
+            this.revista.Controls.Add(this.revista_seccao);
+            this.revista.Controls.Add(this.label39);
+            this.revista.Controls.Add(this.revista_data);
+            this.revista.Controls.Add(this.revista_id);
+            this.revista.Controls.Add(this.label40);
+            this.revista.Controls.Add(this.label41);
+            this.revista.Controls.Add(this.label42);
+            this.revista.Location = new System.Drawing.Point(0, 0);
+            this.revista.Name = "revista";
+            this.revista.Size = new System.Drawing.Size(377, 368);
+            this.revista.TabIndex = 28;
+            this.revista.TabStop = false;
+            // 
+            // revista_edicao
+            // 
+            this.revista_edicao.Location = new System.Drawing.Point(74, 220);
+            this.revista_edicao.Name = "revista_edicao";
+            this.revista_edicao.Size = new System.Drawing.Size(294, 27);
+            this.revista_edicao.TabIndex = 27;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(13, 220);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(54, 20);
+            this.label36.TabIndex = 26;
+            this.label36.Text = "Edição";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(13, 140);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(39, 20);
+            this.label37.TabIndex = 25;
+            this.label37.Text = "Tipo";
+            // 
+            // revista_tipo
+            // 
+            this.revista_tipo.Location = new System.Drawing.Point(74, 140);
+            this.revista_tipo.Name = "revista_tipo";
+            this.revista_tipo.Size = new System.Drawing.Size(294, 27);
+            this.revista_tipo.TabIndex = 24;
+            // 
+            // revista_marca
+            // 
+            this.revista_marca.Location = new System.Drawing.Point(73, 100);
+            this.revista_marca.Name = "revista_marca";
+            this.revista_marca.Size = new System.Drawing.Size(294, 27);
+            this.revista_marca.TabIndex = 23;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(13, 100);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(50, 20);
+            this.label38.TabIndex = 22;
+            this.label38.Text = "Marca";
+            // 
+            // revista_seccao
+            // 
+            this.revista_seccao.Location = new System.Drawing.Point(73, 60);
+            this.revista_seccao.Name = "revista_seccao";
+            this.revista_seccao.Size = new System.Drawing.Size(294, 27);
+            this.revista_seccao.TabIndex = 21;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(13, 60);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(56, 20);
+            this.label39.TabIndex = 20;
+            this.label39.Text = "Secção";
+            // 
+            // revista_data
+            // 
+            this.revista_data.Location = new System.Drawing.Point(73, 180);
+            this.revista_data.Name = "revista_data";
+            this.revista_data.Size = new System.Drawing.Size(295, 27);
+            this.revista_data.TabIndex = 18;
+            // 
+            // revista_id
+            // 
+            this.revista_id.Location = new System.Drawing.Point(73, 20);
+            this.revista_id.Name = "revista_id";
+            this.revista_id.Size = new System.Drawing.Size(294, 27);
+            this.revista_id.TabIndex = 10;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(13, 180);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(41, 20);
+            this.label40.TabIndex = 9;
+            this.label40.Text = "Data";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(-21, -23);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(58, 20);
+            this.label41.TabIndex = 2;
+            this.label41.Text = "label41";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(13, 20);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(24, 20);
+            this.label42.TabIndex = 1;
+            this.label42.Text = "ID";
+            // 
+            // cd_artista
+            // 
+            this.cd_artista.Location = new System.Drawing.Point(73, 140);
+            this.cd_artista.Name = "cd_artista";
+            this.cd_artista.Size = new System.Drawing.Size(295, 27);
+            this.cd_artista.TabIndex = 24;
+            // 
+            // cd_titulo
+            // 
+            this.cd_titulo.Location = new System.Drawing.Point(73, 100);
+            this.cd_titulo.Name = "cd_titulo";
+            this.cd_titulo.Size = new System.Drawing.Size(294, 27);
+            this.cd_titulo.TabIndex = 23;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(13, 100);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(47, 20);
+            this.label57.TabIndex = 22;
+            this.label57.Text = "Título";
+            // 
+            // cd_seccao
+            // 
+            this.cd_seccao.Location = new System.Drawing.Point(73, 60);
+            this.cd_seccao.Name = "cd_seccao";
+            this.cd_seccao.Size = new System.Drawing.Size(294, 27);
+            this.cd_seccao.TabIndex = 21;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(13, 60);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(56, 20);
+            this.label58.TabIndex = 20;
+            this.label58.Text = "Secção";
+            // 
+            // cd_id
+            // 
+            this.cd_id.Location = new System.Drawing.Point(73, 20);
+            this.cd_id.Name = "cd_id";
+            this.cd_id.Size = new System.Drawing.Size(294, 27);
+            this.cd_id.TabIndex = 10;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(13, 180);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(36, 20);
+            this.label59.TabIndex = 9;
+            this.label59.Text = "Ano";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(-21, -23);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(58, 20);
+            this.label60.TabIndex = 2;
+            this.label60.Text = "label60";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(13, 20);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(24, 20);
+            this.label61.TabIndex = 1;
+            this.label61.Text = "ID";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(13, 140);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(39, 20);
+            this.label51.TabIndex = 25;
+            this.label51.Text = "Tipo";
+            // 
+            // per_tipo
+            // 
+            this.per_tipo.Location = new System.Drawing.Point(73, 140);
+            this.per_tipo.Name = "per_tipo";
+            this.per_tipo.Size = new System.Drawing.Size(295, 27);
+            this.per_tipo.TabIndex = 24;
+            // 
+            // per_modelo
+            // 
+            this.per_modelo.Location = new System.Drawing.Point(73, 100);
+            this.per_modelo.Name = "per_modelo";
+            this.per_modelo.Size = new System.Drawing.Size(294, 27);
+            this.per_modelo.TabIndex = 23;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(13, 100);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(61, 20);
+            this.label52.TabIndex = 22;
+            this.label52.Text = "Modelo";
+            // 
+            // per_marca
+            // 
+            this.per_marca.Location = new System.Drawing.Point(73, 60);
+            this.per_marca.Name = "per_marca";
+            this.per_marca.Size = new System.Drawing.Size(294, 27);
+            this.per_marca.TabIndex = 21;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(13, 60);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(50, 20);
+            this.label53.TabIndex = 20;
+            this.label53.Text = "Marca";
+            // 
+            // per_id
+            // 
+            this.per_id.Location = new System.Drawing.Point(73, 20);
+            this.per_id.Name = "per_id";
+            this.per_id.Size = new System.Drawing.Size(294, 27);
+            this.per_id.TabIndex = 10;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(-21, -23);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(58, 20);
+            this.label55.TabIndex = 2;
+            this.label55.Text = "label55";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(13, 20);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(24, 20);
+            this.label56.TabIndex = 1;
+            this.label56.Text = "ID";
+            // 
+            // emp_idmem
+            // 
+            this.emp_idmem.Location = new System.Drawing.Point(73, 100);
+            this.emp_idmem.Name = "emp_idmem";
+            this.emp_idmem.Size = new System.Drawing.Size(294, 27);
+            this.emp_idmem.TabIndex = 23;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(13, 100);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(62, 20);
+            this.label28.TabIndex = 22;
+            this.label28.Text = "ID Mem";
+            this.label28.Click += new System.EventHandler(this.label28_Click);
+            // 
+            // emp_idf
+            // 
+            this.emp_idf.Location = new System.Drawing.Point(73, 60);
+            this.emp_idf.Name = "emp_idf";
+            this.emp_idf.Size = new System.Drawing.Size(294, 27);
+            this.emp_idf.TabIndex = 21;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(13, 60);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(58, 20);
+            this.label25.TabIndex = 20;
+            this.label25.Text = "ID Func";
+            this.label25.Click += new System.EventHandler(this.label25_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(13, 140);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(75, 20);
+            this.label18.TabIndex = 19;
+            this.label18.Text = "Data Emp";
+            // 
+            // dateTimePicker7
+            // 
+            this.dateTimePicker7.Location = new System.Drawing.Point(90, 180);
+            this.dateTimePicker7.Name = "dateTimePicker7";
+            this.dateTimePicker7.Size = new System.Drawing.Size(278, 27);
+            this.dateTimePicker7.TabIndex = 18;
+            // 
+            // emp_dataemp
+            // 
+            this.emp_dataemp.Location = new System.Drawing.Point(90, 140);
+            this.emp_dataemp.Name = "emp_dataemp";
+            this.emp_dataemp.Size = new System.Drawing.Size(278, 27);
+            this.emp_dataemp.TabIndex = 17;
+            // 
+            // emp_num
+            // 
+            this.emp_num.Location = new System.Drawing.Point(58, 20);
+            this.emp_num.Name = "emp_num";
+            this.emp_num.Size = new System.Drawing.Size(309, 27);
+            this.emp_num.TabIndex = 10;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(13, 180);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(69, 20);
+            this.label22.TabIndex = 9;
+            this.label22.Text = "Data Lim";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(-21, -23);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(58, 20);
+            this.label23.TabIndex = 2;
+            this.label23.Text = "label23";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(13, 20);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(41, 20);
+            this.label24.TabIndex = 1;
+            this.label24.Text = "Num";
+            this.label24.Click += new System.EventHandler(this.label24_Click);
+            // 
+            // membro_nif
+            // 
+            this.membro_nif.Location = new System.Drawing.Point(65, 211);
+            this.membro_nif.Name = "membro_nif";
+            this.membro_nif.Size = new System.Drawing.Size(303, 27);
+            this.membro_nif.TabIndex = 16;
+            // 
+            // membro_email
+            // 
+            this.membro_email.Location = new System.Drawing.Point(65, 172);
+            this.membro_email.Name = "membro_email";
+            this.membro_email.Size = new System.Drawing.Size(303, 27);
+            this.membro_email.TabIndex = 14;
+            // 
+            // membro_morada
+            // 
+            this.membro_morada.Location = new System.Drawing.Point(83, 133);
+            this.membro_morada.Name = "membro_morada";
+            this.membro_morada.Size = new System.Drawing.Size(285, 27);
+            this.membro_morada.TabIndex = 13;
+            // 
+            // membro_nasc
+            // 
+            this.membro_nasc.Location = new System.Drawing.Point(110, 96);
+            this.membro_nasc.Name = "membro_nasc";
+            this.membro_nasc.Size = new System.Drawing.Size(258, 27);
+            this.membro_nasc.TabIndex = 12;
+            // 
+            // membro_nome
+            // 
+            this.membro_nome.Location = new System.Drawing.Point(72, 59);
+            this.membro_nome.Name = "membro_nome";
+            this.membro_nome.Size = new System.Drawing.Size(297, 27);
+            this.membro_nome.TabIndex = 11;
+            // 
+            // membro_id
+            // 
+            this.membro_id.Location = new System.Drawing.Point(46, 20);
+            this.membro_id.Name = "membro_id";
+            this.membro_id.Size = new System.Drawing.Size(322, 27);
+            this.membro_id.TabIndex = 10;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(13, 96);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(88, 20);
+            this.label14.TabIndex = 7;
+            this.label14.Text = "Nascimento";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(13, 133);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(61, 20);
+            this.label15.TabIndex = 6;
+            this.label15.Text = "Morada";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(13, 172);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(46, 20);
+            this.label16.TabIndex = 5;
+            this.label16.Text = "Email";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(13, 211);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(31, 20);
+            this.label17.TabIndex = 4;
+            this.label17.Text = "NIF";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(-21, -23);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(58, 20);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "label19";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(13, 20);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(24, 20);
+            this.label20.TabIndex = 1;
+            this.label20.Text = "ID";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(13, 59);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(50, 20);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Nome";
+            // 
+            // fun_id
+            // 
+            this.fun_id.Location = new System.Drawing.Point(46, 20);
+            this.fun_id.Name = "fun_id";
+            this.fun_id.Size = new System.Drawing.Size(322, 27);
+            this.fun_id.TabIndex = 10;
             // 
             // label11
             // 
@@ -437,139 +1006,12 @@ namespace LibraryBD
             this.label2.Text = "Nome";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // membro
-            // 
-            this.membro.Controls.Add(this.textBox7);
-            this.membro.Controls.Add(this.textBox9);
-            this.membro.Controls.Add(this.textBox10);
-            this.membro.Controls.Add(this.dateTimePicker6);
-            this.membro.Controls.Add(this.textBox11);
-            this.membro.Controls.Add(this.textBox12);
-            this.membro.Controls.Add(this.label14);
-            this.membro.Controls.Add(this.label15);
-            this.membro.Controls.Add(this.label16);
-            this.membro.Controls.Add(this.label17);
-            this.membro.Controls.Add(this.label19);
-            this.membro.Controls.Add(this.label20);
-            this.membro.Controls.Add(this.label21);
-            this.membro.Location = new System.Drawing.Point(365, 51);
-            this.membro.Name = "membro";
-            this.membro.Size = new System.Drawing.Size(377, 368);
-            this.membro.TabIndex = 19;
-            this.membro.TabStop = false;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(65, 211);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(303, 27);
-            this.textBox7.TabIndex = 16;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(65, 172);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(303, 27);
-            this.textBox9.TabIndex = 14;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(83, 133);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(285, 27);
-            this.textBox10.TabIndex = 13;
-            // 
-            // dateTimePicker6
-            // 
-            this.dateTimePicker6.Location = new System.Drawing.Point(110, 96);
-            this.dateTimePicker6.Name = "dateTimePicker6";
-            this.dateTimePicker6.Size = new System.Drawing.Size(258, 27);
-            this.dateTimePicker6.TabIndex = 12;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(72, 59);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(297, 27);
-            this.textBox11.TabIndex = 11;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(46, 20);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(322, 27);
-            this.textBox12.TabIndex = 10;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(13, 96);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(88, 20);
-            this.label14.TabIndex = 7;
-            this.label14.Text = "Nascimento";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(13, 133);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(61, 20);
-            this.label15.TabIndex = 6;
-            this.label15.Text = "Morada";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(13, 172);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(46, 20);
-            this.label16.TabIndex = 5;
-            this.label16.Text = "Email";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(13, 211);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(31, 20);
-            this.label17.TabIndex = 4;
-            this.label17.Text = "NIF";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(-21, -23);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(58, 20);
-            this.label19.TabIndex = 2;
-            this.label19.Text = "label19";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(13, 20);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(24, 20);
-            this.label20.TabIndex = 1;
-            this.label20.Text = "ID";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(13, 59);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(50, 20);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "Nome";
-            // 
             // gerente
             // 
-            this.gerente.Controls.Add(this.emprestimo);
             this.gerente.Controls.Add(this.label13);
-            this.gerente.Controls.Add(this.dateTimePicker4);
-            this.gerente.Controls.Add(this.dateTimePicker5);
-            this.gerente.Controls.Add(this.textBox17);
+            this.gerente.Controls.Add(this.ger_fim);
+            this.gerente.Controls.Add(this.ger_inicio);
+            this.gerente.Controls.Add(this.ger_id);
             this.gerente.Controls.Add(this.label12);
             this.gerente.Controls.Add(this.label26);
             this.gerente.Controls.Add(this.label27);
@@ -578,117 +1020,6 @@ namespace LibraryBD
             this.gerente.Size = new System.Drawing.Size(377, 368);
             this.gerente.TabIndex = 19;
             this.gerente.TabStop = false;
-            // 
-            // emprestimo
-            // 
-            this.emprestimo.Controls.Add(this.textBox14);
-            this.emprestimo.Controls.Add(this.label28);
-            this.emprestimo.Controls.Add(this.textBox13);
-            this.emprestimo.Controls.Add(this.label25);
-            this.emprestimo.Controls.Add(this.label18);
-            this.emprestimo.Controls.Add(this.dateTimePicker7);
-            this.emprestimo.Controls.Add(this.dateTimePicker8);
-            this.emprestimo.Controls.Add(this.textBox8);
-            this.emprestimo.Controls.Add(this.label22);
-            this.emprestimo.Controls.Add(this.label23);
-            this.emprestimo.Controls.Add(this.label24);
-            this.emprestimo.Location = new System.Drawing.Point(0, 0);
-            this.emprestimo.Name = "emprestimo";
-            this.emprestimo.Size = new System.Drawing.Size(377, 368);
-            this.emprestimo.TabIndex = 20;
-            this.emprestimo.TabStop = false;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(73, 100);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(294, 27);
-            this.textBox14.TabIndex = 23;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(13, 100);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(62, 20);
-            this.label28.TabIndex = 22;
-            this.label28.Text = "ID Mem";
-            this.label28.Click += new System.EventHandler(this.label28_Click);
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(73, 60);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(294, 27);
-            this.textBox13.TabIndex = 21;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(13, 60);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(58, 20);
-            this.label25.TabIndex = 20;
-            this.label25.Text = "ID Func";
-            this.label25.Click += new System.EventHandler(this.label25_Click);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(13, 140);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(80, 20);
-            this.label18.TabIndex = 19;
-            this.label18.Text = "Data Empr";
-            // 
-            // dateTimePicker7
-            // 
-            this.dateTimePicker7.Location = new System.Drawing.Point(90, 180);
-            this.dateTimePicker7.Name = "dateTimePicker7";
-            this.dateTimePicker7.Size = new System.Drawing.Size(278, 27);
-            this.dateTimePicker7.TabIndex = 18;
-            // 
-            // dateTimePicker8
-            // 
-            this.dateTimePicker8.Location = new System.Drawing.Point(90, 140);
-            this.dateTimePicker8.Name = "dateTimePicker8";
-            this.dateTimePicker8.Size = new System.Drawing.Size(278, 27);
-            this.dateTimePicker8.TabIndex = 17;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(58, 20);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(309, 27);
-            this.textBox8.TabIndex = 10;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(13, 180);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(69, 20);
-            this.label22.TabIndex = 9;
-            this.label22.Text = "Data Lim";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(-21, -23);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(58, 20);
-            this.label23.TabIndex = 2;
-            this.label23.Text = "label23";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(13, 20);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(41, 20);
-            this.label24.TabIndex = 1;
-            this.label24.Text = "Num";
-            this.label24.Click += new System.EventHandler(this.label24_Click);
             // 
             // label13
             // 
@@ -700,26 +1031,26 @@ namespace LibraryBD
             this.label13.Text = "Início";
             this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
-            // dateTimePicker4
+            // ger_fim
             // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(65, 96);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(303, 27);
-            this.dateTimePicker4.TabIndex = 18;
+            this.ger_fim.Location = new System.Drawing.Point(65, 96);
+            this.ger_fim.Name = "ger_fim";
+            this.ger_fim.Size = new System.Drawing.Size(303, 27);
+            this.ger_fim.TabIndex = 18;
             // 
-            // dateTimePicker5
+            // ger_inicio
             // 
-            this.dateTimePicker5.Location = new System.Drawing.Point(65, 59);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(303, 27);
-            this.dateTimePicker5.TabIndex = 17;
+            this.ger_inicio.Location = new System.Drawing.Point(65, 59);
+            this.ger_inicio.Name = "ger_inicio";
+            this.ger_inicio.Size = new System.Drawing.Size(303, 27);
+            this.ger_inicio.TabIndex = 17;
             // 
-            // textBox17
+            // ger_id
             // 
-            this.textBox17.Location = new System.Drawing.Point(46, 20);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(322, 27);
-            this.textBox17.TabIndex = 10;
+            this.ger_id.Location = new System.Drawing.Point(46, 20);
+            this.ger_id.Name = "ger_id";
+            this.ger_id.Size = new System.Drawing.Size(322, 27);
+            this.ger_id.TabIndex = 10;
             // 
             // label12
             // 
@@ -748,512 +1079,40 @@ namespace LibraryBD
             this.label27.TabIndex = 1;
             this.label27.Text = "ID";
             // 
-            // jornal
-            // 
-            this.jornal.Controls.Add(this.textBox20);
-            this.jornal.Controls.Add(this.label35);
-            this.jornal.Controls.Add(this.label31);
-            this.jornal.Controls.Add(this.textBox19);
-            this.jornal.Controls.Add(this.textBox15);
-            this.jornal.Controls.Add(this.label29);
-            this.jornal.Controls.Add(this.textBox16);
-            this.jornal.Controls.Add(this.label30);
-            this.jornal.Controls.Add(this.dateTimePicker9);
-            this.jornal.Controls.Add(this.textBox18);
-            this.jornal.Controls.Add(this.label32);
-            this.jornal.Controls.Add(this.label33);
-            this.jornal.Controls.Add(this.label34);
-            this.jornal.Location = new System.Drawing.Point(365, 51);
-            this.jornal.Name = "jornal";
-            this.jornal.Size = new System.Drawing.Size(377, 368);
-            this.jornal.TabIndex = 24;
-            this.jornal.TabStop = false;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(74, 220);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(294, 27);
-            this.textBox20.TabIndex = 27;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(13, 220);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(54, 20);
-            this.label35.TabIndex = 26;
-            this.label35.Text = "Edição";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(13, 140);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(39, 20);
-            this.label31.TabIndex = 25;
-            this.label31.Text = "Tipo";
-            this.label31.Click += new System.EventHandler(this.label31_Click);
-            // 
-            // textBox19
-            // 
-            this.textBox19.Location = new System.Drawing.Point(74, 140);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(294, 27);
-            this.textBox19.TabIndex = 24;
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(73, 100);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(294, 27);
-            this.textBox15.TabIndex = 23;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(13, 100);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(50, 20);
-            this.label29.TabIndex = 22;
-            this.label29.Text = "Marca";
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(73, 60);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(294, 27);
-            this.textBox16.TabIndex = 21;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(13, 60);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(56, 20);
-            this.label30.TabIndex = 20;
-            this.label30.Text = "Secção";
-            // 
-            // dateTimePicker9
-            // 
-            this.dateTimePicker9.Location = new System.Drawing.Point(74, 180);
-            this.dateTimePicker9.Name = "dateTimePicker9";
-            this.dateTimePicker9.Size = new System.Drawing.Size(294, 27);
-            this.dateTimePicker9.TabIndex = 18;
-            // 
-            // textBox18
-            // 
-            this.textBox18.Location = new System.Drawing.Point(74, 20);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(293, 27);
-            this.textBox18.TabIndex = 10;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(13, 180);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(41, 20);
-            this.label32.TabIndex = 9;
-            this.label32.Text = "Data";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(-21, -23);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(58, 20);
-            this.label33.TabIndex = 2;
-            this.label33.Text = "label33";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(13, 20);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(24, 20);
-            this.label34.TabIndex = 1;
-            this.label34.Text = "ID";
-            this.label34.Click += new System.EventHandler(this.label34_Click);
-            // 
-            // revista
-            // 
-            this.revista.Controls.Add(this.textBox21);
-            this.revista.Controls.Add(this.label36);
-            this.revista.Controls.Add(this.label37);
-            this.revista.Controls.Add(this.textBox22);
-            this.revista.Controls.Add(this.textBox23);
-            this.revista.Controls.Add(this.label38);
-            this.revista.Controls.Add(this.textBox24);
-            this.revista.Controls.Add(this.label39);
-            this.revista.Controls.Add(this.dateTimePicker10);
-            this.revista.Controls.Add(this.textBox25);
-            this.revista.Controls.Add(this.label40);
-            this.revista.Controls.Add(this.label41);
-            this.revista.Controls.Add(this.label42);
-            this.revista.Location = new System.Drawing.Point(365, 51);
-            this.revista.Name = "revista";
-            this.revista.Size = new System.Drawing.Size(377, 368);
-            this.revista.TabIndex = 28;
-            this.revista.TabStop = false;
-            // 
-            // textBox21
-            // 
-            this.textBox21.Location = new System.Drawing.Point(74, 220);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(294, 27);
-            this.textBox21.TabIndex = 27;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(13, 220);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(54, 20);
-            this.label36.TabIndex = 26;
-            this.label36.Text = "Edição";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(13, 140);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(39, 20);
-            this.label37.TabIndex = 25;
-            this.label37.Text = "Tipo";
-            // 
-            // textBox22
-            // 
-            this.textBox22.Location = new System.Drawing.Point(74, 140);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(294, 27);
-            this.textBox22.TabIndex = 24;
-            // 
-            // textBox23
-            // 
-            this.textBox23.Location = new System.Drawing.Point(73, 100);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(294, 27);
-            this.textBox23.TabIndex = 23;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(13, 100);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(50, 20);
-            this.label38.TabIndex = 22;
-            this.label38.Text = "Marca";
-            // 
-            // textBox24
-            // 
-            this.textBox24.Location = new System.Drawing.Point(73, 60);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(294, 27);
-            this.textBox24.TabIndex = 21;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(13, 60);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(56, 20);
-            this.label39.TabIndex = 20;
-            this.label39.Text = "Secção";
-            // 
-            // dateTimePicker10
-            // 
-            this.dateTimePicker10.Location = new System.Drawing.Point(73, 180);
-            this.dateTimePicker10.Name = "dateTimePicker10";
-            this.dateTimePicker10.Size = new System.Drawing.Size(295, 27);
-            this.dateTimePicker10.TabIndex = 18;
-            // 
-            // textBox25
-            // 
-            this.textBox25.Location = new System.Drawing.Point(73, 20);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(294, 27);
-            this.textBox25.TabIndex = 10;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(13, 180);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(41, 20);
-            this.label40.TabIndex = 9;
-            this.label40.Text = "Data";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(-21, -23);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(58, 20);
-            this.label41.TabIndex = 2;
-            this.label41.Text = "label41";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(13, 20);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(24, 20);
-            this.label42.TabIndex = 1;
-            this.label42.Text = "ID";
-            // 
             // filme
             // 
-            this.filme.Controls.Add(this.periferico);
-            this.filme.Controls.Add(this.textBox31);
-            this.filme.Controls.Add(this.textBox26);
+            this.filme.Controls.Add(this.filme_ano);
+            this.filme.Controls.Add(this.filme_genero);
             this.filme.Controls.Add(this.label43);
             this.filme.Controls.Add(this.label44);
-            this.filme.Controls.Add(this.textBox27);
-            this.filme.Controls.Add(this.textBox28);
+            this.filme.Controls.Add(this.filme_realizador);
+            this.filme.Controls.Add(this.filme_titulo);
             this.filme.Controls.Add(this.label45);
-            this.filme.Controls.Add(this.textBox29);
+            this.filme.Controls.Add(this.filme_seccao);
             this.filme.Controls.Add(this.label46);
-            this.filme.Controls.Add(this.textBox30);
+            this.filme.Controls.Add(this.filme_id);
             this.filme.Controls.Add(this.label47);
             this.filme.Controls.Add(this.label48);
             this.filme.Controls.Add(this.label49);
-            this.filme.Location = new System.Drawing.Point(365, 51);
+            this.filme.Location = new System.Drawing.Point(748, 51);
             this.filme.Name = "filme";
             this.filme.Size = new System.Drawing.Size(377, 368);
             this.filme.TabIndex = 29;
             this.filme.TabStop = false;
             // 
-            // periferico
+            // filme_ano
             // 
-            this.periferico.Controls.Add(this.cd);
-            this.periferico.Controls.Add(this.label51);
-            this.periferico.Controls.Add(this.textBox34);
-            this.periferico.Controls.Add(this.textBox35);
-            this.periferico.Controls.Add(this.label52);
-            this.periferico.Controls.Add(this.textBox36);
-            this.periferico.Controls.Add(this.label53);
-            this.periferico.Controls.Add(this.textBox37);
-            this.periferico.Controls.Add(this.label55);
-            this.periferico.Controls.Add(this.label56);
-            this.periferico.Location = new System.Drawing.Point(0, 0);
-            this.periferico.Name = "periferico";
-            this.periferico.Size = new System.Drawing.Size(377, 368);
-            this.periferico.TabIndex = 30;
-            this.periferico.TabStop = false;
+            this.filme_ano.Location = new System.Drawing.Point(74, 182);
+            this.filme_ano.Name = "filme_ano";
+            this.filme_ano.Size = new System.Drawing.Size(294, 27);
+            this.filme_ano.TabIndex = 28;
             // 
-            // cd
+            // filme_genero
             // 
-            this.cd.Controls.Add(this.textBox32);
-            this.cd.Controls.Add(this.textBox33);
-            this.cd.Controls.Add(this.label50);
-            this.cd.Controls.Add(this.label54);
-            this.cd.Controls.Add(this.textBox38);
-            this.cd.Controls.Add(this.textBox39);
-            this.cd.Controls.Add(this.label57);
-            this.cd.Controls.Add(this.textBox40);
-            this.cd.Controls.Add(this.label58);
-            this.cd.Controls.Add(this.textBox41);
-            this.cd.Controls.Add(this.label59);
-            this.cd.Controls.Add(this.label60);
-            this.cd.Controls.Add(this.label61);
-            this.cd.Location = new System.Drawing.Point(0, 0);
-            this.cd.Name = "cd";
-            this.cd.Size = new System.Drawing.Size(377, 368);
-            this.cd.TabIndex = 30;
-            this.cd.TabStop = false;
-            // 
-            // textBox32
-            // 
-            this.textBox32.Location = new System.Drawing.Point(74, 182);
-            this.textBox32.Name = "textBox32";
-            this.textBox32.Size = new System.Drawing.Size(294, 27);
-            this.textBox32.TabIndex = 28;
-            // 
-            // textBox33
-            // 
-            this.textBox33.Location = new System.Drawing.Point(74, 220);
-            this.textBox33.Name = "textBox33";
-            this.textBox33.Size = new System.Drawing.Size(294, 27);
-            this.textBox33.TabIndex = 27;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(13, 220);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(57, 20);
-            this.label50.TabIndex = 26;
-            this.label50.Text = "Género";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(13, 140);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(52, 20);
-            this.label54.TabIndex = 25;
-            this.label54.Text = "Artista";
-            // 
-            // textBox38
-            // 
-            this.textBox38.Location = new System.Drawing.Point(99, 140);
-            this.textBox38.Name = "textBox38";
-            this.textBox38.Size = new System.Drawing.Size(269, 27);
-            this.textBox38.TabIndex = 24;
-            // 
-            // textBox39
-            // 
-            this.textBox39.Location = new System.Drawing.Point(73, 100);
-            this.textBox39.Name = "textBox39";
-            this.textBox39.Size = new System.Drawing.Size(294, 27);
-            this.textBox39.TabIndex = 23;
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(13, 100);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(47, 20);
-            this.label57.TabIndex = 22;
-            this.label57.Text = "Título";
-            // 
-            // textBox40
-            // 
-            this.textBox40.Location = new System.Drawing.Point(73, 60);
-            this.textBox40.Name = "textBox40";
-            this.textBox40.Size = new System.Drawing.Size(294, 27);
-            this.textBox40.TabIndex = 21;
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(13, 60);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(56, 20);
-            this.label58.TabIndex = 20;
-            this.label58.Text = "Secção";
-            // 
-            // textBox41
-            // 
-            this.textBox41.Location = new System.Drawing.Point(73, 20);
-            this.textBox41.Name = "textBox41";
-            this.textBox41.Size = new System.Drawing.Size(294, 27);
-            this.textBox41.TabIndex = 10;
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(13, 180);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(36, 20);
-            this.label59.TabIndex = 9;
-            this.label59.Text = "Ano";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(-21, -23);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(58, 20);
-            this.label60.TabIndex = 2;
-            this.label60.Text = "label60";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(13, 20);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(24, 20);
-            this.label61.TabIndex = 1;
-            this.label61.Text = "ID";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(13, 140);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(39, 20);
-            this.label51.TabIndex = 25;
-            this.label51.Text = "Tipo";
-            // 
-            // textBox34
-            // 
-            this.textBox34.Location = new System.Drawing.Point(73, 140);
-            this.textBox34.Name = "textBox34";
-            this.textBox34.Size = new System.Drawing.Size(295, 27);
-            this.textBox34.TabIndex = 24;
-            // 
-            // textBox35
-            // 
-            this.textBox35.Location = new System.Drawing.Point(73, 100);
-            this.textBox35.Name = "textBox35";
-            this.textBox35.Size = new System.Drawing.Size(294, 27);
-            this.textBox35.TabIndex = 23;
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(13, 100);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(61, 20);
-            this.label52.TabIndex = 22;
-            this.label52.Text = "Modelo";
-            // 
-            // textBox36
-            // 
-            this.textBox36.Location = new System.Drawing.Point(73, 60);
-            this.textBox36.Name = "textBox36";
-            this.textBox36.Size = new System.Drawing.Size(294, 27);
-            this.textBox36.TabIndex = 21;
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(13, 60);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(50, 20);
-            this.label53.TabIndex = 20;
-            this.label53.Text = "Marca";
-            // 
-            // textBox37
-            // 
-            this.textBox37.Location = new System.Drawing.Point(73, 20);
-            this.textBox37.Name = "textBox37";
-            this.textBox37.Size = new System.Drawing.Size(294, 27);
-            this.textBox37.TabIndex = 10;
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(-21, -23);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(58, 20);
-            this.label55.TabIndex = 2;
-            this.label55.Text = "label55";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(13, 20);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(24, 20);
-            this.label56.TabIndex = 1;
-            this.label56.Text = "ID";
-            // 
-            // textBox31
-            // 
-            this.textBox31.Location = new System.Drawing.Point(74, 182);
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(294, 27);
-            this.textBox31.TabIndex = 28;
-            // 
-            // textBox26
-            // 
-            this.textBox26.Location = new System.Drawing.Point(74, 220);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(294, 27);
-            this.textBox26.TabIndex = 27;
+            this.filme_genero.Location = new System.Drawing.Point(74, 220);
+            this.filme_genero.Name = "filme_genero";
+            this.filme_genero.Size = new System.Drawing.Size(294, 27);
+            this.filme_genero.TabIndex = 27;
             // 
             // label43
             // 
@@ -1273,19 +1132,19 @@ namespace LibraryBD
             this.label44.TabIndex = 25;
             this.label44.Text = "Realizador";
             // 
-            // textBox27
+            // filme_realizador
             // 
-            this.textBox27.Location = new System.Drawing.Point(99, 140);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(269, 27);
-            this.textBox27.TabIndex = 24;
+            this.filme_realizador.Location = new System.Drawing.Point(99, 140);
+            this.filme_realizador.Name = "filme_realizador";
+            this.filme_realizador.Size = new System.Drawing.Size(269, 27);
+            this.filme_realizador.TabIndex = 24;
             // 
-            // textBox28
+            // filme_titulo
             // 
-            this.textBox28.Location = new System.Drawing.Point(73, 100);
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(294, 27);
-            this.textBox28.TabIndex = 23;
+            this.filme_titulo.Location = new System.Drawing.Point(73, 100);
+            this.filme_titulo.Name = "filme_titulo";
+            this.filme_titulo.Size = new System.Drawing.Size(294, 27);
+            this.filme_titulo.TabIndex = 23;
             // 
             // label45
             // 
@@ -1296,12 +1155,12 @@ namespace LibraryBD
             this.label45.TabIndex = 22;
             this.label45.Text = "Título";
             // 
-            // textBox29
+            // filme_seccao
             // 
-            this.textBox29.Location = new System.Drawing.Point(73, 60);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(294, 27);
-            this.textBox29.TabIndex = 21;
+            this.filme_seccao.Location = new System.Drawing.Point(73, 60);
+            this.filme_seccao.Name = "filme_seccao";
+            this.filme_seccao.Size = new System.Drawing.Size(294, 27);
+            this.filme_seccao.TabIndex = 21;
             // 
             // label46
             // 
@@ -1312,12 +1171,12 @@ namespace LibraryBD
             this.label46.TabIndex = 20;
             this.label46.Text = "Secção";
             // 
-            // textBox30
+            // filme_id
             // 
-            this.textBox30.Location = new System.Drawing.Point(73, 20);
-            this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(294, 27);
-            this.textBox30.TabIndex = 10;
+            this.filme_id.Location = new System.Drawing.Point(73, 20);
+            this.filme_id.Name = "filme_id";
+            this.filme_id.Size = new System.Drawing.Size(294, 27);
+            this.filme_id.TabIndex = 10;
             // 
             // label47
             // 
@@ -1348,20 +1207,20 @@ namespace LibraryBD
             // 
             // livro
             // 
-            this.livro.Controls.Add(this.textBox49);
-            this.livro.Controls.Add(this.textBox48);
+            this.livro.Controls.Add(this.livro_isbn);
+            this.livro.Controls.Add(this.livro_editora);
             this.livro.Controls.Add(this.label70);
             this.livro.Controls.Add(this.label69);
-            this.livro.Controls.Add(this.textBox42);
-            this.livro.Controls.Add(this.textBox43);
+            this.livro.Controls.Add(this.livro_ano);
+            this.livro.Controls.Add(this.livro_genero);
             this.livro.Controls.Add(this.label62);
             this.livro.Controls.Add(this.label63);
-            this.livro.Controls.Add(this.textBox44);
-            this.livro.Controls.Add(this.textBox45);
+            this.livro.Controls.Add(this.livro_autor);
+            this.livro.Controls.Add(this.livro_titulo);
             this.livro.Controls.Add(this.label64);
-            this.livro.Controls.Add(this.textBox46);
+            this.livro.Controls.Add(this.livro_seccao);
             this.livro.Controls.Add(this.label65);
-            this.livro.Controls.Add(this.textBox47);
+            this.livro.Controls.Add(this.livro_id);
             this.livro.Controls.Add(this.label66);
             this.livro.Controls.Add(this.label67);
             this.livro.Controls.Add(this.label68);
@@ -1371,19 +1230,19 @@ namespace LibraryBD
             this.livro.TabIndex = 30;
             this.livro.TabStop = false;
             // 
-            // textBox49
+            // livro_isbn
             // 
-            this.textBox49.Location = new System.Drawing.Point(74, 300);
-            this.textBox49.Name = "textBox49";
-            this.textBox49.Size = new System.Drawing.Size(294, 27);
-            this.textBox49.TabIndex = 32;
+            this.livro_isbn.Location = new System.Drawing.Point(74, 300);
+            this.livro_isbn.Name = "livro_isbn";
+            this.livro_isbn.Size = new System.Drawing.Size(294, 27);
+            this.livro_isbn.TabIndex = 32;
             // 
-            // textBox48
+            // livro_editora
             // 
-            this.textBox48.Location = new System.Drawing.Point(73, 260);
-            this.textBox48.Name = "textBox48";
-            this.textBox48.Size = new System.Drawing.Size(294, 27);
-            this.textBox48.TabIndex = 31;
+            this.livro_editora.Location = new System.Drawing.Point(73, 260);
+            this.livro_editora.Name = "livro_editora";
+            this.livro_editora.Size = new System.Drawing.Size(294, 27);
+            this.livro_editora.TabIndex = 31;
             // 
             // label70
             // 
@@ -1403,19 +1262,19 @@ namespace LibraryBD
             this.label69.TabIndex = 29;
             this.label69.Text = "Editora";
             // 
-            // textBox42
+            // livro_ano
             // 
-            this.textBox42.Location = new System.Drawing.Point(74, 180);
-            this.textBox42.Name = "textBox42";
-            this.textBox42.Size = new System.Drawing.Size(294, 27);
-            this.textBox42.TabIndex = 28;
+            this.livro_ano.Location = new System.Drawing.Point(74, 180);
+            this.livro_ano.Name = "livro_ano";
+            this.livro_ano.Size = new System.Drawing.Size(294, 27);
+            this.livro_ano.TabIndex = 28;
             // 
-            // textBox43
+            // livro_genero
             // 
-            this.textBox43.Location = new System.Drawing.Point(74, 220);
-            this.textBox43.Name = "textBox43";
-            this.textBox43.Size = new System.Drawing.Size(294, 27);
-            this.textBox43.TabIndex = 27;
+            this.livro_genero.Location = new System.Drawing.Point(74, 220);
+            this.livro_genero.Name = "livro_genero";
+            this.livro_genero.Size = new System.Drawing.Size(294, 27);
+            this.livro_genero.TabIndex = 27;
             // 
             // label62
             // 
@@ -1435,19 +1294,19 @@ namespace LibraryBD
             this.label63.TabIndex = 25;
             this.label63.Text = "Autor";
             // 
-            // textBox44
+            // livro_autor
             // 
-            this.textBox44.Location = new System.Drawing.Point(74, 140);
-            this.textBox44.Name = "textBox44";
-            this.textBox44.Size = new System.Drawing.Size(294, 27);
-            this.textBox44.TabIndex = 24;
+            this.livro_autor.Location = new System.Drawing.Point(74, 140);
+            this.livro_autor.Name = "livro_autor";
+            this.livro_autor.Size = new System.Drawing.Size(294, 27);
+            this.livro_autor.TabIndex = 24;
             // 
-            // textBox45
+            // livro_titulo
             // 
-            this.textBox45.Location = new System.Drawing.Point(73, 100);
-            this.textBox45.Name = "textBox45";
-            this.textBox45.Size = new System.Drawing.Size(294, 27);
-            this.textBox45.TabIndex = 23;
+            this.livro_titulo.Location = new System.Drawing.Point(73, 100);
+            this.livro_titulo.Name = "livro_titulo";
+            this.livro_titulo.Size = new System.Drawing.Size(294, 27);
+            this.livro_titulo.TabIndex = 23;
             // 
             // label64
             // 
@@ -1458,12 +1317,12 @@ namespace LibraryBD
             this.label64.TabIndex = 22;
             this.label64.Text = "Título";
             // 
-            // textBox46
+            // livro_seccao
             // 
-            this.textBox46.Location = new System.Drawing.Point(73, 60);
-            this.textBox46.Name = "textBox46";
-            this.textBox46.Size = new System.Drawing.Size(294, 27);
-            this.textBox46.TabIndex = 21;
+            this.livro_seccao.Location = new System.Drawing.Point(73, 60);
+            this.livro_seccao.Name = "livro_seccao";
+            this.livro_seccao.Size = new System.Drawing.Size(294, 27);
+            this.livro_seccao.TabIndex = 21;
             // 
             // label65
             // 
@@ -1474,12 +1333,12 @@ namespace LibraryBD
             this.label65.TabIndex = 20;
             this.label65.Text = "Secção";
             // 
-            // textBox47
+            // livro_id
             // 
-            this.textBox47.Location = new System.Drawing.Point(73, 20);
-            this.textBox47.Name = "textBox47";
-            this.textBox47.Size = new System.Drawing.Size(294, 27);
-            this.textBox47.TabIndex = 10;
+            this.livro_id.Location = new System.Drawing.Point(73, 20);
+            this.livro_id.Name = "livro_id";
+            this.livro_id.Size = new System.Drawing.Size(294, 27);
+            this.livro_id.TabIndex = 10;
             // 
             // label66
             // 
@@ -1519,7 +1378,7 @@ namespace LibraryBD
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(747, 16);
+            this.button2.Location = new System.Drawing.Point(731, 16);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 29);
             this.button2.TabIndex = 32;
@@ -1531,15 +1390,12 @@ namespace LibraryBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 489);
+            this.ClientSize = new System.Drawing.Size(1398, 489);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.livro);
             this.Controls.Add(this.filme);
-            this.Controls.Add(this.revista);
-            this.Controls.Add(this.jornal);
             this.Controls.Add(this.gerente);
-            this.Controls.Add(this.membro);
             this.Controls.Add(this.funcionario);
             this.Controls.Add(this.procurar);
             this.Controls.Add(this.eliminar);
@@ -1554,20 +1410,18 @@ namespace LibraryBD
             this.funcionario.PerformLayout();
             this.membro.ResumeLayout(false);
             this.membro.PerformLayout();
-            this.gerente.ResumeLayout(false);
-            this.gerente.PerformLayout();
             this.emprestimo.ResumeLayout(false);
             this.emprestimo.PerformLayout();
-            this.jornal.ResumeLayout(false);
-            this.jornal.PerformLayout();
-            this.revista.ResumeLayout(false);
-            this.revista.PerformLayout();
-            this.filme.ResumeLayout(false);
-            this.filme.PerformLayout();
             this.periferico.ResumeLayout(false);
             this.periferico.PerformLayout();
             this.cd.ResumeLayout(false);
             this.cd.PerformLayout();
+            this.revista.ResumeLayout(false);
+            this.revista.PerformLayout();
+            this.gerente.ResumeLayout(false);
+            this.gerente.PerformLayout();
+            this.filme.ResumeLayout(false);
+            this.filme.PerformLayout();
             this.livro.ResumeLayout(false);
             this.livro.PerformLayout();
             this.ResumeLayout(false);
@@ -1598,19 +1452,19 @@ namespace LibraryBD
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox fun_ssn;
+        private System.Windows.Forms.TextBox fun_email;
+        private System.Windows.Forms.TextBox fun_morada;
+        private System.Windows.Forms.DateTimePicker fun_nasc;
+        private System.Windows.Forms.TextBox fun_nome;
+        private System.Windows.Forms.TextBox fun_id;
         private System.Windows.Forms.GroupBox membro;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker6;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox membro_nif;
+        private System.Windows.Forms.TextBox membro_email;
+        private System.Windows.Forms.TextBox membro_morada;
+        private System.Windows.Forms.DateTimePicker membro_nasc;
+        private System.Windows.Forms.TextBox membro_nome;
+        private System.Windows.Forms.TextBox mem;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
@@ -1619,9 +1473,9 @@ namespace LibraryBD
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.GroupBox gerente;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker5;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.DateTimePicker ger_fim;
+        private System.Windows.Forms.DateTimePicker ger_inicio;
+        private System.Windows.Forms.TextBox ger_id;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
@@ -1629,100 +1483,90 @@ namespace LibraryBD
         private System.Windows.Forms.GroupBox emprestimo;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.DateTimePicker dateTimePicker7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker8;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.DateTimePicker emp_dataemp;
+        private System.Windows.Forms.TextBox emp_num;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox emp_idmem;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.GroupBox jornal;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.DateTimePicker dateTimePicker9;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox emp_func;
         private System.Windows.Forms.GroupBox revista;
-        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox revista_edicao;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.TextBox revista_tipo;
+        private System.Windows.Forms.TextBox revista_marca;
         private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.TextBox textBox24;
+        private System.Windows.Forms.TextBox revista_seccao;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.DateTimePicker dateTimePicker10;
-        private System.Windows.Forms.TextBox textBox25;
+        private System.Windows.Forms.DateTimePicker revista_data;
+        private System.Windows.Forms.TextBox revista_id;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.GroupBox filme;
         private System.Windows.Forms.GroupBox periferico;
         private System.Windows.Forms.GroupBox cd;
-        private System.Windows.Forms.TextBox textBox32;
-        private System.Windows.Forms.TextBox textBox33;
+        private System.Windows.Forms.TextBox cd_ano;
+        private System.Windows.Forms.TextBox cd_genero;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.TextBox textBox38;
-        private System.Windows.Forms.TextBox textBox39;
+        private System.Windows.Forms.TextBox cd_artista;
+        private System.Windows.Forms.TextBox cd_titulo;
         private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.TextBox textBox40;
+        private System.Windows.Forms.TextBox cd_seccao;
         private System.Windows.Forms.Label label58;
-        private System.Windows.Forms.TextBox textBox41;
+        private System.Windows.Forms.TextBox cd_id;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.TextBox textBox34;
-        private System.Windows.Forms.TextBox textBox35;
+        private System.Windows.Forms.TextBox per_tipo;
+        private System.Windows.Forms.TextBox per_modelo;
         private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.TextBox textBox36;
+        private System.Windows.Forms.TextBox per_marca;
         private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.TextBox textBox37;
+        private System.Windows.Forms.TextBox per_id;
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.TextBox textBox31;
-        private System.Windows.Forms.TextBox textBox26;
+        private System.Windows.Forms.TextBox filme_ano;
+        private System.Windows.Forms.TextBox filme_genero;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.TextBox textBox27;
-        private System.Windows.Forms.TextBox textBox28;
+        private System.Windows.Forms.TextBox filme_realizador;
+        private System.Windows.Forms.TextBox filme_titulo;
         private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.TextBox textBox29;
+        private System.Windows.Forms.TextBox filme_seccao;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.TextBox textBox30;
+        private System.Windows.Forms.TextBox filme_id;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.GroupBox livro;
-        private System.Windows.Forms.TextBox textBox49;
-        private System.Windows.Forms.TextBox textBox48;
+        private System.Windows.Forms.TextBox livro_isbn;
+        private System.Windows.Forms.TextBox livro_editora;
         private System.Windows.Forms.Label label70;
         private System.Windows.Forms.Label label69;
-        private System.Windows.Forms.TextBox textBox42;
-        private System.Windows.Forms.TextBox textBox43;
+        private System.Windows.Forms.TextBox livro_ano;
+        private System.Windows.Forms.TextBox livro_genero;
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Label label63;
-        private System.Windows.Forms.TextBox textBox44;
-        private System.Windows.Forms.TextBox textBox45;
+        private System.Windows.Forms.TextBox livro_autor;
+        private System.Windows.Forms.TextBox livro_titulo;
         private System.Windows.Forms.Label label64;
-        private System.Windows.Forms.TextBox textBox46;
+        private System.Windows.Forms.TextBox livro_seccao;
         private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.TextBox textBox47;
+        private System.Windows.Forms.TextBox livro_id;
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox emp_idfunc;
+        private System.Windows.Forms.TextBox emp_idf;
+        private System.Windows.Forms.TextBox membro_id;
+        private System.Windows.Forms.TextBox fun_nif;
     }
 }

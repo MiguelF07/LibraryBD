@@ -13,7 +13,7 @@ namespace LibraryBD
     public partial class Consultar : Form
     {
         private SqlConnection cn;
-        private int currentmember;
+        private int currentEntity;
         public Consultar()
         {
             Debug.WriteLine("Init");
@@ -23,19 +23,21 @@ namespace LibraryBD
 
 
         }
-        private void HideAll() {
+        private void HideAll()
+        {
             membro.Hide();
             funcionario.Hide();
             gerente.Hide();
             emprestimo.Hide();
-            jornal.Hide();
+            revista.Hide();
             revista.Hide();
             filme.Hide();
             periferico.Hide();
             cd.Hide();
             livro.Hide();
         }
-        private void Consultar_Load(Object sender, EventArgs e) {
+        private void Consultar_Load(Object sender, EventArgs e)
+        {
             Debug.WriteLine("load entered");
             cn = getSGBDConnection();
             Debug.WriteLine("Conexão efetuada");
@@ -46,6 +48,8 @@ namespace LibraryBD
             //Andreia
             Debug.WriteLine("Tentar conectar");
             return new SqlConnection("data source= LAPTOP-1MGUSQ2L;integrated security=true;initial catalog=Projeto");
+            //Miguel
+            //return new SqlConnection("data source= DESKTOP-3E08FOH\\SQLEXPRESS;integrated security=true;initial catalog=Projeto");
         }
         private bool verifySGBDConnection()
         {
@@ -60,36 +64,230 @@ namespace LibraryBD
         private void loadMembersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Debug.WriteLine("Cheguei a funcao load");
-            if (!verifySGBDConnection()) { 
+            if (!verifySGBDConnection())
+            {
                 Debug.WriteLine("no conn");
-            return; };
+                return;
+            };
+
+            //Fazer switch(?) para sabermos qual queremos apresentar
+            
+            loadMemberData();
+            /*loadFuncData();
+            loadManagData();
+            loadEmpresData();
+            loadJornData();
+            loadRevData();
+            loadFilmData();
+            loadPerData();
+            loadCdData();
+            loadLivroData();*/
+            //    membro.Show();
+            //    SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.membro", cn);
+
+            //    SqlDataReader reader = cmd.ExecuteReader();
+            //    elementos.Items.Clear();
+
+            //    while (reader.Read())
+            //    {
+            //        Membro C = new Membro();
+            //        C.Id = reader["id"].ToString();
+            //        C.Morada = reader["morada"].ToString();
+            //        elementos.Items.Add(C);
+            //    }
+
+            //    cn.Close();
+            //    currentEntity = 0;
+            //    ShowMembro();
+        }
+
+        private void loadMemberData()
+        {
             membro.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.membro", cn);
-            
+
             SqlDataReader reader = cmd.ExecuteReader();
             elementos.Items.Clear();
-
             while (reader.Read())
             {
                 Membro C = new Membro();
                 C.Id = reader["id"].ToString();
                 C.Morada = reader["morada"].ToString();
+                //etc etc etc
+                //...
                 elementos.Items.Add(C);
             }
-
             cn.Close();
-            currentmember = 0;
+            this.currentEntity = 0;
             ShowMembro();
         }
-        public void ShowMembro ()
+
+        private void loadFuncData()
         {
-            if (elementos.Items.Count == 0 | currentmember < 0)
+            funcionario.Show();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.funcionario", cn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            elementos.Items.Clear();
+            while (reader.Read())
+            {
+                //etc etc etc
+                //...
+            }
+            cn.Close();
+            this.currentEntity = 0;
+            //ShowFunc(); Implementar
+        }
+
+        private void loadManagData()
+        {
+            gerente.Show();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.gerente", cn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            elementos.Items.Clear();
+            while (reader.Read())
+            {
+                //etc etc etc
+                //...
+            }
+            cn.Close();
+            this.currentEntity = 0;
+            //ShowManag(); Implementar
+        }
+
+        private void loadEmpresData()
+        {
+            emprestimo.Show();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.emprestimo", cn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            elementos.Items.Clear();
+            while (reader.Read())
+            {
+                //etc etc etc
+                //...
+            }
+            cn.Close();
+            this.currentEntity = 0;
+            //ShowEmpres(); Implementar
+        }
+
+        private void loadJornData()
+        {
+            revista.Show();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.jornal", cn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            elementos.Items.Clear();
+            while (reader.Read())
+            {
+                //etc etc etc
+                //...
+            }
+            cn.Close();
+            this.currentEntity = 0;
+            //ShowJorn(); Implementar
+        }
+
+        private void loadRevData()
+        {
+            revista.Show();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.revista", cn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            elementos.Items.Clear();
+            while (reader.Read())
+            {
+                //etc etc etc
+                //...
+            }
+            cn.Close();
+            this.currentEntity = 0;
+            //ShowRev(); Implementar
+        }
+
+        private void loadFilmData()
+        {
+            filme.Show();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.filme", cn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            elementos.Items.Clear();
+            while (reader.Read())
+            {
+                //etc etc etc
+                //...
+            }
+            cn.Close();
+            this.currentEntity = 0;
+            //ShowFilm(); Implementar
+        }
+
+        private void loadPerData()
+        {
+            periferico.Show();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.periferico", cn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            elementos.Items.Clear();
+            while (reader.Read())
+            {
+                //etc etc etc
+                //...
+            }
+            cn.Close();
+            this.currentEntity = 0;
+            //ShowPer(); Implementar
+        }
+
+        private void loadCdData()
+        {
+            cd.Show();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.cd", cn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            elementos.Items.Clear();
+            while (reader.Read())
+            {
+                //etc etc etc
+                //...
+            }
+            cn.Close();
+            this.currentEntity = 0;
+            //ShowCd(); Implementar
+        }
+
+        private void loadLivroData()
+        {
+            livro.Show();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.livro", cn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            elementos.Items.Clear();
+            while (reader.Read())
+            {
+                //etc etc etc
+                //...
+            }
+            cn.Close();
+            this.currentEntity = 0;
+            //ShowLivro(); Implementar
+        }
+
+
+
+
+
+        public void ShowMembro()
+        {
+            if (elementos.Items.Count == 0 | currentEntity < 0)
                 return;
             Membro contact = new Membro();
-            contact = (Membro)elementos.Items[currentmember];
-            textBox47.Text = contact.Id;
-            textBox46.Text = contact.Morada;
-            
+            contact = (Membro)elementos.Items[currentEntity];
+            membro_id.Text = contact.Id;
+            membro_morada.Text = contact.Morada;
+
 
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -144,7 +342,7 @@ namespace LibraryBD
 
         private void elementos_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            currentmember = elementos.SelectedIndex;
+            currentEntity = elementos.SelectedIndex;
             ShowMembro();
         }
 
