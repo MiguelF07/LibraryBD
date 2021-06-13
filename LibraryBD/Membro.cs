@@ -23,7 +23,7 @@ namespace LibraryBD
     
     public override String ToString()
     {
-        return _id + "   " + _nome;
+        return _id + "   " + _morada; // mudar string que vai aparecer na lista
     }
 
     public Membro() : base()

@@ -32,7 +32,7 @@ namespace LibraryBD
         {
             //Andreia
             Debug.WriteLine("Tentar conectar");
-            return new SqlConnection("data source= LAPTOP-1MGUSQ2L/SQLEXPRESS;integrated security=true;initial catalog=Projeto");
+            return new SqlConnection("data source= LAPTOP-1MGUSQ2L;integrated security=true;initial catalog=Projeto");
         }
         private bool verifySGBDConnection()
         {
@@ -51,7 +51,7 @@ namespace LibraryBD
                 Debug.WriteLine("no conn");
             return; };
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM membro", cn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.membro", cn);
             
             SqlDataReader reader = cmd.ExecuteReader();
             elementos.Items.Clear();
