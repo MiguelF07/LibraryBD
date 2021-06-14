@@ -7,14 +7,6 @@ namespace LibraryBD
     [Serializable()]
     public class Funcionario
     {
-SSN
-Mail
-Morada
-Nasc
-NIF
-FK_Bibl
-Inicio
-Fim
 
         private String _id;
         private String _nome;
@@ -22,6 +14,9 @@ Fim
         private String _email;
         private String _nif;
         private String _nascimento;
+        private String _ssn;
+        private String _inicio;
+        private String _fim;
 
         public string Id { get => _id; set => _id = value; }
         public string Nome { get => _nome; set => _nome = value; }
@@ -32,4 +27,22 @@ Fim
         {
             get => _nascimento; set => _nascimento = value;
         }
+        public string Ssn { get => _ssn; set => _ssn = value; }
+        public string Inicio { get => _inicio; set => _inicio = value; }
+        public string Fim { get => _fim; set => _fim = value; }
+    
+    public override String ToString()
+    {
+        return _id + "   " + _nome; // mudar string que vai aparecer na lista
+    }
+
+    public Funcionario() : base()
+    {
+    }
+
+    public Funcionario(String Name) : base()
+    {
+        this._nome = Name;
+    }
+    }
 }

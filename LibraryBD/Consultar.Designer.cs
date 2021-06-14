@@ -37,8 +37,8 @@ namespace LibraryBD
             this.eliminar = new System.Windows.Forms.Button();
             this.procurar = new System.Windows.Forms.Button();
             this.funcionario = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.fun_f = new System.Windows.Forms.DateTimePicker();
+            this.fun_i = new System.Windows.Forms.DateTimePicker();
             this.fun_nif = new System.Windows.Forms.TextBox();
             this.fun_ssn = new System.Windows.Forms.TextBox();
             this.fun_email = new System.Windows.Forms.TextBox();
@@ -244,8 +244,9 @@ namespace LibraryBD
             // 
             // funcionario
             // 
-            this.funcionario.Controls.Add(this.dateTimePicker3);
-            this.funcionario.Controls.Add(this.dateTimePicker2);
+            this.funcionario.Controls.Add(this.emprestimo);
+            this.funcionario.Controls.Add(this.fun_f);
+            this.funcionario.Controls.Add(this.fun_i);
             this.funcionario.Controls.Add(this.fun_nif);
             this.funcionario.Controls.Add(this.fun_ssn);
             this.funcionario.Controls.Add(this.fun_email);
@@ -269,19 +270,20 @@ namespace LibraryBD
             this.funcionario.TabIndex = 7;
             this.funcionario.TabStop = false;
             // 
-            // dateTimePicker3
+            // fun_f
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(65, 324);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(303, 27);
-            this.dateTimePicker3.TabIndex = 18;
+            this.fun_f.Location = new System.Drawing.Point(65, 324);
+            this.fun_f.Name = "fun_f";
+            this.fun_f.Size = new System.Drawing.Size(303, 27);
+            this.fun_f.TabIndex = 18;
             // 
-            // dateTimePicker2
+            // fun_i
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(65, 285);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(303, 27);
-            this.dateTimePicker2.TabIndex = 17;
+            this.fun_i.Location = new System.Drawing.Point(65, 285);
+            this.fun_i.Name = "fun_i";
+            this.fun_i.Size = new System.Drawing.Size(303, 27);
+            this.fun_i.TabIndex = 18;
+            this.fun_i.TabStop = false;
             // 
             // fun_nif
             // 
@@ -439,7 +441,7 @@ namespace LibraryBD
             this.membro.Controls.Add(this.label19);
             this.membro.Controls.Add(this.label20);
             this.membro.Controls.Add(this.label21);
-            this.membro.Location = new System.Drawing.Point(365, 51);
+            this.membro.Location = new System.Drawing.Point(754, 77);
             this.membro.Name = "membro";
             this.membro.Size = new System.Drawing.Size(377, 368);
             this.membro.TabIndex = 19;
@@ -563,7 +565,7 @@ namespace LibraryBD
             this.emprestimo.Controls.Add(this.label22);
             this.emprestimo.Controls.Add(this.label23);
             this.emprestimo.Controls.Add(this.label24);
-            this.emprestimo.Location = new System.Drawing.Point(365, 51);
+            this.emprestimo.Location = new System.Drawing.Point(0, 3);
             this.emprestimo.Name = "emprestimo";
             this.emprestimo.Size = new System.Drawing.Size(377, 368);
             this.emprestimo.TabIndex = 20;
@@ -672,7 +674,7 @@ namespace LibraryBD
             this.periferico.Controls.Add(this.per_id);
             this.periferico.Controls.Add(this.label55);
             this.periferico.Controls.Add(this.label56);
-            this.periferico.Location = new System.Drawing.Point(365, 51);
+            this.periferico.Location = new System.Drawing.Point(790, 51);
             this.periferico.Name = "periferico";
             this.periferico.Size = new System.Drawing.Size(377, 368);
             this.periferico.TabIndex = 30;
@@ -766,7 +768,7 @@ namespace LibraryBD
             this.cd.Controls.Add(this.label59);
             this.cd.Controls.Add(this.label60);
             this.cd.Controls.Add(this.label61);
-            this.cd.Location = new System.Drawing.Point(365, 51);
+            this.cd.Location = new System.Drawing.Point(764, 45);
             this.cd.Name = "cd";
             this.cd.Size = new System.Drawing.Size(377, 368);
             this.cd.TabIndex = 30;
@@ -892,7 +894,7 @@ namespace LibraryBD
             this.revista.Controls.Add(this.label40);
             this.revista.Controls.Add(this.label41);
             this.revista.Controls.Add(this.label42);
-            this.revista.Location = new System.Drawing.Point(365, 51);
+            this.revista.Location = new System.Drawing.Point(0, 99);
             this.revista.Name = "revista";
             this.revista.Size = new System.Drawing.Size(377, 368);
             this.revista.TabIndex = 28;
@@ -1012,7 +1014,7 @@ namespace LibraryBD
             this.gerente.Controls.Add(this.label12);
             this.gerente.Controls.Add(this.label26);
             this.gerente.Controls.Add(this.label27);
-            this.gerente.Location = new System.Drawing.Point(365, 51);
+            this.gerente.Location = new System.Drawing.Point(837, 6);
             this.gerente.Name = "gerente";
             this.gerente.Size = new System.Drawing.Size(377, 368);
             this.gerente.TabIndex = 19;
@@ -1085,13 +1087,14 @@ namespace LibraryBD
             this.filme.Controls.Add(this.filme_realizador);
             this.filme.Controls.Add(this.filme_titulo);
             this.filme.Controls.Add(this.label45);
+            this.filme.Controls.Add(this.revista);
             this.filme.Controls.Add(this.filme_seccao);
             this.filme.Controls.Add(this.label46);
             this.filme.Controls.Add(this.filme_id);
             this.filme.Controls.Add(this.label47);
             this.filme.Controls.Add(this.label48);
             this.filme.Controls.Add(this.label49);
-            this.filme.Location = new System.Drawing.Point(365, 51);
+            this.filme.Location = new System.Drawing.Point(758, 12);
             this.filme.Name = "filme";
             this.filme.Size = new System.Drawing.Size(377, 368);
             this.filme.TabIndex = 29;
@@ -1221,7 +1224,7 @@ namespace LibraryBD
             this.livro.Controls.Add(this.label66);
             this.livro.Controls.Add(this.label67);
             this.livro.Controls.Add(this.label68);
-            this.livro.Location = new System.Drawing.Point(365, 51);
+            this.livro.Location = new System.Drawing.Point(830, 34);
             this.livro.Name = "livro";
             this.livro.Size = new System.Drawing.Size(377, 368);
             this.livro.TabIndex = 30;
@@ -1387,15 +1390,13 @@ namespace LibraryBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 489);
-            this.Controls.Add(this.emprestimo);
+            this.ClientSize = new System.Drawing.Size(1129, 489);
             this.Controls.Add(this.periferico);
             this.Controls.Add(this.cd);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.livro);
             this.Controls.Add(this.filme);
-            this.Controls.Add(this.revista);
             this.Controls.Add(this.membro);
             this.Controls.Add(this.gerente);
             this.Controls.Add(this.funcionario);
@@ -1451,8 +1452,8 @@ namespace LibraryBD
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker fun_f;
+        private System.Windows.Forms.DateTimePicker fun_i;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox fun_ssn;
         private System.Windows.Forms.TextBox fun_email;

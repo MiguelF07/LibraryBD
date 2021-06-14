@@ -72,8 +72,9 @@ namespace LibraryBD
 
             //Fazer switch(?) para sabermos qual queremos apresentar
             Debug.WriteLine("Começar a carregar");
-            loadMemberData();
-            /*loadFuncData();
+            
+            /*loadMemberData();
+            loadFuncData();
             loadManagData();
             loadEmpresData();
             loadJornData();
@@ -117,8 +118,6 @@ namespace LibraryBD
                 C.Nif = reader["Nif"].ToString();
                 C.Nascimento= reader["nascimento"].ToString();
                 C.Morada = reader["morada"].ToString();
-                //etc etc etc
-                //...
                 elementos.Items.Add(C);
             }
             cn.Close();
@@ -139,7 +138,7 @@ namespace LibraryBD
             membro_nif.Text = m.Nif;
             membro_nasc.Text = m.Nascimento;
         }
-       
+
 
         private void loadFuncData()
         {
@@ -150,12 +149,38 @@ namespace LibraryBD
             elementos.Items.Clear();
             while (reader.Read())
             {
-                //etc etc etc
-                //...
+                Funcionario C = new Funcionario();
+                C.Id = reader["id"].ToString();
+                C.Nome = reader["nome"].ToString();
+                C.Email = reader["email"].ToString();
+                C.Nif = reader["Nif"].ToString();
+                C.Nascimento = reader["nascimento"].ToString();
+                C.Morada = reader["morada"].ToString();
+                C.Ssn= reader["ssn"].ToString();
+                C.Inicio= reader["inicio"].ToString();
+                C.Fim= reader["fim"].ToString();
+                elementos.Items.Add(C);
             }
             cn.Close();
             this.currentEntity = 0;
-            //ShowFunc(); Implementar
+            ShowFunc();
+            LockControls();
+        }
+        public void ShowFunc()
+        {
+            if (elementos.Items.Count == 0 | currentEntity < 0)
+                return;
+            Funcionario f = new Funcionario();
+            f = (Funcionario)elementos.Items[currentEntity];
+            fun_id.Text = f.Id;
+            fun_morada.Text = f.Morada;
+            fun_nome.Text = f.Nome;
+            fun_email.Text = f.Email;
+            fun_nif.Text = f.Nif;
+            fun_nasc.Text = f.Nascimento;
+            fun_ssn.Text = f.Ssn;
+            fun_f.Text = f.Fim;
+            fun_i.Text = f.Inicio;
         }
 
         private void loadManagData()
@@ -167,14 +192,28 @@ namespace LibraryBD
             elementos.Items.Clear();
             while (reader.Read())
             {
+                Gerente C = new Gerente();
+                C.Id = reader["id"].ToString();
+                C.Inicio = reader["inicio"].ToString();
+                C.Fim = reader["fim"].ToString();
+                elementos.Items.Add(C);
                 //etc etc etc
                 //...
             }
             cn.Close();
             this.currentEntity = 0;
-            //ShowManag(); Implementar
+            ShowManag();
+            LockControls();
         }
-
+        public void ShowManag() {
+            if (elementos.Items.Count == 0 | currentEntity < 0)
+                return;
+            Gerente f = new Gerente();
+            f = (Gerente)elementos.Items[currentEntity];
+            ger_id.Text = f.Id;
+            ger_fim.Text = f.Fim;
+            ger_inicio.Text = f.Inicio;
+        }
         private void loadEmpresData()
         {
             emprestimo.Show();
@@ -184,14 +223,27 @@ namespace LibraryBD
             elementos.Items.Clear();
             while (reader.Read())
             {
-                //etc etc etc
-                //...
+                Emprestimo C = new Emprestimo();
+                C.Id1 = reader["funcionario"].ToString();
+                C.Id2 = reader["membro"].ToString();
+                C.Num = reader["numero"].ToString();
+                C.Emprestimo = reader["emprestimo"].ToString();
+                C.Limite = reader["limite"].ToString();
+                elementos.Items.Add(C);
             }
             cn.Close();
             this.currentEntity = 0;
-            //ShowEmpres(); Implementar
+            ShowEmpres(); 
+            LockControls();
         }
-
+        public void ShowEmpres() {
+            if (elementos.Items.Count == 0 | currentEntity < 0)
+                return;
+            Emprestimo e = new Emprestimo();
+            e = (Emprestimo)elementos.Items[currentEntity];
+            emp_num.Text = e.Num;
+            emp_idf.Text = e.Id1;
+        }
         private void loadJornData()
         {
             revista.Show();
@@ -348,7 +400,7 @@ namespace LibraryBD
         private void elementos_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             currentEntity = elementos.SelectedIndex;
-            ShowMembro();
+            ShowManag();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -374,6 +426,18 @@ namespace LibraryBD
             membro_nif.ReadOnly = true;
             membro_email.ReadOnly = true;
             membro_nasc.Enabled = false;
+            fun_id.ReadOnly = true;
+            fun_morada.ReadOnly = true;
+            fun_nome.ReadOnly = true;
+            fun_email.ReadOnly = true;
+            fun_nif.ReadOnly = true;
+            fun_nasc.Enabled = false;
+            fun_ssn.ReadOnly = true;
+            fun_f.Enabled = false;
+            fun_i.Enabled = false;
+            ger_id.ReadOnly = true;
+            ger_fim.Enabled = false;
+            ger_inicio.Enabled = false;
 
         }
 
@@ -385,6 +449,18 @@ namespace LibraryBD
             membro_nif.ReadOnly = false;
             membro_email.ReadOnly = false;
             membro_nasc.Enabled = true;
+            fun_id.ReadOnly = false;
+            fun_morada.ReadOnly = false;
+            fun_nome.ReadOnly = false;
+            fun_email.ReadOnly = false;
+            fun_nif.ReadOnly = false;
+            fun_nasc.Enabled = true;
+            fun_ssn.ReadOnly = false;
+            fun_f.Enabled = true;
+            fun_i.Enabled = true;
+            ger_id.ReadOnly = false;
+            ger_fim.Enabled = true;
+            ger_inicio.Enabled = true;
         }
     }
 }

@@ -23,22 +23,12 @@ namespace LibraryBD
     
     public override String ToString()
     {
-        return _id + "   " + _morada; // mudar string que vai aparecer na lista
+        return _id + "   " + _nome; // mudar string que vai aparecer na lista
     }
 
     public Membro() : base()
     {
     }
 
-    public Membro(String Morada, String Name) : base()
-    {
-        this._nome = Name;
-        this._morada = Morada;
-    }
-
-    public Membro(String Name) : base()
-    {
-        this._nome = Name;
-    }
     }
 }
