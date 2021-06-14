@@ -237,6 +237,9 @@ namespace LibraryBD
             this.currentEntity = 0;
             ShowEmpres(); 
             LockControls();
+            editar.Enabled = false;
+            adicionar.Enabled = false;
+            eliminar.Enabled = false;
         }
         public void ShowEmpres() {
             if (elementos.Items.Count == 0 | currentEntity < 0)
@@ -451,15 +454,7 @@ namespace LibraryBD
 
         }
 
-        private void label34_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label31_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void elementos_SelectedIndexChanged_1(object sender, EventArgs e)
         {
