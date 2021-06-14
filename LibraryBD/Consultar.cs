@@ -81,8 +81,8 @@ namespace LibraryBD
             loadRevData();
             loadFilmData();
             loadPerData();
-            loadCdData();
-            loadLivroData();*/
+            loadCdData();*/
+            loadLivroData();
             //    membro.Show();
             //    SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.membro", cn);
 
@@ -227,7 +227,7 @@ namespace LibraryBD
                 C.Id1 = reader["funcionario"].ToString();
                 C.Id2 = reader["membro"].ToString();
                 C.Num = reader["numero"].ToString();
-                C.Emprestimo = reader["emprestimo"].ToString();
+                C.Emp = reader["emprestimo"].ToString();
                 C.Limite = reader["limite"].ToString();
                 elementos.Items.Add(C);
             }
@@ -259,6 +259,7 @@ namespace LibraryBD
             cn.Close();
             this.currentEntity = 0;
             //ShowJorn(); Implementar
+            LockControls();
         }
 
         private void loadRevData()
@@ -276,6 +277,7 @@ namespace LibraryBD
             cn.Close();
             this.currentEntity = 0;
             //ShowRev(); Implementar
+            LockControls();
         }
 
         private void loadFilmData()
@@ -293,6 +295,7 @@ namespace LibraryBD
             cn.Close();
             this.currentEntity = 0;
             //ShowFilm(); Implementar
+            LockControls();
         }
 
         private void loadPerData()
@@ -310,6 +313,7 @@ namespace LibraryBD
             cn.Close();
             this.currentEntity = 0;
             //ShowPer(); Implementar
+            LockControls();
         }
 
         private void loadCdData()
@@ -327,12 +331,15 @@ namespace LibraryBD
             cn.Close();
             this.currentEntity = 0;
             //ShowCd(); Implementar
+            LockControls();
         }
 
         private void loadLivroData()
         {
+            Debug.WriteLine("cheguei ao load livro");
             livro.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.livro", cn);
+            Debug.WriteLine("fiz o select do load livro");
 
             SqlDataReader reader = cmd.ExecuteReader();
             elementos.Items.Clear();
@@ -343,10 +350,25 @@ namespace LibraryBD
             }
             cn.Close();
             this.currentEntity = 0;
-            //ShowLivro(); Implementar
+            ShowLivro();
+            LockControls();
+        }
+        public void ShowLivro()
+        {
+            if (elementos.Items.Count == 0 | currentEntity < 0)
+                return;
+            Livro l = new Livro();
+            l = (Livro)elementos.Items[currentEntity];
+            livro_id.Text = l.Id;
+            livro_titulo.Text = l.Titulo;
+            livro_autor.Text = l.Autor;
+            livro_editora.Text = l.Editora;
+            livro_ano.Text = l.Ano;
+            livro_isbn.Text = l.Isbn;
+            livro_genero.Text = l.Genero;
+            livro_seccao.Text = l.Seccao;
         }
 
-        
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -400,7 +422,7 @@ namespace LibraryBD
         private void elementos_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             currentEntity = elementos.SelectedIndex;
-            ShowManag();
+            ShowLivro();
         }
 
         private void button2_Click(object sender, EventArgs e)
