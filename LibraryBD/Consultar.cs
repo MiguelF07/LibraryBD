@@ -71,7 +71,7 @@ namespace LibraryBD
             };
 
             //Fazer switch(?) para sabermos qual queremos apresentar
-            
+            Debug.WriteLine("Começar a carregar");
             loadMemberData();
             /*loadFuncData();
             loadManagData();
@@ -112,6 +112,10 @@ namespace LibraryBD
             {
                 Membro C = new Membro();
                 C.Id = reader["id"].ToString();
+                C.Nome = reader["nome"].ToString();
+                C.Email = reader["email"].ToString();
+                C.Nif = reader["Nif"].ToString();
+                C.Nascimento= reader["nascimento"].ToString();
                 C.Morada = reader["morada"].ToString();
                 //etc etc etc
                 //...
@@ -120,7 +124,22 @@ namespace LibraryBD
             cn.Close();
             this.currentEntity = 0;
             ShowMembro();
+            LockControls();
         }
+        public void ShowMembro()
+        {
+            if (elementos.Items.Count == 0 | currentEntity < 0)
+                return;
+            Membro m = new Membro();
+            m = (Membro)elementos.Items[currentEntity];
+            membro_id.Text = m.Id;
+            membro_morada.Text = m.Morada;
+            membro_nome.Text = m.Nome;
+            membro_email.Text = m.Email;
+            membro_nif.Text = m.Nif;
+            membro_nasc.Text = m.Nascimento;
+        }
+       
 
         private void loadFuncData()
         {
@@ -275,21 +294,7 @@ namespace LibraryBD
             //ShowLivro(); Implementar
         }
 
-
-
-
-
-        public void ShowMembro()
-        {
-            if (elementos.Items.Count == 0 | currentEntity < 0)
-                return;
-            Membro contact = new Membro();
-            contact = (Membro)elementos.Items[currentEntity];
-            membro_id.Text = contact.Id;
-            membro_morada.Text = contact.Morada;
-
-
-        }
+        
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -350,6 +355,36 @@ namespace LibraryBD
         {
             loadMembersToolStripMenuItem_Click(
                 sender, e);
+        }
+
+        private void editar_Click(object sender, EventArgs e)
+        {
+            UnlockControls();
+        }
+
+        private void guardar_Click(object sender, EventArgs e)
+        {
+            LockControls();
+        }
+        public void LockControls()
+        {
+            membro_id.ReadOnly = true;
+            membro_morada.ReadOnly = true;
+            membro_nome.ReadOnly = true;
+            membro_nif.ReadOnly = true;
+            membro_email.ReadOnly = true;
+            membro_nasc.Enabled = false;
+
+        }
+
+        public void UnlockControls()
+        {
+            membro_id.ReadOnly = false;
+            membro_morada.ReadOnly = false;
+            membro_nome.ReadOnly = false;
+            membro_nif.ReadOnly = false;
+            membro_email.ReadOnly = false;
+            membro_nasc.Enabled = true;
         }
     }
 }
