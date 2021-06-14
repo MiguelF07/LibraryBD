@@ -47,9 +47,9 @@ namespace LibraryBD
         {
             //Andreia
             Debug.WriteLine("Tentar conectar");
-            return new SqlConnection("data source= LAPTOP-1MGUSQ2L;integrated security=true;initial catalog=Projeto");
+            //return new SqlConnection("data source= LAPTOP-1MGUSQ2L;integrated security=true;initial catalog=Projeto");
             //Miguel
-            //return new SqlConnection("data source= DESKTOP-3E08FOH\\SQLEXPRESS;integrated security=true;initial catalog=Projeto");
+            return new SqlConnection("data source= DESKTOP-3E08FOH\\SQLEXPRESS;integrated security=true;initial catalog=Projeto2");
         }
         private bool verifySGBDConnection()
         {
@@ -345,8 +345,17 @@ namespace LibraryBD
             elementos.Items.Clear();
             while (reader.Read())
             {
-                //etc etc etc
-                //...
+                Debug.WriteLine("Estou no while");
+                Livro L = new Livro();
+                L.Id = reader["id"].ToString();
+                L.Titulo = reader["titulo"].ToString();
+                L.Autor = reader["autor"].ToString();
+                L.Editora = reader["editora"].ToString();
+                L.Ano = reader["ano"].ToString();
+                L.Isbn = reader["isbn"].ToString();
+                L.Genero = reader["genero"].ToString();
+                L.Seccao = reader["seccao"].ToString();
+                elementos.Items.Add(L);
             }
             cn.Close();
             this.currentEntity = 0;
@@ -460,6 +469,14 @@ namespace LibraryBD
             ger_id.ReadOnly = true;
             ger_fim.Enabled = false;
             ger_inicio.Enabled = false;
+            livro_id.ReadOnly = true;
+            livro_titulo.ReadOnly = true;
+            livro_autor.ReadOnly = true;
+            livro_editora.ReadOnly = true;
+            livro_ano.ReadOnly = true;
+            livro_isbn.ReadOnly = true;
+            livro_genero.ReadOnly = true;
+            livro_seccao.ReadOnly = true;
 
         }
 
@@ -483,6 +500,14 @@ namespace LibraryBD
             ger_id.ReadOnly = false;
             ger_fim.Enabled = true;
             ger_inicio.Enabled = true;
+            livro_id.ReadOnly = false;
+            livro_titulo.ReadOnly = false;
+            livro_autor.ReadOnly = false;
+            livro_editora.ReadOnly = false;
+            livro_ano.ReadOnly = false;
+            livro_isbn.ReadOnly = false;
+            livro_genero.ReadOnly = false;
+            livro_seccao.ReadOnly = false;
         }
     }
 }
