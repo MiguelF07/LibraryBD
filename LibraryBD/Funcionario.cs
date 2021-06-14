@@ -7,14 +7,6 @@ namespace LibraryBD
     [Serializable()]
     public class Funcionario
     {
-SSN
-Mail
-Morada
-Nasc
-NIF
-FK_Bibl
-Inicio
-Fim
 
         private String _id;
         private String _nome;
@@ -31,5 +23,6 @@ Fim
         public string Nascimento
         {
             get => _nascimento; set => _nascimento = value;
+        }
         }
 }
