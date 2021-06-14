@@ -72,17 +72,18 @@ namespace LibraryBD
 
             //Fazer switch(?) para sabermos qual queremos apresentar
             Debug.WriteLine("Começar a carregar");
-            
+            loadRevData();
             /*loadMemberData();
             loadFuncData();
             loadManagData();
             loadEmpresData();
             loadJornData();
-            loadRevData();
+            
             loadFilmData();
             loadPerData();
-            loadCdData();*/
-            loadLivroData();
+            loadCdData();
+            loadLivroData();*/
+            
             //    membro.Show();
             //    SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.membro", cn);
 
@@ -243,6 +244,9 @@ namespace LibraryBD
             e = (Emprestimo)elementos.Items[currentEntity];
             emp_num.Text = e.Num;
             emp_idf.Text = e.Id1;
+            emp_idmem.Text = e.Id2;
+            emp_limite.Text = e.Limite;
+            emp_dataemp.Text = e.Emp;
         }
         private void loadJornData()
         {
@@ -264,20 +268,41 @@ namespace LibraryBD
 
         private void loadRevData()
         {
+            Debug.WriteLine("load revista");
             revista.Show();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.revista", cn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.revistas", cn);
 
             SqlDataReader reader = cmd.ExecuteReader();
             elementos.Items.Clear();
             while (reader.Read())
             {
+                Revista C = new Revista();
+                C.DataL= reader["dataL"].ToString();
+                C.Edicao= reader["edicao"].ToString();
+                C.Id= reader["id"].ToString();
+                C.Marca= reader["marca"].ToString();
+                C.Seccao= reader["seccao"].ToString();
+                C.Tipo= reader["tipo"].ToString();
+                elementos.Items.Add(C);
                 //etc etc etc
                 //...
             }
             cn.Close();
             this.currentEntity = 0;
-            //ShowRev(); Implementar
+            ShowRev(); 
             LockControls();
+        }
+        public void ShowRev() {
+            if (elementos.Items.Count == 0 | currentEntity < 0)
+                return;
+            Revista r = new Revista();
+            r = (Revista)elementos.Items[currentEntity];
+            revista_data.Text = r.DataL;
+            revista_edicao.Text = r.Edicao;
+            revista_id.Text = r.Id;
+            revista_marca.Text = r.Marca;
+            revista_seccao.Text = r.Seccao;
+            revista_tipo.Text = r.Tipo;
         }
 
         private void loadFilmData()
@@ -345,8 +370,17 @@ namespace LibraryBD
             elementos.Items.Clear();
             while (reader.Read())
             {
-                //etc etc etc
-                //...
+                Debug.WriteLine("Estou no while");
+                Livro L = new Livro();
+                L.Id = reader["id"].ToString();
+                L.Titulo = reader["titulo"].ToString();
+                L.Autor = reader["autor"].ToString();
+                L.Editora = reader["editora"].ToString();
+                L.Ano = reader["ano"].ToString();
+                L.Isbn = reader["isbn"].ToString();
+                L.Genero = reader["genero"].ToString();
+                L.Seccao = reader["seccao"].ToString();
+                elementos.Items.Add(L);
             }
             cn.Close();
             this.currentEntity = 0;
@@ -422,7 +456,7 @@ namespace LibraryBD
         private void elementos_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             currentEntity = elementos.SelectedIndex;
-            ShowLivro();
+            ShowRev();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -460,6 +494,12 @@ namespace LibraryBD
             ger_id.ReadOnly = true;
             ger_fim.Enabled = false;
             ger_inicio.Enabled = false;
+            revista_data.Enabled = false;
+            revista_edicao.ReadOnly = true;
+            revista_id.ReadOnly = true;
+            revista_marca.ReadOnly = true;
+            revista_seccao.ReadOnly = true;
+            revista_tipo.ReadOnly = true;
 
         }
 
@@ -483,6 +523,12 @@ namespace LibraryBD
             ger_id.ReadOnly = false;
             ger_fim.Enabled = true;
             ger_inicio.Enabled = true;
+            revista_data.Enabled = true;
+            revista_edicao.ReadOnly = false;
+            revista_id.ReadOnly = false;
+            revista_marca.ReadOnly = false;
+            revista_seccao.ReadOnly = false;
+            revista_tipo.ReadOnly = false;
         }
     }
 }

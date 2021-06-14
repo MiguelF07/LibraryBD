@@ -37,6 +37,18 @@ namespace LibraryBD
             this.eliminar = new System.Windows.Forms.Button();
             this.procurar = new System.Windows.Forms.Button();
             this.funcionario = new System.Windows.Forms.GroupBox();
+            this.emprestimo = new System.Windows.Forms.GroupBox();
+            this.emp_idmem = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.emp_idf = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.emp_limite = new System.Windows.Forms.DateTimePicker();
+            this.emp_dataemp = new System.Windows.Forms.DateTimePicker();
+            this.emp_num = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.fun_f = new System.Windows.Forms.DateTimePicker();
             this.fun_i = new System.Windows.Forms.DateTimePicker();
             this.fun_nif = new System.Windows.Forms.TextBox();
@@ -70,18 +82,6 @@ namespace LibraryBD
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.emprestimo = new System.Windows.Forms.GroupBox();
-            this.emp_idmem = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.emp_idf = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.dateTimePicker7 = new System.Windows.Forms.DateTimePicker();
-            this.emp_dataemp = new System.Windows.Forms.DateTimePicker();
-            this.emp_num = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.periferico = new System.Windows.Forms.GroupBox();
             this.label51 = new System.Windows.Forms.Label();
             this.per_tipo = new System.Windows.Forms.TextBox();
@@ -163,8 +163,8 @@ namespace LibraryBD
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.funcionario.SuspendLayout();
-            this.membro.SuspendLayout();
             this.emprestimo.SuspendLayout();
+            this.membro.SuspendLayout();
             this.periferico.SuspendLayout();
             this.cd.SuspendLayout();
             this.revista.SuspendLayout();
@@ -269,6 +269,117 @@ namespace LibraryBD
             this.funcionario.Size = new System.Drawing.Size(377, 368);
             this.funcionario.TabIndex = 7;
             this.funcionario.TabStop = false;
+            // 
+            // emprestimo
+            // 
+            this.emprestimo.Controls.Add(this.emp_idmem);
+            this.emprestimo.Controls.Add(this.label28);
+            this.emprestimo.Controls.Add(this.emp_idf);
+            this.emprestimo.Controls.Add(this.label25);
+            this.emprestimo.Controls.Add(this.label18);
+            this.emprestimo.Controls.Add(this.emp_limite);
+            this.emprestimo.Controls.Add(this.emp_dataemp);
+            this.emprestimo.Controls.Add(this.emp_num);
+            this.emprestimo.Controls.Add(this.label22);
+            this.emprestimo.Controls.Add(this.label23);
+            this.emprestimo.Controls.Add(this.label24);
+            this.emprestimo.Location = new System.Drawing.Point(365, 54);
+            this.emprestimo.Name = "emprestimo";
+            this.emprestimo.Size = new System.Drawing.Size(377, 368);
+            this.emprestimo.TabIndex = 20;
+            this.emprestimo.TabStop = false;
+            // 
+            // emp_idmem
+            // 
+            this.emp_idmem.Location = new System.Drawing.Point(73, 100);
+            this.emp_idmem.Name = "emp_idmem";
+            this.emp_idmem.Size = new System.Drawing.Size(294, 27);
+            this.emp_idmem.TabIndex = 23;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(13, 100);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(62, 20);
+            this.label28.TabIndex = 22;
+            this.label28.Text = "ID Mem";
+            this.label28.Click += new System.EventHandler(this.label28_Click);
+            // 
+            // emp_idf
+            // 
+            this.emp_idf.Location = new System.Drawing.Point(73, 60);
+            this.emp_idf.Name = "emp_idf";
+            this.emp_idf.Size = new System.Drawing.Size(294, 27);
+            this.emp_idf.TabIndex = 21;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(13, 60);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(58, 20);
+            this.label25.TabIndex = 20;
+            this.label25.Text = "ID Func";
+            this.label25.Click += new System.EventHandler(this.label25_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(13, 140);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(75, 20);
+            this.label18.TabIndex = 19;
+            this.label18.Text = "Data Emp";
+            // 
+            // emp_limite
+            // 
+            this.emp_limite.Location = new System.Drawing.Point(90, 180);
+            this.emp_limite.Name = "emp_limite";
+            this.emp_limite.Size = new System.Drawing.Size(278, 27);
+            this.emp_limite.TabIndex = 18;
+            // 
+            // emp_dataemp
+            // 
+            this.emp_dataemp.Location = new System.Drawing.Point(90, 140);
+            this.emp_dataemp.Name = "emp_dataemp";
+            this.emp_dataemp.Size = new System.Drawing.Size(278, 27);
+            this.emp_dataemp.TabIndex = 17;
+            // 
+            // emp_num
+            // 
+            this.emp_num.Location = new System.Drawing.Point(58, 20);
+            this.emp_num.Name = "emp_num";
+            this.emp_num.Size = new System.Drawing.Size(309, 27);
+            this.emp_num.TabIndex = 10;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(13, 180);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(69, 20);
+            this.label22.TabIndex = 9;
+            this.label22.Text = "Data Lim";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(-21, -23);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(58, 20);
+            this.label23.TabIndex = 2;
+            this.label23.Text = "label23";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(13, 20);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(41, 20);
+            this.label24.TabIndex = 1;
+            this.label24.Text = "Num";
+            this.label24.Click += new System.EventHandler(this.label24_Click);
             // 
             // fun_f
             // 
@@ -552,117 +663,6 @@ namespace LibraryBD
             this.label21.TabIndex = 0;
             this.label21.Text = "Nome";
             // 
-            // emprestimo
-            // 
-            this.emprestimo.Controls.Add(this.emp_idmem);
-            this.emprestimo.Controls.Add(this.label28);
-            this.emprestimo.Controls.Add(this.emp_idf);
-            this.emprestimo.Controls.Add(this.label25);
-            this.emprestimo.Controls.Add(this.label18);
-            this.emprestimo.Controls.Add(this.dateTimePicker7);
-            this.emprestimo.Controls.Add(this.emp_dataemp);
-            this.emprestimo.Controls.Add(this.emp_num);
-            this.emprestimo.Controls.Add(this.label22);
-            this.emprestimo.Controls.Add(this.label23);
-            this.emprestimo.Controls.Add(this.label24);
-            this.emprestimo.Location = new System.Drawing.Point(0, 3);
-            this.emprestimo.Name = "emprestimo";
-            this.emprestimo.Size = new System.Drawing.Size(377, 368);
-            this.emprestimo.TabIndex = 20;
-            this.emprestimo.TabStop = false;
-            // 
-            // emp_idmem
-            // 
-            this.emp_idmem.Location = new System.Drawing.Point(73, 100);
-            this.emp_idmem.Name = "emp_idmem";
-            this.emp_idmem.Size = new System.Drawing.Size(294, 27);
-            this.emp_idmem.TabIndex = 23;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(13, 100);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(62, 20);
-            this.label28.TabIndex = 22;
-            this.label28.Text = "ID Mem";
-            this.label28.Click += new System.EventHandler(this.label28_Click);
-            // 
-            // emp_idf
-            // 
-            this.emp_idf.Location = new System.Drawing.Point(73, 60);
-            this.emp_idf.Name = "emp_idf";
-            this.emp_idf.Size = new System.Drawing.Size(294, 27);
-            this.emp_idf.TabIndex = 21;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(13, 60);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(58, 20);
-            this.label25.TabIndex = 20;
-            this.label25.Text = "ID Func";
-            this.label25.Click += new System.EventHandler(this.label25_Click);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(13, 140);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(75, 20);
-            this.label18.TabIndex = 19;
-            this.label18.Text = "Data Emp";
-            // 
-            // dateTimePicker7
-            // 
-            this.dateTimePicker7.Location = new System.Drawing.Point(90, 180);
-            this.dateTimePicker7.Name = "dateTimePicker7";
-            this.dateTimePicker7.Size = new System.Drawing.Size(278, 27);
-            this.dateTimePicker7.TabIndex = 18;
-            // 
-            // emp_dataemp
-            // 
-            this.emp_dataemp.Location = new System.Drawing.Point(90, 140);
-            this.emp_dataemp.Name = "emp_dataemp";
-            this.emp_dataemp.Size = new System.Drawing.Size(278, 27);
-            this.emp_dataemp.TabIndex = 17;
-            // 
-            // emp_num
-            // 
-            this.emp_num.Location = new System.Drawing.Point(58, 20);
-            this.emp_num.Name = "emp_num";
-            this.emp_num.Size = new System.Drawing.Size(309, 27);
-            this.emp_num.TabIndex = 10;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(13, 180);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(69, 20);
-            this.label22.TabIndex = 9;
-            this.label22.Text = "Data Lim";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(-21, -23);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(58, 20);
-            this.label23.TabIndex = 2;
-            this.label23.Text = "label23";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(13, 20);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(41, 20);
-            this.label24.TabIndex = 1;
-            this.label24.Text = "Num";
-            this.label24.Click += new System.EventHandler(this.label24_Click);
-            // 
             // periferico
             // 
             this.periferico.Controls.Add(this.label51);
@@ -672,9 +672,10 @@ namespace LibraryBD
             this.periferico.Controls.Add(this.per_marca);
             this.periferico.Controls.Add(this.label53);
             this.periferico.Controls.Add(this.per_id);
+            this.periferico.Controls.Add(this.revista);
             this.periferico.Controls.Add(this.label55);
             this.periferico.Controls.Add(this.label56);
-            this.periferico.Location = new System.Drawing.Point(790, 51);
+            this.periferico.Location = new System.Drawing.Point(365, 54);
             this.periferico.Name = "periferico";
             this.periferico.Size = new System.Drawing.Size(377, 368);
             this.periferico.TabIndex = 30;
@@ -768,7 +769,7 @@ namespace LibraryBD
             this.cd.Controls.Add(this.label59);
             this.cd.Controls.Add(this.label60);
             this.cd.Controls.Add(this.label61);
-            this.cd.Location = new System.Drawing.Point(764, 45);
+            this.cd.Location = new System.Drawing.Point(365, 54);
             this.cd.Name = "cd";
             this.cd.Size = new System.Drawing.Size(377, 368);
             this.cd.TabIndex = 30;
@@ -894,7 +895,7 @@ namespace LibraryBD
             this.revista.Controls.Add(this.label40);
             this.revista.Controls.Add(this.label41);
             this.revista.Controls.Add(this.label42);
-            this.revista.Location = new System.Drawing.Point(0, 99);
+            this.revista.Location = new System.Drawing.Point(0, 0);
             this.revista.Name = "revista";
             this.revista.Size = new System.Drawing.Size(377, 368);
             this.revista.TabIndex = 28;
@@ -1087,7 +1088,6 @@ namespace LibraryBD
             this.filme.Controls.Add(this.filme_realizador);
             this.filme.Controls.Add(this.filme_titulo);
             this.filme.Controls.Add(this.label45);
-            this.filme.Controls.Add(this.revista);
             this.filme.Controls.Add(this.filme_seccao);
             this.filme.Controls.Add(this.label46);
             this.filme.Controls.Add(this.filme_id);
@@ -1224,7 +1224,7 @@ namespace LibraryBD
             this.livro.Controls.Add(this.label66);
             this.livro.Controls.Add(this.label67);
             this.livro.Controls.Add(this.label68);
-            this.livro.Location = new System.Drawing.Point(830, 34);
+            this.livro.Location = new System.Drawing.Point(365, 54);
             this.livro.Name = "livro";
             this.livro.Size = new System.Drawing.Size(377, 368);
             this.livro.TabIndex = 30;
@@ -1411,10 +1411,10 @@ namespace LibraryBD
             this.Text = "Consultar";
             this.funcionario.ResumeLayout(false);
             this.funcionario.PerformLayout();
-            this.membro.ResumeLayout(false);
-            this.membro.PerformLayout();
             this.emprestimo.ResumeLayout(false);
             this.emprestimo.PerformLayout();
+            this.membro.ResumeLayout(false);
+            this.membro.PerformLayout();
             this.periferico.ResumeLayout(false);
             this.periferico.PerformLayout();
             this.cd.ResumeLayout(false);
@@ -1485,7 +1485,7 @@ namespace LibraryBD
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox emprestimo;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.DateTimePicker dateTimePicker7;
+        private System.Windows.Forms.DateTimePicker emp_limite;
         private System.Windows.Forms.DateTimePicker emp_dataemp;
         private System.Windows.Forms.TextBox emp_num;
         private System.Windows.Forms.Label label22;
