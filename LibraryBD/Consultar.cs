@@ -47,9 +47,9 @@ namespace LibraryBD
         {
             //Andreia
             Debug.WriteLine("Tentar conectar");
-            return new SqlConnection("data source= LAPTOP-1MGUSQ2L;integrated security=true;initial catalog=Projeto");
+            //return new SqlConnection("data source= LAPTOP-1MGUSQ2L;integrated security=true;initial catalog=Projeto");
             //Miguel
-            //return new SqlConnection("data source= DESKTOP-3E08FOH\\SQLEXPRESS;integrated security=true;initial catalog=Projeto2");
+            return new SqlConnection("data source= DESKTOP-3E08FOH\\SQLEXPRESS;integrated security=true;initial catalog=Projeto2");
         }
         private bool verifySGBDConnection()
         {
@@ -72,7 +72,8 @@ namespace LibraryBD
 
             //Fazer switch(?) para sabermos qual queremos apresentar
             Debug.WriteLine("Começar a carregar");
-            loadJornData();
+            loadCdData();
+            //loadJornData();
             
             /*loadMemberData();
             loadFuncData();
@@ -325,13 +326,33 @@ namespace LibraryBD
             elementos.Items.Clear();
             while (reader.Read())
             {
-                //etc etc etc
-                //...
+                Filme F = new Filme();
+                F.Id = reader["id"].ToString();
+                F.Seccao = reader["seccao"].ToString();
+                F.Realizador = reader["realizador"].ToString();
+                F.Genero = reader["genero"].ToString();
+                F.Ano = reader["ano"].ToString();
+                F.Titulo = reader["titulo"].ToString();
+                elementos.Items.Add(F);
             }
             cn.Close();
             this.currentEntity = 0;
-            //ShowFilm(); Implementar
+            ShowFilm();
             LockControls();
+        }
+
+        public void ShowFilm()
+        {
+            if (elementos.Items.Count == 0 | currentEntity < 0)
+                return;
+            Filme f = new Filme();
+            f = (Filme)elementos.Items[currentEntity];
+            filme_id.Text = f.Id;
+            filme_seccao.Text = f.Seccao;
+            filme_realizador.Text = f.Realizador;
+            filme_genero.Text = f.Genero;
+            filme_ano.Text = f.Ano;
+            filme_titulo.Text = f.Titulo;
         }
 
         private void loadPerData()
@@ -361,13 +382,31 @@ namespace LibraryBD
             elementos.Items.Clear();
             while (reader.Read())
             {
-                //etc etc etc
-                //...
+                CD C = new CD();
+                C.Id = reader["id"].ToString();
+                C.Artista = reader["artista"].ToString();
+                C.Genero = reader["genero"].ToString();
+                C.Ano = reader["ano"].ToString();
+                C.Titulo = reader["titulo"].ToString();
+                elementos.Items.Add(C);
             }
             cn.Close();
             this.currentEntity = 0;
-            //ShowCd(); Implementar
+            ShowCd();
             LockControls();
+        }
+
+        public void ShowCd()
+        {
+            if (elementos.Items.Count == 0 | currentEntity < 0)
+                return;
+            CD c = new CD();
+            c = (CD)elementos.Items[currentEntity];
+            cd_id.Text = c.Id;
+            cd_artista.Text = c.Artista;
+            cd_genero.Text = c.Genero;
+            cd_ano.Text = c.Ano;
+            cd_titulo.Text = c.Titulo;
         }
 
         private void loadLivroData()
@@ -459,7 +498,7 @@ namespace LibraryBD
         private void elementos_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             currentEntity = elementos.SelectedIndex;
-            ShowRev();
+            ShowCd();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -511,6 +550,18 @@ namespace LibraryBD
             revista_marca.ReadOnly = true;
             revista_seccao.ReadOnly = true;
             revista_tipo.ReadOnly = true;
+            filme_id.ReadOnly = true;
+            filme_seccao.ReadOnly = true;
+            filme_realizador.ReadOnly = true;
+            filme_genero.ReadOnly = true;
+            filme_ano.ReadOnly = true;
+            filme_titulo.ReadOnly = true;
+            cd_id.ReadOnly = true;
+            cd_artista.ReadOnly = true;
+            cd_genero.ReadOnly = true;
+            cd_ano.ReadOnly = true;
+            cd_titulo.ReadOnly = true;
+
 
         }
 
@@ -548,6 +599,17 @@ namespace LibraryBD
             revista_marca.ReadOnly = false;
             revista_seccao.ReadOnly = false;
             revista_tipo.ReadOnly = false;
+            filme_id.ReadOnly = false;
+            filme_seccao.ReadOnly = false;
+            filme_realizador.ReadOnly = false;
+            filme_genero.ReadOnly = false;
+            filme_ano.ReadOnly = false;
+            filme_titulo.ReadOnly = false;
+            cd_id.ReadOnly = false;
+            cd_artista.ReadOnly = false;
+            cd_genero.ReadOnly = false;
+            cd_ano.ReadOnly = false;
+            cd_titulo.ReadOnly = false;
         }
     }
 }
