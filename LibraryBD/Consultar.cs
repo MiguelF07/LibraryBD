@@ -20,6 +20,15 @@ namespace LibraryBD
             //this.Load += Home_Load;
             InitializeComponent();
             HideAll();
+            tipo.Items.Add("Membro");
+            tipo.Items.Add("Funcionario");
+            tipo.Items.Add("Gerente");
+            tipo.Items.Add("Emprestimo");
+            tipo.Items.Add("CD");
+            tipo.Items.Add("Livro");
+            tipo.Items.Add("Revista");
+            tipo.Items.Add("Jornal");
+            tipo.Items.Add("Periferico");
 
 
         }
