@@ -169,7 +169,7 @@ namespace LibraryBD
         private void loadManagData()
         {
             gerente.Show();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.gerente", cn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.gerente JOIN BiblioBD.funcionario ON BiblioBD.gerente.id=BiblioBD.funcionario.id", cn);
 
             SqlDataReader reader = cmd.ExecuteReader();
             elementos.Items.Clear();
@@ -177,6 +177,7 @@ namespace LibraryBD
             {
                 Gerente C = new Gerente();
                 C.Id = reader["id"].ToString();
+                C.Nome = reader["nome"].ToString();
                 C.Inicio = reader["inicio"].ToString();
                 C.Fim = reader["fim"].ToString();
                 elementos.Items.Add(C);
@@ -572,11 +573,7 @@ namespace LibraryBD
 
 
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            loadMembersToolStripMenuItem_Click(
-                sender, e);
-        }
+
 
         private void editar_Click(object sender, EventArgs e)
         {
@@ -585,9 +582,63 @@ namespace LibraryBD
 
         private void guardar_Click(object sender, EventArgs e)
         {
-            LockControls();
+            //botao adicionar nao guardar
+            EmptyAll();
+            UnlockControls();
+            adicionar.Enabled = false;
+
         }
-        public void EmptyAll() {
+        private void guardar_Membro()
+        {
+            String _id = membro_id.Text;//nao sei se é o user a adicionar os ids ou se é automatico com queries sql
+            String _nome = membro_nome.Text;
+            String _morada = membro_morada.Text;
+            String _email = membro_email.Text;
+            String _nif = membro_nif.Text;
+            String _nascimento = membro_nasc.Text;
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.livro", cn);// chamar função de add á database com cenas corretas
+            Debug.WriteLine("Adicionar membro");
+        }
+        private void guardar_Func()
+        {
+            String _id = fun_id.Text;
+            String _nome = fun_nome.Text;
+            String _morada = fun_morada.Text;
+            String _email = fun_email.Text;
+            String _nif = fun_nif.Text;
+            String _nascimento = fun_nasc.Text;
+            String _ssn = fun_ssn.Text;
+            String _inicio = fun_i.Text;
+            String _fim = fun_f.Text;
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.livro", cn);// chamar função de add á database com cenas corretas
+            Debug.WriteLine("Adicionar funcionario");
+        }
+        private void guardar_Ger()
+        {
+            String _id = ger_id.Text;//nao sei se é o user a adicionar os ids ou se é automatico com queries sql
+            String _inicio = ger_inicio.Text;
+            String _fim = ger_fim.Text;
+            try //isto nao parece funcionar tho
+            {
+                String send = "INSERT INTO BiblioBD.gerente VALUES('Biblioteca Municipal'," + _id + "'" + _inicio + "','" + _fim + "');";
+                SqlCommand cmd = new SqlCommand(send, cn);// chamar função de add á database com cenas corretas; 
+                Debug.WriteLine("Adicionar gerente");
+            }
+            catch (Exception ex)
+            {
+                string message = "A sua operação foi cancelada. Verifique os seus parametros.";
+                string caption = "Erro";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result = MessageBox.Show(message, caption, buttons);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    // Closes the parent form.
+                    this.Close();
+                }
+            }
+        }
+        public void EmptyAll()
+        {
             membro_id.Text = "";
             membro_morada.Text = "";
             membro_nome.Text = "";
@@ -733,7 +784,31 @@ namespace LibraryBD
 
         private void guardar_Click_1(object sender, EventArgs e)
         {
-            periferico.Location = new Point(593, 102);
+            adicionar.Enabled = true;
+            switch (currentTipo)
+            {
+                case 0:
+                    guardar_Membro();
+                    break;
+                case 1:
+                    guardar_Func();
+                    break;
+                case 2:
+                    guardar_Ger();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void filme_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cd_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

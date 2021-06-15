@@ -161,7 +161,6 @@ namespace LibraryBD
             this.label67 = new System.Windows.Forms.Label();
             this.label68 = new System.Windows.Forms.Label();
             this.guardar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.funcionario.SuspendLayout();
             this.emprestimo.SuspendLayout();
             this.membro.SuspendLayout();
@@ -244,12 +243,10 @@ namespace LibraryBD
             // 
             // funcionario
             // 
-            this.funcionario.Controls.Add(this.emprestimo);
             this.funcionario.Controls.Add(this.fun_f);
             this.funcionario.Controls.Add(this.fun_i);
             this.funcionario.Controls.Add(this.fun_nif);
             this.funcionario.Controls.Add(this.fun_ssn);
-            this.funcionario.Controls.Add(this.membro);
             this.funcionario.Controls.Add(this.fun_email);
             this.funcionario.Controls.Add(this.fun_morada);
             this.funcionario.Controls.Add(this.fun_nasc);
@@ -284,7 +281,7 @@ namespace LibraryBD
             this.emprestimo.Controls.Add(this.label22);
             this.emprestimo.Controls.Add(this.label23);
             this.emprestimo.Controls.Add(this.label24);
-            this.emprestimo.Location = new System.Drawing.Point(365, 54);
+            this.emprestimo.Location = new System.Drawing.Point(365, 51);
             this.emprestimo.Name = "emprestimo";
             this.emprestimo.Size = new System.Drawing.Size(377, 368);
             this.emprestimo.TabIndex = 20;
@@ -413,7 +410,6 @@ namespace LibraryBD
             // 
             // membro
             // 
-            this.membro.Controls.Add(this.periferico);
             this.membro.Controls.Add(this.membro_nif);
             this.membro.Controls.Add(this.membro_email);
             this.membro.Controls.Add(this.membro_morada);
@@ -427,7 +423,7 @@ namespace LibraryBD
             this.membro.Controls.Add(this.label19);
             this.membro.Controls.Add(this.label20);
             this.membro.Controls.Add(this.label21);
-            this.membro.Location = new System.Drawing.Point(0, 0);
+            this.membro.Location = new System.Drawing.Point(365, 51);
             this.membro.Name = "membro";
             this.membro.Size = new System.Drawing.Size(377, 368);
             this.membro.TabIndex = 19;
@@ -444,7 +440,7 @@ namespace LibraryBD
             this.periferico.Controls.Add(this.per_id);
             this.periferico.Controls.Add(this.label55);
             this.periferico.Controls.Add(this.label56);
-            this.periferico.Location = new System.Drawing.Point(319, 0);
+            this.periferico.Location = new System.Drawing.Point(365, 51);
             this.periferico.Name = "periferico";
             this.periferico.Size = new System.Drawing.Size(377, 368);
             this.periferico.TabIndex = 30;
@@ -896,7 +892,7 @@ namespace LibraryBD
             this.filme.Controls.Add(this.label47);
             this.filme.Controls.Add(this.label48);
             this.filme.Controls.Add(this.label49);
-            this.filme.Location = new System.Drawing.Point(0, 0);
+            this.filme.Location = new System.Drawing.Point(365, 51);
             this.filme.Name = "filme";
             this.filme.Size = new System.Drawing.Size(377, 368);
             this.filme.TabIndex = 29;
@@ -1013,7 +1009,6 @@ namespace LibraryBD
             this.cd.Controls.Add(this.cd_genero);
             this.cd.Controls.Add(this.label50);
             this.cd.Controls.Add(this.label54);
-            this.cd.Controls.Add(this.filme);
             this.cd.Controls.Add(this.cd_artista);
             this.cd.Controls.Add(this.cd_titulo);
             this.cd.Controls.Add(this.label57);
@@ -1379,25 +1374,18 @@ namespace LibraryBD
             this.guardar.UseVisualStyleBackColor = true;
             this.guardar.Click += new System.EventHandler(this.guardar_Click_1);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(731, 16);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 29);
-            this.button2.TabIndex = 32;
-            this.button2.Text = "temporario";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Consultar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 489);
+            this.ClientSize = new System.Drawing.Size(845, 489);
+            this.Controls.Add(this.emprestimo);
+            this.Controls.Add(this.periferico);
             this.Controls.Add(this.cd);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.guardar);
             this.Controls.Add(this.livro);
+            this.Controls.Add(this.membro);
+            this.Controls.Add(this.filme);
             this.Controls.Add(this.revista);
             this.Controls.Add(this.gerente);
             this.Controls.Add(this.funcionario);
@@ -1564,7 +1552,6 @@ namespace LibraryBD
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox emp_idf;
         private System.Windows.Forms.TextBox membro_id;
         private System.Windows.Forms.TextBox fun_nif;
