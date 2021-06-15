@@ -11,12 +11,14 @@ namespace LibraryBD
         private String _genero;
         private String _ano;
         private String _titulo;
+        private String _seccao;
 
         public string Id { get => _id; set => _id = value; }
         public string Artista { get => _artista; set => _artista = value; }
         public string Genero { get => _genero; set => _genero = value; }
         public string Ano { get => _ano; set => _ano = value; }
         public string Titulo { get => _titulo; set => _titulo = value; }
+        public string Seccao { get => _seccao; set => _seccao = value; }
 
         public override String ToString()
         {
