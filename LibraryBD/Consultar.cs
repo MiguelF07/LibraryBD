@@ -82,7 +82,7 @@ namespace LibraryBD
 
             //Fazer switch(?) para sabermos qual queremos apresentar
             Debug.WriteLine("Começar a carregar");
-            
+
         }
 
         private void loadMemberData()
@@ -99,7 +99,7 @@ namespace LibraryBD
                 C.Nome = reader["nome"].ToString();
                 C.Email = reader["email"].ToString();
                 C.Nif = reader["Nif"].ToString();
-                C.Nascimento= reader["nascimento"].ToString();
+                C.Nascimento = reader["nascimento"].ToString();
                 C.Morada = reader["morada"].ToString();
                 elementos.Items.Add(C);
             }
@@ -139,9 +139,9 @@ namespace LibraryBD
                 C.Nif = reader["Nif"].ToString();
                 C.Nascimento = reader["nascimento"].ToString();
                 C.Morada = reader["morada"].ToString();
-                C.Ssn= reader["ssn"].ToString();
-                C.Inicio= reader["inicio"].ToString();
-                C.Fim= reader["fim"].ToString();
+                C.Ssn = reader["ssn"].ToString();
+                C.Inicio = reader["inicio"].ToString();
+                C.Fim = reader["fim"].ToString();
                 elementos.Items.Add(C);
             }
             cn.Close();
@@ -188,7 +188,8 @@ namespace LibraryBD
             ShowManag();
             LockControls();
         }
-        public void ShowManag() {
+        public void ShowManag()
+        {
             if (elementos.Items.Count == 0 | currentEntity < 0)
                 return;
             Gerente f = new Gerente();
@@ -216,13 +217,14 @@ namespace LibraryBD
             }
             cn.Close();
             this.currentEntity = 0;
-            ShowEmpres(); 
+            ShowEmpres();
             LockControls();
             editar.Enabled = false;
             adicionar.Enabled = false;
             eliminar.Enabled = false;
         }
-        public void ShowEmpres() {
+        public void ShowEmpres()
+        {
             if (elementos.Items.Count == 0 | currentEntity < 0)
                 return;
             Emprestimo e = new Emprestimo();
@@ -258,7 +260,7 @@ namespace LibraryBD
             ShowRev(); // a vista é a mesma
             LockControls();
         }
-        
+
         private void loadRevData()
         {
             revista.Show();
@@ -269,22 +271,23 @@ namespace LibraryBD
             while (reader.Read())
             {
                 Revista C = new Revista();
-                C.DataL= reader["dataL"].ToString();
-                C.Edicao= reader["edicao"].ToString();
-                C.Id= reader["id"].ToString();
-                C.Marca= reader["marca"].ToString();
-                C.Seccao= reader["seccao"].ToString();
-                C.Tipo= reader["tipo"].ToString();
+                C.DataL = reader["dataL"].ToString();
+                C.Edicao = reader["edicao"].ToString();
+                C.Id = reader["id"].ToString();
+                C.Marca = reader["marca"].ToString();
+                C.Seccao = reader["seccao"].ToString();
+                C.Tipo = reader["tipo"].ToString();
                 elementos.Items.Add(C);
                 //etc etc etc
                 //...
             }
             cn.Close();
             this.currentEntity = 0;
-            ShowRev(); 
+            ShowRev();
             LockControls();
         }
-        public void ShowRev() {
+        public void ShowRev()
+        {
             if (elementos.Items.Count == 0 | currentEntity < 0)
                 return;
             Revista r = new Revista();
@@ -337,20 +340,38 @@ namespace LibraryBD
 
         private void loadPerData()
         {
+            Debug.WriteLine("Here");
             periferico.Show();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.periferico", cn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.perifericos", cn);
 
             SqlDataReader reader = cmd.ExecuteReader();
             elementos.Items.Clear();
             while (reader.Read())
             {
-                //etc etc etc
-                //...
+                Debug.WriteLine("in while");
+                Perifericos P = new Perifericos();
+                P.Id = reader["id"].ToString();
+                P.Marca = reader["marca"].ToString();
+                P.Modelo = reader["modelo"].ToString();
+                P.Tipo = reader["tipo"].ToString();
+                elementos.Items.Add(P);
             }
             cn.Close();
             this.currentEntity = 0;
-            //ShowPer(); Implementar
+            ShowPer();
             LockControls();
+        }
+
+        public void ShowPer()
+        {
+            if (elementos.Items.Count == 0 | currentEntity < 0)
+                return;
+            Perifericos p = new Perifericos();
+            p = (Perifericos)elementos.Items[currentEntity];
+            per_id.Text = p.Id;
+            per_marca.Text = p.Marca;
+            per_modelo.Text = p.Modelo;
+            per_tipo.Text = p.Tipo;
         }
 
         private void loadCdData()
@@ -437,14 +458,15 @@ namespace LibraryBD
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(!verifySGBDConnection())
+            if (!verifySGBDConnection())
             {
                 Debug.WriteLine("no conn");
                 return;
             };
             HideAll();
             currentTipo = tipo.SelectedIndex;
-            switch (currentTipo) {
+            switch (currentTipo)
+            {
                 case 0:
                     loadMemberData();
                     break;
@@ -504,163 +526,214 @@ namespace LibraryBD
                 case 7:
                     ShowRev();
                     break;
-                /*case 8:
-                    ShowPer();
-                    break;*/
+                    /*case 8:
+                        ShowPer();
+                        break;*/
             }
 
         }
 
         private void button1_Click(object sender, EventArgs e)
-{
+        {
 
-}
+        }
 
-private void label2_Click(object sender, EventArgs e)
-{
+        private void label2_Click(object sender, EventArgs e)
+        {
 
-}
+        }
 
-private void label10_Click(object sender, EventArgs e)
-{
+        private void label10_Click(object sender, EventArgs e)
+        {
 
-}
+        }
 
-private void label13_Click(object sender, EventArgs e)
-{
+        private void label13_Click(object sender, EventArgs e)
+        {
 
-}
+        }
 
-private void label24_Click(object sender, EventArgs e)
-{
+        private void label24_Click(object sender, EventArgs e)
+        {
 
-}
+        }
 
-private void label25_Click(object sender, EventArgs e)
-{
+        private void label25_Click(object sender, EventArgs e)
+        {
 
-}
+        }
 
-private void label28_Click(object sender, EventArgs e)
-{
+        private void label28_Click(object sender, EventArgs e)
+        {
 
-}
-
-
+        }
 
 
 
-private void button2_Click(object sender, EventArgs e)
-{
-loadMembersToolStripMenuItem_Click(
-    sender, e);
-}
-
-private void editar_Click(object sender, EventArgs e)
-{
-UnlockControls();
-}
-
-private void guardar_Click(object sender, EventArgs e)
-{
-LockControls();
-}
-public void LockControls()
-{
-membro_id.ReadOnly = true;
-membro_morada.ReadOnly = true;
-membro_nome.ReadOnly = true;
-membro_nif.ReadOnly = true;
-membro_email.ReadOnly = true;
-membro_nasc.Enabled = false;
-fun_id.ReadOnly = true;
-fun_morada.ReadOnly = true;
-fun_nome.ReadOnly = true;
-fun_email.ReadOnly = true;
-fun_nif.ReadOnly = true;
-fun_nasc.Enabled = false;
-fun_ssn.ReadOnly = true;
-fun_f.Enabled = false;
-fun_i.Enabled = false;
-ger_id.ReadOnly = true;
-ger_fim.Enabled = false;
-ger_inicio.Enabled = false;
-livro_id.ReadOnly = true;
-livro_titulo.ReadOnly = true;
-livro_autor.ReadOnly = true;
-livro_editora.ReadOnly = true;
-livro_ano.ReadOnly = true;
-livro_isbn.ReadOnly = true;
-livro_genero.ReadOnly = true;
-livro_seccao.ReadOnly = true;
-revista_data.Enabled = false;
-revista_edicao.ReadOnly = true;
-revista_id.ReadOnly = true;
-revista_marca.ReadOnly = true;
-revista_seccao.ReadOnly = true;
-revista_tipo.ReadOnly = true;
-filme_id.ReadOnly = true;
-filme_seccao.ReadOnly = true;
-filme_realizador.ReadOnly = true;
-filme_genero.ReadOnly = true;
-filme_ano.ReadOnly = true;
-filme_titulo.ReadOnly = true;
-cd_id.ReadOnly = true;
-cd_artista.ReadOnly = true;
-cd_genero.ReadOnly = true;
-cd_ano.ReadOnly = true;
-cd_titulo.ReadOnly = true;
-cd_seccao.ReadOnly = true;
 
 
-}
+        private void button2_Click(object sender, EventArgs e)
+        {
+            loadMembersToolStripMenuItem_Click(
+                sender, e);
+        }
 
-public void UnlockControls()
-{
-membro_id.ReadOnly = false;
-membro_morada.ReadOnly = false;
-membro_nome.ReadOnly = false;
-membro_nif.ReadOnly = false;
-membro_email.ReadOnly = false;
-membro_nasc.Enabled = true;
-fun_id.ReadOnly = false;
-fun_morada.ReadOnly = false;
-fun_nome.ReadOnly = false;
-fun_email.ReadOnly = false;
-fun_nif.ReadOnly = false;
-fun_nasc.Enabled = true;
-fun_ssn.ReadOnly = false;
-fun_f.Enabled = true;
-fun_i.Enabled = true;
-ger_id.ReadOnly = false;
-ger_fim.Enabled = true;
-ger_inicio.Enabled = true;
-livro_id.ReadOnly = false;
-livro_titulo.ReadOnly = false;
-livro_autor.ReadOnly = false;
-livro_editora.ReadOnly = false;
-livro_ano.ReadOnly = false;
-livro_isbn.ReadOnly = false;
-livro_genero.ReadOnly = false;
-livro_seccao.ReadOnly = false;
-revista_data.Enabled = true;
-revista_edicao.ReadOnly = false;
-revista_id.ReadOnly = false;
-revista_marca.ReadOnly = false;
-revista_seccao.ReadOnly = false;
-revista_tipo.ReadOnly = false;
-filme_id.ReadOnly = false;
-filme_seccao.ReadOnly = false;
-filme_realizador.ReadOnly = false;
-filme_genero.ReadOnly = false;
-filme_ano.ReadOnly = false;
-filme_titulo.ReadOnly = false;
-cd_id.ReadOnly = false;
-cd_artista.ReadOnly = false;
-cd_genero.ReadOnly = false;
-cd_ano.ReadOnly = false;
-cd_titulo.ReadOnly = false;
-cd_seccao.ReadOnly = false;
-}
-}
+        private void editar_Click(object sender, EventArgs e)
+        {
+            UnlockControls();
+        }
+
+        private void guardar_Click(object sender, EventArgs e)
+        {
+            LockControls();
+        }
+        public void EmptyAll() {
+            membro_id.Text = "";
+            membro_morada.Text = "";
+            membro_nome.Text = "";
+            membro_nif.Text = "";
+            membro_email.Text = "";
+            membro_nasc.Text = "";
+            fun_id.Text = "";
+            fun_morada.Text = "";
+            fun_nome.Text = "";
+            fun_email.Text = "";
+            fun_nif.Text = "";
+            fun_nasc.Text = "";
+            fun_ssn.Text = "";
+            fun_f.Text = "";
+            fun_i.Text = "";
+            ger_id.Text = "";
+            ger_fim.Text = "";
+            ger_inicio.Text = "";
+            livro_id.Text = "";
+            livro_titulo.Text = "";
+            livro_autor.Text = "";
+            livro_editora.Text = "";
+            livro_ano.Text = "";
+            livro_isbn.Text = "";
+            livro_genero.Text = "";
+            livro_seccao.Text = "";
+            revista_data.Text = "";
+            revista_edicao.Text = "";
+            revista_id.Text = "";
+            revista_marca.Text = "";
+            revista_seccao.Text = "";
+            revista_tipo.Text = "";
+            filme_id.Text = "";
+            filme_seccao.Text = "";
+            filme_realizador.Text = "";
+            filme_genero.Text = "";
+            filme_ano.Text = "";
+            filme_titulo.Text = "";
+            cd_id.Text = "";
+            cd_artista.Text = "";
+            cd_genero.Text = "";
+            cd_ano.Text = "";
+            cd_titulo.Text = "";
+            cd_seccao.Text = "";
+        }
+        public void LockControls()
+        {
+            membro_id.ReadOnly = true;
+            membro_morada.ReadOnly = true;
+            membro_nome.ReadOnly = true;
+            membro_nif.ReadOnly = true;
+            membro_email.ReadOnly = true;
+            membro_nasc.Enabled = false;
+            fun_id.ReadOnly = true;
+            fun_morada.ReadOnly = true;
+            fun_nome.ReadOnly = true;
+            fun_email.ReadOnly = true;
+            fun_nif.ReadOnly = true;
+            fun_nasc.Enabled = false;
+            fun_ssn.ReadOnly = true;
+            fun_f.Enabled = false;
+            fun_i.Enabled = false;
+            ger_id.ReadOnly = true;
+            ger_fim.Enabled = false;
+            ger_inicio.Enabled = false;
+            livro_id.ReadOnly = true;
+            livro_titulo.ReadOnly = true;
+            livro_autor.ReadOnly = true;
+            livro_editora.ReadOnly = true;
+            livro_ano.ReadOnly = true;
+            livro_isbn.ReadOnly = true;
+            livro_genero.ReadOnly = true;
+            livro_seccao.ReadOnly = true;
+            revista_data.Enabled = false;
+            revista_edicao.ReadOnly = true;
+            revista_id.ReadOnly = true;
+            revista_marca.ReadOnly = true;
+            revista_seccao.ReadOnly = true;
+            revista_tipo.ReadOnly = true;
+            filme_id.ReadOnly = true;
+            filme_seccao.ReadOnly = true;
+            filme_realizador.ReadOnly = true;
+            filme_genero.ReadOnly = true;
+            filme_ano.ReadOnly = true;
+            filme_titulo.ReadOnly = true;
+            cd_id.ReadOnly = true;
+            cd_artista.ReadOnly = true;
+            cd_genero.ReadOnly = true;
+            cd_ano.ReadOnly = true;
+            cd_titulo.ReadOnly = true;
+            cd_seccao.ReadOnly = true;
+
+
+        }
+
+        public void UnlockControls()
+        {
+            membro_id.ReadOnly = false;
+            membro_morada.ReadOnly = false;
+            membro_nome.ReadOnly = false;
+            membro_nif.ReadOnly = false;
+            membro_email.ReadOnly = false;
+            membro_nasc.Enabled = true;
+            fun_id.ReadOnly = false;
+            fun_morada.ReadOnly = false;
+            fun_nome.ReadOnly = false;
+            fun_email.ReadOnly = false;
+            fun_nif.ReadOnly = false;
+            fun_nasc.Enabled = true;
+            fun_ssn.ReadOnly = false;
+            fun_f.Enabled = true;
+            fun_i.Enabled = true;
+            ger_id.ReadOnly = false;
+            ger_fim.Enabled = true;
+            ger_inicio.Enabled = true;
+            livro_id.ReadOnly = false;
+            livro_titulo.ReadOnly = false;
+            livro_autor.ReadOnly = false;
+            livro_editora.ReadOnly = false;
+            livro_ano.ReadOnly = false;
+            livro_isbn.ReadOnly = false;
+            livro_genero.ReadOnly = false;
+            livro_seccao.ReadOnly = false;
+            revista_data.Enabled = true;
+            revista_edicao.ReadOnly = false;
+            revista_id.ReadOnly = false;
+            revista_marca.ReadOnly = false;
+            revista_seccao.ReadOnly = false;
+            revista_tipo.ReadOnly = false;
+            filme_id.ReadOnly = false;
+            filme_seccao.ReadOnly = false;
+            filme_realizador.ReadOnly = false;
+            filme_genero.ReadOnly = false;
+            filme_ano.ReadOnly = false;
+            filme_titulo.ReadOnly = false;
+            cd_id.ReadOnly = false;
+            cd_artista.ReadOnly = false;
+            cd_genero.ReadOnly = false;
+            cd_ano.ReadOnly = false;
+            cd_titulo.ReadOnly = false;
+            cd_seccao.ReadOnly = false;
+        }
+
+        private void guardar_Click_1(object sender, EventArgs e)
+        {
+            periferico.Location = new Point(593, 102);
+        }
+    }
 }

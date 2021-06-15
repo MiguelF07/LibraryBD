@@ -1377,6 +1377,7 @@ namespace LibraryBD
             this.guardar.TabIndex = 31;
             this.guardar.Text = "Guardar";
             this.guardar.UseVisualStyleBackColor = true;
+            this.guardar.Click += new System.EventHandler(this.guardar_Click_1);
             // 
             // button2
             // 
@@ -1392,7 +1393,7 @@ namespace LibraryBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 489);
+            this.ClientSize = new System.Drawing.Size(836, 489);
             this.Controls.Add(this.cd);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.guardar);
