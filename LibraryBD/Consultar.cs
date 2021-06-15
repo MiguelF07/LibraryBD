@@ -14,6 +14,7 @@ namespace LibraryBD
     {
         private SqlConnection cn;
         private int currentEntity;
+        private int currentTipo;
         public Consultar()
         {
             Debug.WriteLine("Init");
@@ -45,20 +46,20 @@ namespace LibraryBD
             cd.Hide();
             livro.Hide();
         }
-        private void Consultar_Load(Object sender, EventArgs e)
+        /*private void Consultar_Load(Object sender, EventArgs e)
         {
             Debug.WriteLine("load entered");
             cn = getSGBDConnection();
             Debug.WriteLine("Conexão efetuada");
             loadMembersToolStripMenuItem_Click(sender, e);
-        }
+        }*/
         private SqlConnection getSGBDConnection()
         {
             //Andreia
             Debug.WriteLine("Tentar conectar");
-            //return new SqlConnection("data source= LAPTOP-1MGUSQ2L;integrated security=true;initial catalog=Projeto");
+            return new SqlConnection("data source= LAPTOP-1MGUSQ2L;integrated security=true;initial catalog=Projeto");
             //Miguel
-            return new SqlConnection("data source= DESKTOP-3E08FOH\\SQLEXPRESS;integrated security=true;initial catalog=Projeto2");
+            //return new SqlConnection("data source= DESKTOP-3E08FOH\\SQLEXPRESS;integrated security=true;initial catalog=Projeto2");
         }
         private bool verifySGBDConnection()
         {
@@ -81,37 +82,7 @@ namespace LibraryBD
 
             //Fazer switch(?) para sabermos qual queremos apresentar
             Debug.WriteLine("Começar a carregar");
-            loadCdData();
-            //loadJornData();
             
-            /*loadMemberData();
-            loadFuncData();
-            loadManagData();
-            loadEmpresData();
-           
-            loadRevData();
-            loadFilmData();
-            loadPerData();
-            loadCdData();
-            loadLivroData();*/
-            
-            //    membro.Show();
-            //    SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.membro", cn);
-
-            //    SqlDataReader reader = cmd.ExecuteReader();
-            //    elementos.Items.Clear();
-
-            //    while (reader.Read())
-            //    {
-            //        Membro C = new Membro();
-            //        C.Id = reader["id"].ToString();
-            //        C.Morada = reader["morada"].ToString();
-            //        elementos.Items.Add(C);
-            //    }
-
-            //    cn.Close();
-            //    currentEntity = 0;
-            //    ShowMembro();
         }
 
         private void loadMemberData()
@@ -466,163 +437,230 @@ namespace LibraryBD
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
+            HideAll();
+            currentTipo = tipo.SelectedIndex;
+            switch (currentTipo) {
+                case 0:
+                    loadMemberData();
+                    break;
+                case 1:
+                    loadFuncData();
+                    break;
+                case 2:
+                    loadManagData();
+                    break;
+                case 3:
+                    loadEmpresData();
+                    break;
+                case 4:
+                    loadCdData();
+                    break;
+                case 5:
+                    loadLivroData();
+                    break;
+                case 6:
+                    loadRevData();
+                    break;
+                case 7:
+                    loadJornData();
+                    break;
+                case 8:
+                    loadPerData();
+                    break;
+            }
+        }
+        private void elementos_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            currentEntity = elementos.SelectedIndex;
+            Debug.WriteLine(currentTipo);
+            switch (currentTipo)
+            {
+                case 0:
+                    ShowMembro();
+                    break;
+                case 1:
+                    ShowFunc();
+                    break;
+                case 2:
+                    ShowManag();
+                    break;
+                case 3:
+                    ShowEmpres();
+                    break;
+                case 4:
+                    ShowCd();
+                    break;
+                case 5:
+                    ShowLivro();
+                    break;
+                case 6:
+                    ShowRev();
+                    break;
+                case 7:
+                    ShowRev();
+                    break;
+                /*case 8:
+                    ShowPer();
+                    break;*/
+            }
 
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+{
 
-        }
+}
 
-        private void label2_Click(object sender, EventArgs e)
-        {
+private void label2_Click(object sender, EventArgs e)
+{
 
-        }
+}
 
-        private void label10_Click(object sender, EventArgs e)
-        {
+private void label10_Click(object sender, EventArgs e)
+{
 
-        }
+}
 
-        private void label13_Click(object sender, EventArgs e)
-        {
+private void label13_Click(object sender, EventArgs e)
+{
 
-        }
+}
 
-        private void label24_Click(object sender, EventArgs e)
-        {
+private void label24_Click(object sender, EventArgs e)
+{
 
-        }
+}
 
-        private void label25_Click(object sender, EventArgs e)
-        {
+private void label25_Click(object sender, EventArgs e)
+{
 
-        }
+}
 
-        private void label28_Click(object sender, EventArgs e)
-        {
+private void label28_Click(object sender, EventArgs e)
+{
 
-        }
-
-
-
-        private void elementos_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            currentEntity = elementos.SelectedIndex;
-            ShowCd();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            loadMembersToolStripMenuItem_Click(
-                sender, e);
-        }
-
-        private void editar_Click(object sender, EventArgs e)
-        {
-            UnlockControls();
-        }
-
-        private void guardar_Click(object sender, EventArgs e)
-        {
-            LockControls();
-        }
-        public void LockControls()
-        {
-            membro_id.ReadOnly = true;
-            membro_morada.ReadOnly = true;
-            membro_nome.ReadOnly = true;
-            membro_nif.ReadOnly = true;
-            membro_email.ReadOnly = true;
-            membro_nasc.Enabled = false;
-            fun_id.ReadOnly = true;
-            fun_morada.ReadOnly = true;
-            fun_nome.ReadOnly = true;
-            fun_email.ReadOnly = true;
-            fun_nif.ReadOnly = true;
-            fun_nasc.Enabled = false;
-            fun_ssn.ReadOnly = true;
-            fun_f.Enabled = false;
-            fun_i.Enabled = false;
-            ger_id.ReadOnly = true;
-            ger_fim.Enabled = false;
-            ger_inicio.Enabled = false;
-            livro_id.ReadOnly = true;
-            livro_titulo.ReadOnly = true;
-            livro_autor.ReadOnly = true;
-            livro_editora.ReadOnly = true;
-            livro_ano.ReadOnly = true;
-            livro_isbn.ReadOnly = true;
-            livro_genero.ReadOnly = true;
-            livro_seccao.ReadOnly = true;
-            revista_data.Enabled = false;
-            revista_edicao.ReadOnly = true;
-            revista_id.ReadOnly = true;
-            revista_marca.ReadOnly = true;
-            revista_seccao.ReadOnly = true;
-            revista_tipo.ReadOnly = true;
-            filme_id.ReadOnly = true;
-            filme_seccao.ReadOnly = true;
-            filme_realizador.ReadOnly = true;
-            filme_genero.ReadOnly = true;
-            filme_ano.ReadOnly = true;
-            filme_titulo.ReadOnly = true;
-            cd_id.ReadOnly = true;
-            cd_artista.ReadOnly = true;
-            cd_genero.ReadOnly = true;
-            cd_ano.ReadOnly = true;
-            cd_titulo.ReadOnly = true;
-            cd_seccao.ReadOnly = true;
+}
 
 
-        }
 
-        public void UnlockControls()
-        {
-            membro_id.ReadOnly = false;
-            membro_morada.ReadOnly = false;
-            membro_nome.ReadOnly = false;
-            membro_nif.ReadOnly = false;
-            membro_email.ReadOnly = false;
-            membro_nasc.Enabled = true;
-            fun_id.ReadOnly = false;
-            fun_morada.ReadOnly = false;
-            fun_nome.ReadOnly = false;
-            fun_email.ReadOnly = false;
-            fun_nif.ReadOnly = false;
-            fun_nasc.Enabled = true;
-            fun_ssn.ReadOnly = false;
-            fun_f.Enabled = true;
-            fun_i.Enabled = true;
-            ger_id.ReadOnly = false;
-            ger_fim.Enabled = true;
-            ger_inicio.Enabled = true;
-            livro_id.ReadOnly = false;
-            livro_titulo.ReadOnly = false;
-            livro_autor.ReadOnly = false;
-            livro_editora.ReadOnly = false;
-            livro_ano.ReadOnly = false;
-            livro_isbn.ReadOnly = false;
-            livro_genero.ReadOnly = false;
-            livro_seccao.ReadOnly = false;
-            revista_data.Enabled = true;
-            revista_edicao.ReadOnly = false;
-            revista_id.ReadOnly = false;
-            revista_marca.ReadOnly = false;
-            revista_seccao.ReadOnly = false;
-            revista_tipo.ReadOnly = false;
-            filme_id.ReadOnly = false;
-            filme_seccao.ReadOnly = false;
-            filme_realizador.ReadOnly = false;
-            filme_genero.ReadOnly = false;
-            filme_ano.ReadOnly = false;
-            filme_titulo.ReadOnly = false;
-            cd_id.ReadOnly = false;
-            cd_artista.ReadOnly = false;
-            cd_genero.ReadOnly = false;
-            cd_ano.ReadOnly = false;
-            cd_titulo.ReadOnly = false;
-            cd_seccao.ReadOnly = false;
-        }
-    }
+
+
+private void button2_Click(object sender, EventArgs e)
+{
+loadMembersToolStripMenuItem_Click(
+    sender, e);
+}
+
+private void editar_Click(object sender, EventArgs e)
+{
+UnlockControls();
+}
+
+private void guardar_Click(object sender, EventArgs e)
+{
+LockControls();
+}
+public void LockControls()
+{
+membro_id.ReadOnly = true;
+membro_morada.ReadOnly = true;
+membro_nome.ReadOnly = true;
+membro_nif.ReadOnly = true;
+membro_email.ReadOnly = true;
+membro_nasc.Enabled = false;
+fun_id.ReadOnly = true;
+fun_morada.ReadOnly = true;
+fun_nome.ReadOnly = true;
+fun_email.ReadOnly = true;
+fun_nif.ReadOnly = true;
+fun_nasc.Enabled = false;
+fun_ssn.ReadOnly = true;
+fun_f.Enabled = false;
+fun_i.Enabled = false;
+ger_id.ReadOnly = true;
+ger_fim.Enabled = false;
+ger_inicio.Enabled = false;
+livro_id.ReadOnly = true;
+livro_titulo.ReadOnly = true;
+livro_autor.ReadOnly = true;
+livro_editora.ReadOnly = true;
+livro_ano.ReadOnly = true;
+livro_isbn.ReadOnly = true;
+livro_genero.ReadOnly = true;
+livro_seccao.ReadOnly = true;
+revista_data.Enabled = false;
+revista_edicao.ReadOnly = true;
+revista_id.ReadOnly = true;
+revista_marca.ReadOnly = true;
+revista_seccao.ReadOnly = true;
+revista_tipo.ReadOnly = true;
+filme_id.ReadOnly = true;
+filme_seccao.ReadOnly = true;
+filme_realizador.ReadOnly = true;
+filme_genero.ReadOnly = true;
+filme_ano.ReadOnly = true;
+filme_titulo.ReadOnly = true;
+cd_id.ReadOnly = true;
+cd_artista.ReadOnly = true;
+cd_genero.ReadOnly = true;
+cd_ano.ReadOnly = true;
+cd_titulo.ReadOnly = true;
+cd_seccao.ReadOnly = true;
+
+
+}
+
+public void UnlockControls()
+{
+membro_id.ReadOnly = false;
+membro_morada.ReadOnly = false;
+membro_nome.ReadOnly = false;
+membro_nif.ReadOnly = false;
+membro_email.ReadOnly = false;
+membro_nasc.Enabled = true;
+fun_id.ReadOnly = false;
+fun_morada.ReadOnly = false;
+fun_nome.ReadOnly = false;
+fun_email.ReadOnly = false;
+fun_nif.ReadOnly = false;
+fun_nasc.Enabled = true;
+fun_ssn.ReadOnly = false;
+fun_f.Enabled = true;
+fun_i.Enabled = true;
+ger_id.ReadOnly = false;
+ger_fim.Enabled = true;
+ger_inicio.Enabled = true;
+livro_id.ReadOnly = false;
+livro_titulo.ReadOnly = false;
+livro_autor.ReadOnly = false;
+livro_editora.ReadOnly = false;
+livro_ano.ReadOnly = false;
+livro_isbn.ReadOnly = false;
+livro_genero.ReadOnly = false;
+livro_seccao.ReadOnly = false;
+revista_data.Enabled = true;
+revista_edicao.ReadOnly = false;
+revista_id.ReadOnly = false;
+revista_marca.ReadOnly = false;
+revista_seccao.ReadOnly = false;
+revista_tipo.ReadOnly = false;
+filme_id.ReadOnly = false;
+filme_seccao.ReadOnly = false;
+filme_realizador.ReadOnly = false;
+filme_genero.ReadOnly = false;
+filme_ano.ReadOnly = false;
+filme_titulo.ReadOnly = false;
+cd_id.ReadOnly = false;
+cd_artista.ReadOnly = false;
+cd_genero.ReadOnly = false;
+cd_ano.ReadOnly = false;
+cd_titulo.ReadOnly = false;
+cd_seccao.ReadOnly = false;
+}
+}
 }
