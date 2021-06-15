@@ -650,5 +650,10 @@ namespace LibraryBD
             per_modelo.ReadOnly = false;
             per_tipo.ReadOnly = false;
         }
+
+        private void cd_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

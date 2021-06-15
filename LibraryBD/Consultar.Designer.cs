@@ -178,7 +178,7 @@ namespace LibraryBD
             this.tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.tipo.FormattingEnabled = true;
             this.tipo.Location = new System.Drawing.Point(593, 27);
-            this.tipo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tipo.Margin = new System.Windows.Forms.Padding(5);
             this.tipo.Name = "tipo";
             this.tipo.Size = new System.Drawing.Size(574, 40);
             this.tipo.TabIndex = 0;
@@ -200,7 +200,7 @@ namespace LibraryBD
             this.elementos.FormattingEnabled = true;
             this.elementos.ItemHeight = 32;
             this.elementos.Location = new System.Drawing.Point(39, 102);
-            this.elementos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.elementos.Margin = new System.Windows.Forms.Padding(5);
             this.elementos.Name = "elementos";
             this.elementos.Size = new System.Drawing.Size(457, 644);
             this.elementos.TabIndex = 2;
@@ -209,7 +209,7 @@ namespace LibraryBD
             // editar
             // 
             this.editar.Location = new System.Drawing.Point(517, 704);
-            this.editar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.editar.Margin = new System.Windows.Forms.Padding(5);
             this.editar.Name = "editar";
             this.editar.Size = new System.Drawing.Size(153, 46);
             this.editar.TabIndex = 3;
@@ -220,7 +220,7 @@ namespace LibraryBD
             // adicionar
             // 
             this.adicionar.Location = new System.Drawing.Point(842, 704);
-            this.adicionar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.adicionar.Margin = new System.Windows.Forms.Padding(5);
             this.adicionar.Name = "adicionar";
             this.adicionar.Size = new System.Drawing.Size(153, 46);
             this.adicionar.TabIndex = 4;
@@ -231,7 +231,7 @@ namespace LibraryBD
             // eliminar
             // 
             this.eliminar.Location = new System.Drawing.Point(1004, 704);
-            this.eliminar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.eliminar.Margin = new System.Windows.Forms.Padding(5);
             this.eliminar.Name = "eliminar";
             this.eliminar.Size = new System.Drawing.Size(153, 46);
             this.eliminar.TabIndex = 5;
@@ -241,7 +241,7 @@ namespace LibraryBD
             // procurar
             // 
             this.procurar.Location = new System.Drawing.Point(1167, 704);
-            this.procurar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.procurar.Margin = new System.Windows.Forms.Padding(5);
             this.procurar.Name = "procurar";
             this.procurar.Size = new System.Drawing.Size(153, 46);
             this.procurar.TabIndex = 6;
@@ -251,12 +251,12 @@ namespace LibraryBD
             // 
             // funcionario
             // 
+            this.funcionario.Controls.Add(this.cd);
             this.funcionario.Controls.Add(this.emprestimo);
             this.funcionario.Controls.Add(this.fun_f);
             this.funcionario.Controls.Add(this.fun_i);
             this.funcionario.Controls.Add(this.fun_nif);
             this.funcionario.Controls.Add(this.fun_ssn);
-            this.funcionario.Controls.Add(this.membro);
             this.funcionario.Controls.Add(this.fun_email);
             this.funcionario.Controls.Add(this.fun_morada);
             this.funcionario.Controls.Add(this.fun_nasc);
@@ -272,10 +272,10 @@ namespace LibraryBD
             this.funcionario.Controls.Add(this.label4);
             this.funcionario.Controls.Add(this.label3);
             this.funcionario.Controls.Add(this.label2);
-            this.funcionario.Location = new System.Drawing.Point(593, 82);
-            this.funcionario.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.funcionario.Location = new System.Drawing.Point(593, 102);
+            this.funcionario.Margin = new System.Windows.Forms.Padding(5);
             this.funcionario.Name = "funcionario";
-            this.funcionario.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.funcionario.Padding = new System.Windows.Forms.Padding(5);
             this.funcionario.Size = new System.Drawing.Size(613, 589);
             this.funcionario.TabIndex = 7;
             this.funcionario.TabStop = false;
@@ -294,9 +294,9 @@ namespace LibraryBD
             this.emprestimo.Controls.Add(this.label23);
             this.emprestimo.Controls.Add(this.label24);
             this.emprestimo.Location = new System.Drawing.Point(593, 86);
-            this.emprestimo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.emprestimo.Margin = new System.Windows.Forms.Padding(5);
             this.emprestimo.Name = "emprestimo";
-            this.emprestimo.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.emprestimo.Padding = new System.Windows.Forms.Padding(5);
             this.emprestimo.Size = new System.Drawing.Size(613, 589);
             this.emprestimo.TabIndex = 20;
             this.emprestimo.TabStop = false;
@@ -304,7 +304,7 @@ namespace LibraryBD
             // emp_idmem
             // 
             this.emp_idmem.Location = new System.Drawing.Point(119, 160);
-            this.emp_idmem.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.emp_idmem.Margin = new System.Windows.Forms.Padding(5);
             this.emp_idmem.Name = "emp_idmem";
             this.emp_idmem.Size = new System.Drawing.Size(475, 39);
             this.emp_idmem.TabIndex = 23;
@@ -323,7 +323,7 @@ namespace LibraryBD
             // emp_idf
             // 
             this.emp_idf.Location = new System.Drawing.Point(119, 96);
-            this.emp_idf.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.emp_idf.Margin = new System.Windows.Forms.Padding(5);
             this.emp_idf.Name = "emp_idf";
             this.emp_idf.Size = new System.Drawing.Size(475, 39);
             this.emp_idf.TabIndex = 21;
@@ -352,7 +352,7 @@ namespace LibraryBD
             // emp_limite
             // 
             this.emp_limite.Location = new System.Drawing.Point(146, 288);
-            this.emp_limite.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.emp_limite.Margin = new System.Windows.Forms.Padding(5);
             this.emp_limite.Name = "emp_limite";
             this.emp_limite.Size = new System.Drawing.Size(449, 39);
             this.emp_limite.TabIndex = 18;
@@ -360,7 +360,7 @@ namespace LibraryBD
             // emp_dataemp
             // 
             this.emp_dataemp.Location = new System.Drawing.Point(146, 224);
-            this.emp_dataemp.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.emp_dataemp.Margin = new System.Windows.Forms.Padding(5);
             this.emp_dataemp.Name = "emp_dataemp";
             this.emp_dataemp.Size = new System.Drawing.Size(449, 39);
             this.emp_dataemp.TabIndex = 17;
@@ -368,7 +368,7 @@ namespace LibraryBD
             // emp_num
             // 
             this.emp_num.Location = new System.Drawing.Point(94, 32);
-            this.emp_num.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.emp_num.Margin = new System.Windows.Forms.Padding(5);
             this.emp_num.Name = "emp_num";
             this.emp_num.Size = new System.Drawing.Size(500, 39);
             this.emp_num.TabIndex = 10;
@@ -407,7 +407,7 @@ namespace LibraryBD
             // fun_f
             // 
             this.fun_f.Location = new System.Drawing.Point(106, 518);
-            this.fun_f.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.fun_f.Margin = new System.Windows.Forms.Padding(5);
             this.fun_f.Name = "fun_f";
             this.fun_f.Size = new System.Drawing.Size(490, 39);
             this.fun_f.TabIndex = 18;
@@ -415,7 +415,7 @@ namespace LibraryBD
             // fun_i
             // 
             this.fun_i.Location = new System.Drawing.Point(106, 456);
-            this.fun_i.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.fun_i.Margin = new System.Windows.Forms.Padding(5);
             this.fun_i.Name = "fun_i";
             this.fun_i.Size = new System.Drawing.Size(490, 39);
             this.fun_i.TabIndex = 18;
@@ -424,7 +424,7 @@ namespace LibraryBD
             // fun_nif
             // 
             this.fun_nif.Location = new System.Drawing.Point(106, 397);
-            this.fun_nif.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.fun_nif.Margin = new System.Windows.Forms.Padding(5);
             this.fun_nif.Name = "fun_nif";
             this.fun_nif.Size = new System.Drawing.Size(490, 39);
             this.fun_nif.TabIndex = 16;
@@ -432,7 +432,7 @@ namespace LibraryBD
             // fun_ssn
             // 
             this.fun_ssn.Location = new System.Drawing.Point(106, 338);
-            this.fun_ssn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.fun_ssn.Margin = new System.Windows.Forms.Padding(5);
             this.fun_ssn.Name = "fun_ssn";
             this.fun_ssn.Size = new System.Drawing.Size(490, 39);
             this.fun_ssn.TabIndex = 15;
@@ -453,10 +453,10 @@ namespace LibraryBD
             this.membro.Controls.Add(this.label19);
             this.membro.Controls.Add(this.label20);
             this.membro.Controls.Add(this.label21);
-            this.membro.Location = new System.Drawing.Point(0, 0);
-            this.membro.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.membro.Location = new System.Drawing.Point(577, 114);
+            this.membro.Margin = new System.Windows.Forms.Padding(5);
             this.membro.Name = "membro";
-            this.membro.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.membro.Padding = new System.Windows.Forms.Padding(5);
             this.membro.Size = new System.Drawing.Size(613, 589);
             this.membro.TabIndex = 19;
             this.membro.TabStop = false;
@@ -473,9 +473,9 @@ namespace LibraryBD
             this.periferico.Controls.Add(this.label55);
             this.periferico.Controls.Add(this.label56);
             this.periferico.Location = new System.Drawing.Point(518, 0);
-            this.periferico.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.periferico.Margin = new System.Windows.Forms.Padding(5);
             this.periferico.Name = "periferico";
-            this.periferico.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.periferico.Padding = new System.Windows.Forms.Padding(5);
             this.periferico.Size = new System.Drawing.Size(613, 589);
             this.periferico.TabIndex = 30;
             this.periferico.TabStop = false;
@@ -493,7 +493,7 @@ namespace LibraryBD
             // per_tipo
             // 
             this.per_tipo.Location = new System.Drawing.Point(119, 224);
-            this.per_tipo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.per_tipo.Margin = new System.Windows.Forms.Padding(5);
             this.per_tipo.Name = "per_tipo";
             this.per_tipo.Size = new System.Drawing.Size(477, 39);
             this.per_tipo.TabIndex = 24;
@@ -501,7 +501,7 @@ namespace LibraryBD
             // per_modelo
             // 
             this.per_modelo.Location = new System.Drawing.Point(119, 160);
-            this.per_modelo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.per_modelo.Margin = new System.Windows.Forms.Padding(5);
             this.per_modelo.Name = "per_modelo";
             this.per_modelo.Size = new System.Drawing.Size(475, 39);
             this.per_modelo.TabIndex = 23;
@@ -519,7 +519,7 @@ namespace LibraryBD
             // per_marca
             // 
             this.per_marca.Location = new System.Drawing.Point(119, 96);
-            this.per_marca.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.per_marca.Margin = new System.Windows.Forms.Padding(5);
             this.per_marca.Name = "per_marca";
             this.per_marca.Size = new System.Drawing.Size(475, 39);
             this.per_marca.TabIndex = 21;
@@ -537,7 +537,7 @@ namespace LibraryBD
             // per_id
             // 
             this.per_id.Location = new System.Drawing.Point(119, 32);
-            this.per_id.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.per_id.Margin = new System.Windows.Forms.Padding(5);
             this.per_id.Name = "per_id";
             this.per_id.Size = new System.Drawing.Size(475, 39);
             this.per_id.TabIndex = 10;
@@ -565,7 +565,7 @@ namespace LibraryBD
             // membro_nif
             // 
             this.membro_nif.Location = new System.Drawing.Point(106, 338);
-            this.membro_nif.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.membro_nif.Margin = new System.Windows.Forms.Padding(5);
             this.membro_nif.Name = "membro_nif";
             this.membro_nif.Size = new System.Drawing.Size(490, 39);
             this.membro_nif.TabIndex = 16;
@@ -573,7 +573,7 @@ namespace LibraryBD
             // membro_email
             // 
             this.membro_email.Location = new System.Drawing.Point(106, 275);
-            this.membro_email.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.membro_email.Margin = new System.Windows.Forms.Padding(5);
             this.membro_email.Name = "membro_email";
             this.membro_email.Size = new System.Drawing.Size(490, 39);
             this.membro_email.TabIndex = 14;
@@ -581,7 +581,7 @@ namespace LibraryBD
             // membro_morada
             // 
             this.membro_morada.Location = new System.Drawing.Point(135, 213);
-            this.membro_morada.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.membro_morada.Margin = new System.Windows.Forms.Padding(5);
             this.membro_morada.Name = "membro_morada";
             this.membro_morada.Size = new System.Drawing.Size(461, 39);
             this.membro_morada.TabIndex = 13;
@@ -589,7 +589,7 @@ namespace LibraryBD
             // membro_nasc
             // 
             this.membro_nasc.Location = new System.Drawing.Point(179, 154);
-            this.membro_nasc.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.membro_nasc.Margin = new System.Windows.Forms.Padding(5);
             this.membro_nasc.Name = "membro_nasc";
             this.membro_nasc.Size = new System.Drawing.Size(417, 39);
             this.membro_nasc.TabIndex = 12;
@@ -597,7 +597,7 @@ namespace LibraryBD
             // membro_nome
             // 
             this.membro_nome.Location = new System.Drawing.Point(117, 94);
-            this.membro_nome.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.membro_nome.Margin = new System.Windows.Forms.Padding(5);
             this.membro_nome.Name = "membro_nome";
             this.membro_nome.Size = new System.Drawing.Size(480, 39);
             this.membro_nome.TabIndex = 11;
@@ -605,7 +605,7 @@ namespace LibraryBD
             // membro_id
             // 
             this.membro_id.Location = new System.Drawing.Point(75, 32);
-            this.membro_id.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.membro_id.Margin = new System.Windows.Forms.Padding(5);
             this.membro_id.Name = "membro_id";
             this.membro_id.Size = new System.Drawing.Size(521, 39);
             this.membro_id.TabIndex = 10;
@@ -683,7 +683,7 @@ namespace LibraryBD
             // fun_email
             // 
             this.fun_email.Location = new System.Drawing.Point(106, 275);
-            this.fun_email.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.fun_email.Margin = new System.Windows.Forms.Padding(5);
             this.fun_email.Name = "fun_email";
             this.fun_email.Size = new System.Drawing.Size(490, 39);
             this.fun_email.TabIndex = 14;
@@ -691,7 +691,7 @@ namespace LibraryBD
             // fun_morada
             // 
             this.fun_morada.Location = new System.Drawing.Point(135, 213);
-            this.fun_morada.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.fun_morada.Margin = new System.Windows.Forms.Padding(5);
             this.fun_morada.Name = "fun_morada";
             this.fun_morada.Size = new System.Drawing.Size(461, 39);
             this.fun_morada.TabIndex = 13;
@@ -699,7 +699,7 @@ namespace LibraryBD
             // fun_nasc
             // 
             this.fun_nasc.Location = new System.Drawing.Point(179, 154);
-            this.fun_nasc.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.fun_nasc.Margin = new System.Windows.Forms.Padding(5);
             this.fun_nasc.Name = "fun_nasc";
             this.fun_nasc.Size = new System.Drawing.Size(417, 39);
             this.fun_nasc.TabIndex = 12;
@@ -707,7 +707,7 @@ namespace LibraryBD
             // fun_nome
             // 
             this.fun_nome.Location = new System.Drawing.Point(117, 94);
-            this.fun_nome.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.fun_nome.Margin = new System.Windows.Forms.Padding(5);
             this.fun_nome.Name = "fun_nome";
             this.fun_nome.Size = new System.Drawing.Size(480, 39);
             this.fun_nome.TabIndex = 11;
@@ -715,7 +715,7 @@ namespace LibraryBD
             // fun_id
             // 
             this.fun_id.Location = new System.Drawing.Point(75, 32);
-            this.fun_id.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.fun_id.Margin = new System.Windows.Forms.Padding(5);
             this.fun_id.Name = "fun_id";
             this.fun_id.Size = new System.Drawing.Size(521, 39);
             this.fun_id.TabIndex = 10;
@@ -837,10 +837,10 @@ namespace LibraryBD
             this.revista.Controls.Add(this.label40);
             this.revista.Controls.Add(this.label41);
             this.revista.Controls.Add(this.label42);
-            this.revista.Location = new System.Drawing.Point(593, 82);
-            this.revista.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.revista.Location = new System.Drawing.Point(584, 114);
+            this.revista.Margin = new System.Windows.Forms.Padding(5);
             this.revista.Name = "revista";
-            this.revista.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.revista.Padding = new System.Windows.Forms.Padding(5);
             this.revista.Size = new System.Drawing.Size(613, 589);
             this.revista.TabIndex = 28;
             this.revista.TabStop = false;
@@ -848,7 +848,7 @@ namespace LibraryBD
             // revista_edicao
             // 
             this.revista_edicao.Location = new System.Drawing.Point(120, 352);
-            this.revista_edicao.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.revista_edicao.Margin = new System.Windows.Forms.Padding(5);
             this.revista_edicao.Name = "revista_edicao";
             this.revista_edicao.Size = new System.Drawing.Size(475, 39);
             this.revista_edicao.TabIndex = 27;
@@ -876,7 +876,7 @@ namespace LibraryBD
             // revista_tipo
             // 
             this.revista_tipo.Location = new System.Drawing.Point(120, 224);
-            this.revista_tipo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.revista_tipo.Margin = new System.Windows.Forms.Padding(5);
             this.revista_tipo.Name = "revista_tipo";
             this.revista_tipo.Size = new System.Drawing.Size(475, 39);
             this.revista_tipo.TabIndex = 24;
@@ -884,7 +884,7 @@ namespace LibraryBD
             // revista_marca
             // 
             this.revista_marca.Location = new System.Drawing.Point(119, 160);
-            this.revista_marca.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.revista_marca.Margin = new System.Windows.Forms.Padding(5);
             this.revista_marca.Name = "revista_marca";
             this.revista_marca.Size = new System.Drawing.Size(475, 39);
             this.revista_marca.TabIndex = 23;
@@ -902,7 +902,7 @@ namespace LibraryBD
             // revista_seccao
             // 
             this.revista_seccao.Location = new System.Drawing.Point(119, 96);
-            this.revista_seccao.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.revista_seccao.Margin = new System.Windows.Forms.Padding(5);
             this.revista_seccao.Name = "revista_seccao";
             this.revista_seccao.Size = new System.Drawing.Size(475, 39);
             this.revista_seccao.TabIndex = 21;
@@ -920,7 +920,7 @@ namespace LibraryBD
             // revista_data
             // 
             this.revista_data.Location = new System.Drawing.Point(119, 288);
-            this.revista_data.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.revista_data.Margin = new System.Windows.Forms.Padding(5);
             this.revista_data.Name = "revista_data";
             this.revista_data.Size = new System.Drawing.Size(477, 39);
             this.revista_data.TabIndex = 18;
@@ -928,7 +928,7 @@ namespace LibraryBD
             // revista_id
             // 
             this.revista_id.Location = new System.Drawing.Point(119, 32);
-            this.revista_id.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.revista_id.Margin = new System.Windows.Forms.Padding(5);
             this.revista_id.Name = "revista_id";
             this.revista_id.Size = new System.Drawing.Size(475, 39);
             this.revista_id.TabIndex = 10;
@@ -978,18 +978,18 @@ namespace LibraryBD
             this.filme.Controls.Add(this.label47);
             this.filme.Controls.Add(this.label48);
             this.filme.Controls.Add(this.label49);
-            this.filme.Location = new System.Drawing.Point(0, 0);
-            this.filme.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.filme.Location = new System.Drawing.Point(0, 10);
+            this.filme.Margin = new System.Windows.Forms.Padding(5);
             this.filme.Name = "filme";
-            this.filme.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.filme.Size = new System.Drawing.Size(613, 589);
+            this.filme.Padding = new System.Windows.Forms.Padding(5);
+            this.filme.Size = new System.Drawing.Size(636, 601);
             this.filme.TabIndex = 29;
             this.filme.TabStop = false;
             // 
             // filme_ano
             // 
             this.filme_ano.Location = new System.Drawing.Point(120, 291);
-            this.filme_ano.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.filme_ano.Margin = new System.Windows.Forms.Padding(5);
             this.filme_ano.Name = "filme_ano";
             this.filme_ano.Size = new System.Drawing.Size(475, 39);
             this.filme_ano.TabIndex = 28;
@@ -997,7 +997,7 @@ namespace LibraryBD
             // filme_genero
             // 
             this.filme_genero.Location = new System.Drawing.Point(120, 352);
-            this.filme_genero.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.filme_genero.Margin = new System.Windows.Forms.Padding(5);
             this.filme_genero.Name = "filme_genero";
             this.filme_genero.Size = new System.Drawing.Size(475, 39);
             this.filme_genero.TabIndex = 27;
@@ -1025,7 +1025,7 @@ namespace LibraryBD
             // filme_realizador
             // 
             this.filme_realizador.Location = new System.Drawing.Point(161, 224);
-            this.filme_realizador.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.filme_realizador.Margin = new System.Windows.Forms.Padding(5);
             this.filme_realizador.Name = "filme_realizador";
             this.filme_realizador.Size = new System.Drawing.Size(435, 39);
             this.filme_realizador.TabIndex = 24;
@@ -1033,7 +1033,7 @@ namespace LibraryBD
             // filme_titulo
             // 
             this.filme_titulo.Location = new System.Drawing.Point(119, 160);
-            this.filme_titulo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.filme_titulo.Margin = new System.Windows.Forms.Padding(5);
             this.filme_titulo.Name = "filme_titulo";
             this.filme_titulo.Size = new System.Drawing.Size(475, 39);
             this.filme_titulo.TabIndex = 23;
@@ -1051,7 +1051,7 @@ namespace LibraryBD
             // filme_seccao
             // 
             this.filme_seccao.Location = new System.Drawing.Point(119, 96);
-            this.filme_seccao.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.filme_seccao.Margin = new System.Windows.Forms.Padding(5);
             this.filme_seccao.Name = "filme_seccao";
             this.filme_seccao.Size = new System.Drawing.Size(475, 39);
             this.filme_seccao.TabIndex = 21;
@@ -1069,7 +1069,7 @@ namespace LibraryBD
             // filme_id
             // 
             this.filme_id.Location = new System.Drawing.Point(119, 32);
-            this.filme_id.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.filme_id.Margin = new System.Windows.Forms.Padding(5);
             this.filme_id.Name = "filme_id";
             this.filme_id.Size = new System.Drawing.Size(475, 39);
             this.filme_id.TabIndex = 10;
@@ -1110,7 +1110,6 @@ namespace LibraryBD
             this.cd.Controls.Add(this.cd_genero);
             this.cd.Controls.Add(this.label50);
             this.cd.Controls.Add(this.label54);
-            this.cd.Controls.Add(this.filme);
             this.cd.Controls.Add(this.cd_artista);
             this.cd.Controls.Add(this.cd_titulo);
             this.cd.Controls.Add(this.label57);
@@ -1120,18 +1119,19 @@ namespace LibraryBD
             this.cd.Controls.Add(this.label59);
             this.cd.Controls.Add(this.label60);
             this.cd.Controls.Add(this.label61);
-            this.cd.Location = new System.Drawing.Point(593, 82);
-            this.cd.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cd.Location = new System.Drawing.Point(0, 0);
+            this.cd.Margin = new System.Windows.Forms.Padding(5);
             this.cd.Name = "cd";
-            this.cd.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cd.Padding = new System.Windows.Forms.Padding(5);
             this.cd.Size = new System.Drawing.Size(613, 589);
             this.cd.TabIndex = 30;
             this.cd.TabStop = false;
+            this.cd.Enter += new System.EventHandler(this.cd_Enter);
             // 
             // cd_ano
             // 
             this.cd_ano.Location = new System.Drawing.Point(120, 291);
-            this.cd_ano.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cd_ano.Margin = new System.Windows.Forms.Padding(5);
             this.cd_ano.Name = "cd_ano";
             this.cd_ano.Size = new System.Drawing.Size(475, 39);
             this.cd_ano.TabIndex = 28;
@@ -1139,7 +1139,7 @@ namespace LibraryBD
             // cd_genero
             // 
             this.cd_genero.Location = new System.Drawing.Point(120, 352);
-            this.cd_genero.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cd_genero.Margin = new System.Windows.Forms.Padding(5);
             this.cd_genero.Name = "cd_genero";
             this.cd_genero.Size = new System.Drawing.Size(475, 39);
             this.cd_genero.TabIndex = 27;
@@ -1167,7 +1167,7 @@ namespace LibraryBD
             // cd_artista
             // 
             this.cd_artista.Location = new System.Drawing.Point(119, 224);
-            this.cd_artista.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cd_artista.Margin = new System.Windows.Forms.Padding(5);
             this.cd_artista.Name = "cd_artista";
             this.cd_artista.Size = new System.Drawing.Size(477, 39);
             this.cd_artista.TabIndex = 24;
@@ -1175,7 +1175,7 @@ namespace LibraryBD
             // cd_titulo
             // 
             this.cd_titulo.Location = new System.Drawing.Point(119, 160);
-            this.cd_titulo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cd_titulo.Margin = new System.Windows.Forms.Padding(5);
             this.cd_titulo.Name = "cd_titulo";
             this.cd_titulo.Size = new System.Drawing.Size(475, 39);
             this.cd_titulo.TabIndex = 23;
@@ -1193,7 +1193,7 @@ namespace LibraryBD
             // cd_seccao
             // 
             this.cd_seccao.Location = new System.Drawing.Point(119, 96);
-            this.cd_seccao.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cd_seccao.Margin = new System.Windows.Forms.Padding(5);
             this.cd_seccao.Name = "cd_seccao";
             this.cd_seccao.Size = new System.Drawing.Size(475, 39);
             this.cd_seccao.TabIndex = 21;
@@ -1211,7 +1211,7 @@ namespace LibraryBD
             // cd_id
             // 
             this.cd_id.Location = new System.Drawing.Point(119, 32);
-            this.cd_id.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cd_id.Margin = new System.Windows.Forms.Padding(5);
             this.cd_id.Name = "cd_id";
             this.cd_id.Size = new System.Drawing.Size(475, 39);
             this.cd_id.TabIndex = 10;
@@ -1255,10 +1255,10 @@ namespace LibraryBD
             this.gerente.Controls.Add(this.label12);
             this.gerente.Controls.Add(this.label26);
             this.gerente.Controls.Add(this.label27);
-            this.gerente.Location = new System.Drawing.Point(593, 82);
-            this.gerente.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.gerente.Location = new System.Drawing.Point(584, 105);
+            this.gerente.Margin = new System.Windows.Forms.Padding(5);
             this.gerente.Name = "gerente";
-            this.gerente.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.gerente.Padding = new System.Windows.Forms.Padding(5);
             this.gerente.Size = new System.Drawing.Size(613, 589);
             this.gerente.TabIndex = 19;
             this.gerente.TabStop = false;
@@ -1277,7 +1277,7 @@ namespace LibraryBD
             // ger_fim
             // 
             this.ger_fim.Location = new System.Drawing.Point(106, 154);
-            this.ger_fim.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ger_fim.Margin = new System.Windows.Forms.Padding(5);
             this.ger_fim.Name = "ger_fim";
             this.ger_fim.Size = new System.Drawing.Size(490, 39);
             this.ger_fim.TabIndex = 18;
@@ -1285,7 +1285,7 @@ namespace LibraryBD
             // ger_inicio
             // 
             this.ger_inicio.Location = new System.Drawing.Point(106, 94);
-            this.ger_inicio.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ger_inicio.Margin = new System.Windows.Forms.Padding(5);
             this.ger_inicio.Name = "ger_inicio";
             this.ger_inicio.Size = new System.Drawing.Size(490, 39);
             this.ger_inicio.TabIndex = 17;
@@ -1293,7 +1293,7 @@ namespace LibraryBD
             // ger_id
             // 
             this.ger_id.Location = new System.Drawing.Point(75, 32);
-            this.ger_id.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ger_id.Margin = new System.Windows.Forms.Padding(5);
             this.ger_id.Name = "ger_id";
             this.ger_id.Size = new System.Drawing.Size(521, 39);
             this.ger_id.TabIndex = 10;
@@ -1333,6 +1333,7 @@ namespace LibraryBD
             this.livro.Controls.Add(this.livro_isbn);
             this.livro.Controls.Add(this.livro_editora);
             this.livro.Controls.Add(this.label70);
+            this.livro.Controls.Add(this.filme);
             this.livro.Controls.Add(this.label69);
             this.livro.Controls.Add(this.livro_ano);
             this.livro.Controls.Add(this.livro_genero);
@@ -1347,10 +1348,10 @@ namespace LibraryBD
             this.livro.Controls.Add(this.label66);
             this.livro.Controls.Add(this.label67);
             this.livro.Controls.Add(this.label68);
-            this.livro.Location = new System.Drawing.Point(593, 82);
-            this.livro.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.livro.Location = new System.Drawing.Point(593, 92);
+            this.livro.Margin = new System.Windows.Forms.Padding(5);
             this.livro.Name = "livro";
-            this.livro.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.livro.Padding = new System.Windows.Forms.Padding(5);
             this.livro.Size = new System.Drawing.Size(613, 589);
             this.livro.TabIndex = 30;
             this.livro.TabStop = false;
@@ -1358,7 +1359,7 @@ namespace LibraryBD
             // livro_isbn
             // 
             this.livro_isbn.Location = new System.Drawing.Point(120, 480);
-            this.livro_isbn.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.livro_isbn.Margin = new System.Windows.Forms.Padding(5);
             this.livro_isbn.Name = "livro_isbn";
             this.livro_isbn.Size = new System.Drawing.Size(475, 39);
             this.livro_isbn.TabIndex = 32;
@@ -1366,7 +1367,7 @@ namespace LibraryBD
             // livro_editora
             // 
             this.livro_editora.Location = new System.Drawing.Point(119, 416);
-            this.livro_editora.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.livro_editora.Margin = new System.Windows.Forms.Padding(5);
             this.livro_editora.Name = "livro_editora";
             this.livro_editora.Size = new System.Drawing.Size(475, 39);
             this.livro_editora.TabIndex = 31;
@@ -1394,7 +1395,7 @@ namespace LibraryBD
             // livro_ano
             // 
             this.livro_ano.Location = new System.Drawing.Point(120, 288);
-            this.livro_ano.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.livro_ano.Margin = new System.Windows.Forms.Padding(5);
             this.livro_ano.Name = "livro_ano";
             this.livro_ano.Size = new System.Drawing.Size(475, 39);
             this.livro_ano.TabIndex = 28;
@@ -1402,7 +1403,7 @@ namespace LibraryBD
             // livro_genero
             // 
             this.livro_genero.Location = new System.Drawing.Point(120, 352);
-            this.livro_genero.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.livro_genero.Margin = new System.Windows.Forms.Padding(5);
             this.livro_genero.Name = "livro_genero";
             this.livro_genero.Size = new System.Drawing.Size(475, 39);
             this.livro_genero.TabIndex = 27;
@@ -1430,7 +1431,7 @@ namespace LibraryBD
             // livro_autor
             // 
             this.livro_autor.Location = new System.Drawing.Point(120, 224);
-            this.livro_autor.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.livro_autor.Margin = new System.Windows.Forms.Padding(5);
             this.livro_autor.Name = "livro_autor";
             this.livro_autor.Size = new System.Drawing.Size(475, 39);
             this.livro_autor.TabIndex = 24;
@@ -1438,7 +1439,7 @@ namespace LibraryBD
             // livro_titulo
             // 
             this.livro_titulo.Location = new System.Drawing.Point(119, 160);
-            this.livro_titulo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.livro_titulo.Margin = new System.Windows.Forms.Padding(5);
             this.livro_titulo.Name = "livro_titulo";
             this.livro_titulo.Size = new System.Drawing.Size(475, 39);
             this.livro_titulo.TabIndex = 23;
@@ -1456,7 +1457,7 @@ namespace LibraryBD
             // livro_seccao
             // 
             this.livro_seccao.Location = new System.Drawing.Point(119, 96);
-            this.livro_seccao.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.livro_seccao.Margin = new System.Windows.Forms.Padding(5);
             this.livro_seccao.Name = "livro_seccao";
             this.livro_seccao.Size = new System.Drawing.Size(475, 39);
             this.livro_seccao.TabIndex = 21;
@@ -1474,7 +1475,7 @@ namespace LibraryBD
             // livro_id
             // 
             this.livro_id.Location = new System.Drawing.Point(119, 32);
-            this.livro_id.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.livro_id.Margin = new System.Windows.Forms.Padding(5);
             this.livro_id.Name = "livro_id";
             this.livro_id.Size = new System.Drawing.Size(475, 39);
             this.livro_id.TabIndex = 10;
@@ -1512,7 +1513,7 @@ namespace LibraryBD
             // guardar
             // 
             this.guardar.Location = new System.Drawing.Point(679, 704);
-            this.guardar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.guardar.Margin = new System.Windows.Forms.Padding(5);
             this.guardar.Name = "guardar";
             this.guardar.Size = new System.Drawing.Size(153, 46);
             this.guardar.TabIndex = 31;
@@ -1522,7 +1523,7 @@ namespace LibraryBD
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(1188, 26);
-            this.button2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.button2.Margin = new System.Windows.Forms.Padding(5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(153, 46);
             this.button2.TabIndex = 32;
@@ -1534,13 +1535,13 @@ namespace LibraryBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1359, 782);
-            this.Controls.Add(this.cd);
+            this.ClientSize = new System.Drawing.Size(1819, 782);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.guardar);
             this.Controls.Add(this.livro);
+            this.Controls.Add(this.guardar);
             this.Controls.Add(this.revista);
             this.Controls.Add(this.gerente);
+            this.Controls.Add(this.membro);
             this.Controls.Add(this.funcionario);
             this.Controls.Add(this.procurar);
             this.Controls.Add(this.eliminar);
@@ -1549,7 +1550,7 @@ namespace LibraryBD
             this.Controls.Add(this.elementos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tipo);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Consultar";
             this.Text = "Consultar";
             this.funcionario.ResumeLayout(false);
