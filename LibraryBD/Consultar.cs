@@ -57,9 +57,9 @@ namespace LibraryBD
         {
             //Andreia
             Debug.WriteLine("Tentar conectar");
-            return new SqlConnection("data source= LAPTOP-1MGUSQ2L;integrated security=true;initial catalog=Projeto");
+            //return new SqlConnection("data source= LAPTOP-1MGUSQ2L;integrated security=true;initial catalog=Projeto");
             //Miguel
-            //return new SqlConnection("data source= DESKTOP-3E08FOH\\SQLEXPRESS;integrated security=true;initial catalog=Projeto2");
+            return new SqlConnection("data source= DESKTOP-3E08FOH\\SQLEXPRESS;integrated security=true;initial catalog=Projeto2");
         }
         private bool verifySGBDConnection()
         {
