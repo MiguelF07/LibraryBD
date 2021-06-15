@@ -14,6 +14,7 @@ namespace LibraryBD
     {
         private SqlConnection cn;
         private int currentEntity;
+        private int currentTipo;
         public Consultar()
         {
             Debug.WriteLine("Init");
@@ -45,20 +46,20 @@ namespace LibraryBD
             cd.Hide();
             livro.Hide();
         }
-        private void Consultar_Load(Object sender, EventArgs e)
+        /*private void Consultar_Load(Object sender, EventArgs e)
         {
             Debug.WriteLine("load entered");
             cn = getSGBDConnection();
             Debug.WriteLine("Conexão efetuada");
             loadMembersToolStripMenuItem_Click(sender, e);
-        }
+        }*/
         private SqlConnection getSGBDConnection()
         {
             //Andreia
             Debug.WriteLine("Tentar conectar");
-            //return new SqlConnection("data source= LAPTOP-1MGUSQ2L;integrated security=true;initial catalog=Projeto");
+            return new SqlConnection("data source= LAPTOP-1MGUSQ2L;integrated security=true;initial catalog=Projeto");
             //Miguel
-            return new SqlConnection("data source= DESKTOP-3E08FOH\\SQLEXPRESS;integrated security=true;initial catalog=Projeto2");
+            //return new SqlConnection("data source= DESKTOP-3E08FOH\\SQLEXPRESS;integrated security=true;initial catalog=Projeto2");
         }
         private bool verifySGBDConnection()
         {
@@ -81,37 +82,7 @@ namespace LibraryBD
 
             //Fazer switch(?) para sabermos qual queremos apresentar
             Debug.WriteLine("Começar a carregar");
-            loadPerData();
-            //loadJornData();
-            
-            /*loadMemberData();
-            loadFuncData();
-            loadManagData();
-            loadEmpresData();
-           
-            loadRevData();
-            loadFilmData();
-            loadPerData();
-            loadCdData();
-            loadLivroData();*/
-            
-            //    membro.Show();
-            //    SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.membro", cn);
 
-            //    SqlDataReader reader = cmd.ExecuteReader();
-            //    elementos.Items.Clear();
-
-            //    while (reader.Read())
-            //    {
-            //        Membro C = new Membro();
-            //        C.Id = reader["id"].ToString();
-            //        C.Morada = reader["morada"].ToString();
-            //        elementos.Items.Add(C);
-            //    }
-
-            //    cn.Close();
-            //    currentEntity = 0;
-            //    ShowMembro();
         }
 
         private void loadMemberData()
@@ -128,7 +99,7 @@ namespace LibraryBD
                 C.Nome = reader["nome"].ToString();
                 C.Email = reader["email"].ToString();
                 C.Nif = reader["Nif"].ToString();
-                C.Nascimento= reader["nascimento"].ToString();
+                C.Nascimento = reader["nascimento"].ToString();
                 C.Morada = reader["morada"].ToString();
                 elementos.Items.Add(C);
             }
@@ -168,9 +139,9 @@ namespace LibraryBD
                 C.Nif = reader["Nif"].ToString();
                 C.Nascimento = reader["nascimento"].ToString();
                 C.Morada = reader["morada"].ToString();
-                C.Ssn= reader["ssn"].ToString();
-                C.Inicio= reader["inicio"].ToString();
-                C.Fim= reader["fim"].ToString();
+                C.Ssn = reader["ssn"].ToString();
+                C.Inicio = reader["inicio"].ToString();
+                C.Fim = reader["fim"].ToString();
                 elementos.Items.Add(C);
             }
             cn.Close();
@@ -217,7 +188,8 @@ namespace LibraryBD
             ShowManag();
             LockControls();
         }
-        public void ShowManag() {
+        public void ShowManag()
+        {
             if (elementos.Items.Count == 0 | currentEntity < 0)
                 return;
             Gerente f = new Gerente();
@@ -245,13 +217,14 @@ namespace LibraryBD
             }
             cn.Close();
             this.currentEntity = 0;
-            ShowEmpres(); 
+            ShowEmpres();
             LockControls();
             editar.Enabled = false;
             adicionar.Enabled = false;
             eliminar.Enabled = false;
         }
-        public void ShowEmpres() {
+        public void ShowEmpres()
+        {
             if (elementos.Items.Count == 0 | currentEntity < 0)
                 return;
             Emprestimo e = new Emprestimo();
@@ -287,7 +260,7 @@ namespace LibraryBD
             ShowRev(); // a vista é a mesma
             LockControls();
         }
-        
+
         private void loadRevData()
         {
             revista.Show();
@@ -298,22 +271,23 @@ namespace LibraryBD
             while (reader.Read())
             {
                 Revista C = new Revista();
-                C.DataL= reader["dataL"].ToString();
-                C.Edicao= reader["edicao"].ToString();
-                C.Id= reader["id"].ToString();
-                C.Marca= reader["marca"].ToString();
-                C.Seccao= reader["seccao"].ToString();
-                C.Tipo= reader["tipo"].ToString();
+                C.DataL = reader["dataL"].ToString();
+                C.Edicao = reader["edicao"].ToString();
+                C.Id = reader["id"].ToString();
+                C.Marca = reader["marca"].ToString();
+                C.Seccao = reader["seccao"].ToString();
+                C.Tipo = reader["tipo"].ToString();
                 elementos.Items.Add(C);
                 //etc etc etc
                 //...
             }
             cn.Close();
             this.currentEntity = 0;
-            ShowRev(); 
+            ShowRev();
             LockControls();
         }
-        public void ShowRev() {
+        public void ShowRev()
+        {
             if (elementos.Items.Count == 0 | currentEntity < 0)
                 return;
             Revista r = new Revista();
@@ -484,6 +458,78 @@ namespace LibraryBD
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
+            HideAll();
+            currentTipo = tipo.SelectedIndex;
+            switch (currentTipo)
+            {
+                case 0:
+                    loadMemberData();
+                    break;
+                case 1:
+                    loadFuncData();
+                    break;
+                case 2:
+                    loadManagData();
+                    break;
+                case 3:
+                    loadEmpresData();
+                    break;
+                case 4:
+                    loadCdData();
+                    break;
+                case 5:
+                    loadLivroData();
+                    break;
+                case 6:
+                    loadRevData();
+                    break;
+                case 7:
+                    loadJornData();
+                    break;
+                case 8:
+                    loadPerData();
+                    break;
+            }
+        }
+        private void elementos_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            currentEntity = elementos.SelectedIndex;
+            Debug.WriteLine(currentTipo);
+            switch (currentTipo)
+            {
+                case 0:
+                    ShowMembro();
+                    break;
+                case 1:
+                    ShowFunc();
+                    break;
+                case 2:
+                    ShowManag();
+                    break;
+                case 3:
+                    ShowEmpres();
+                    break;
+                case 4:
+                    ShowCd();
+                    break;
+                case 5:
+                    ShowLivro();
+                    break;
+                case 6:
+                    ShowRev();
+                    break;
+                case 7:
+                    ShowRev();
+                    break;
+                    /*case 8:
+                        ShowPer();
+                        break;*/
+            }
 
         }
 
@@ -524,11 +570,7 @@ namespace LibraryBD
 
 
 
-        private void elementos_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            currentEntity = elementos.SelectedIndex;
-            ShowPer();
-        }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -544,6 +586,52 @@ namespace LibraryBD
         private void guardar_Click(object sender, EventArgs e)
         {
             LockControls();
+        }
+        public void EmptyAll() {
+            membro_id.Text = "";
+            membro_morada.Text = "";
+            membro_nome.Text = "";
+            membro_nif.Text = "";
+            membro_email.Text = "";
+            membro_nasc.Text = "";
+            fun_id.Text = "";
+            fun_morada.Text = "";
+            fun_nome.Text = "";
+            fun_email.Text = "";
+            fun_nif.Text = "";
+            fun_nasc.Text = "";
+            fun_ssn.Text = "";
+            fun_f.Text = "";
+            fun_i.Text = "";
+            ger_id.Text = "";
+            ger_fim.Text = "";
+            ger_inicio.Text = "";
+            livro_id.Text = "";
+            livro_titulo.Text = "";
+            livro_autor.Text = "";
+            livro_editora.Text = "";
+            livro_ano.Text = "";
+            livro_isbn.Text = "";
+            livro_genero.Text = "";
+            livro_seccao.Text = "";
+            revista_data.Text = "";
+            revista_edicao.Text = "";
+            revista_id.Text = "";
+            revista_marca.Text = "";
+            revista_seccao.Text = "";
+            revista_tipo.Text = "";
+            filme_id.Text = "";
+            filme_seccao.Text = "";
+            filme_realizador.Text = "";
+            filme_genero.Text = "";
+            filme_ano.Text = "";
+            filme_titulo.Text = "";
+            cd_id.Text = "";
+            cd_artista.Text = "";
+            cd_genero.Text = "";
+            cd_ano.Text = "";
+            cd_titulo.Text = "";
+            cd_seccao.Text = "";
         }
         public void LockControls()
         {
@@ -591,10 +679,6 @@ namespace LibraryBD
             cd_ano.ReadOnly = true;
             cd_titulo.ReadOnly = true;
             cd_seccao.ReadOnly = true;
-            per_id.ReadOnly = true;
-            per_marca.ReadOnly = true;
-            per_modelo.ReadOnly = true;
-            per_tipo.ReadOnly = true;
 
 
         }
@@ -645,10 +729,11 @@ namespace LibraryBD
             cd_ano.ReadOnly = false;
             cd_titulo.ReadOnly = false;
             cd_seccao.ReadOnly = false;
-            per_id.ReadOnly = false;
-            per_marca.ReadOnly = false;
-            per_modelo.ReadOnly = false;
-            per_tipo.ReadOnly = false;
+        }
+
+        private void guardar_Click_1(object sender, EventArgs e)
+        {
+            periferico.Location = new Point(593, 102);
         }
 
         private void cd_Enter(object sender, EventArgs e)
