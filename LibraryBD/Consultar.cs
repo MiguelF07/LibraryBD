@@ -81,7 +81,7 @@ namespace LibraryBD
 
             //Fazer switch(?) para sabermos qual queremos apresentar
             Debug.WriteLine("Começar a carregar");
-            loadCdData();
+            loadPerData();
             //loadJornData();
             
             /*loadMemberData();
@@ -366,20 +366,38 @@ namespace LibraryBD
 
         private void loadPerData()
         {
+            Debug.WriteLine("Here");
             periferico.Show();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.periferico", cn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.perifericos", cn);
 
             SqlDataReader reader = cmd.ExecuteReader();
             elementos.Items.Clear();
             while (reader.Read())
             {
-                //etc etc etc
-                //...
+                Debug.WriteLine("in while");
+                Perifericos P = new Perifericos();
+                P.Id = reader["id"].ToString();
+                P.Marca = reader["marca"].ToString();
+                P.Modelo = reader["modelo"].ToString();
+                P.Tipo = reader["tipo"].ToString();
+                elementos.Items.Add(P);
             }
             cn.Close();
             this.currentEntity = 0;
-            //ShowPer(); Implementar
+            ShowPer();
             LockControls();
+        }
+
+        public void ShowPer()
+        {
+            if (elementos.Items.Count == 0 | currentEntity < 0)
+                return;
+            Perifericos p = new Perifericos();
+            p = (Perifericos)elementos.Items[currentEntity];
+            per_id.Text = p.Id;
+            per_marca.Text = p.Marca;
+            per_modelo.Text = p.Modelo;
+            per_tipo.Text = p.Tipo;
         }
 
         private void loadCdData()
@@ -509,7 +527,7 @@ namespace LibraryBD
         private void elementos_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             currentEntity = elementos.SelectedIndex;
-            ShowCd();
+            ShowPer();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -573,6 +591,10 @@ namespace LibraryBD
             cd_ano.ReadOnly = true;
             cd_titulo.ReadOnly = true;
             cd_seccao.ReadOnly = true;
+            per_id.ReadOnly = true;
+            per_marca.ReadOnly = true;
+            per_modelo.ReadOnly = true;
+            per_tipo.ReadOnly = true;
 
 
         }
@@ -623,6 +645,10 @@ namespace LibraryBD
             cd_ano.ReadOnly = false;
             cd_titulo.ReadOnly = false;
             cd_seccao.ReadOnly = false;
+            per_id.ReadOnly = false;
+            per_marca.ReadOnly = false;
+            per_modelo.ReadOnly = false;
+            per_tipo.ReadOnly = false;
         }
     }
 }
