@@ -388,6 +388,7 @@ namespace LibraryBD
                 C.Genero = reader["genero"].ToString();
                 C.Ano = reader["ano"].ToString();
                 C.Titulo = reader["titulo"].ToString();
+                C.Seccao = reader["seccao"].ToString();
                 elementos.Items.Add(C);
             }
             cn.Close();
@@ -407,6 +408,7 @@ namespace LibraryBD
             cd_genero.Text = c.Genero;
             cd_ano.Text = c.Ano;
             cd_titulo.Text = c.Titulo;
+            cd_seccao.Text = c.Seccao;
         }
 
         private void loadLivroData()
@@ -561,6 +563,7 @@ namespace LibraryBD
             cd_genero.ReadOnly = true;
             cd_ano.ReadOnly = true;
             cd_titulo.ReadOnly = true;
+            cd_seccao.ReadOnly = true;
 
 
         }
@@ -610,6 +613,7 @@ namespace LibraryBD
             cd_genero.ReadOnly = false;
             cd_ano.ReadOnly = false;
             cd_titulo.ReadOnly = false;
+            cd_seccao.ReadOnly = false;
         }
     }
 }
