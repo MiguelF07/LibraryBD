@@ -87,6 +87,7 @@ namespace LibraryBD
 
         private void loadMemberData()
         {
+            unlockButtons();
             membro.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.membro", cn);
 
@@ -125,6 +126,7 @@ namespace LibraryBD
 
         private void loadFuncData()
         {
+            unlockButtons();
             funcionario.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.funcionario", cn);
 
@@ -168,6 +170,7 @@ namespace LibraryBD
 
         private void loadManagData()
         {
+            unlockButtons();
             gerente.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.gerente JOIN BiblioBD.funcionario ON BiblioBD.gerente.id=BiblioBD.funcionario.id", cn);
 
@@ -238,6 +241,7 @@ namespace LibraryBD
         }
         private void loadJornData()
         {
+            unlockButtons();
             revista.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.jornais", cn);
 
@@ -264,6 +268,7 @@ namespace LibraryBD
 
         private void loadRevData()
         {
+            unlockButtons();
             revista.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.revistas", cn);
 
@@ -303,6 +308,7 @@ namespace LibraryBD
 
         private void loadFilmData()
         {
+            unlockButtons();
             filme.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.filme", cn);
 
@@ -341,6 +347,7 @@ namespace LibraryBD
 
         private void loadPerData()
         {
+            unlockButtons();
             Debug.WriteLine("Here");
             periferico.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.perifericos", cn);
@@ -377,6 +384,7 @@ namespace LibraryBD
 
         private void loadCdData()
         {
+            unlockButtons();
             cd.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.cd", cn);
 
@@ -415,6 +423,7 @@ namespace LibraryBD
 
         private void loadLivroData()
         {
+            unlockButtons();
             Debug.WriteLine("cheguei ao load livro");
             livro.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.livro", cn);
@@ -456,7 +465,12 @@ namespace LibraryBD
             livro_genero.Text = l.Genero;
             livro_seccao.Text = l.Seccao;
         }
-
+        private void unlockButtons() {
+            editar.Enabled = true;
+            adicionar.Enabled = true;
+            eliminar.Enabled = true;
+            guardar.Enabled = false;
+        }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!verifySGBDConnection())
