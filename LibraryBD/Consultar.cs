@@ -649,6 +649,8 @@ namespace LibraryBD
         {
             this.guardartype = 1;
             UnlockControls();
+            membro_id.Enabled = false;
+            guardar.Enabled = true;
         }
 
         private void guardar_Click(object sender, EventArgs e)
@@ -986,13 +988,31 @@ namespace LibraryBD
                     AdicionarFunc();
                 }
             }
-            if (guardartype == 1) { 
+            if (guardartype == 1) {
                 //viemos do editar
+                if (currentTipo == 0)
+                { 
+                    EditarMembro();
+                }
             }
            
             
         }
+        private void EditarMembro() {
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            }
+            String comando = "EXEC BiblioBD.EditarMembro " + membro_id.Text+",'"+membro_nome.Text + "','" + membro_email.Text + "','" + membro_morada.Text + "','" + membro_nasc.Value.ToString("yyyy-MM-dd") + "'," + membro_nif.Text;
+            Debug.WriteLine(comando);
+            SqlCommand cmd = new SqlCommand(comando, cn);
+            cn.Close();
+            loadMemberData();
+            membro_id.Enabled = true;
+            guardar.Enabled = false;
 
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -1017,7 +1037,7 @@ namespace LibraryBD
                 Debug.WriteLine("no conn");
                 return;
             }
-            String comando = "EXEC BiblioBD.AdicionarMembro "+membro_nome.Text+","+ membro_email.Text + "," + membro_morada.Text + ",'" + membro_nasc.Value.ToString("yyyy-MM-dd") + "'," + membro_nif.Text;
+            String comando = "EXEC BiblioBD.AdicionarMembro '"+membro_nome.Text+"','"+ membro_email.Text + "','" + membro_morada.Text + "','" + membro_nasc.Value.ToString("yyyy-MM-dd") + "'," + membro_nif.Text;
             Debug.WriteLine(comando);
             SqlCommand cmd = new SqlCommand(comando, cn);
             cn.Close();
@@ -1033,7 +1053,7 @@ namespace LibraryBD
                 Debug.WriteLine("no conn");
                 return;
             };
-            String comando = "EXEC BiblioBD.AdicionarFunc " + fun_nome.Text + "," + fun_email.Text + "," + fun_morada.Text + "," + fun_nasc.Value.ToString("yyyy-MM-dd") + "," + fun_nif.Text + "," + fun_ssn.Text + ",'" + fun_i.Value.ToString("yyyy-MM-dd") + "','" + fun_f.Value.ToString("yyyy-MM-dd")+"'";
+            String comando = "EXEC BiblioBD.AdicionarFunc '" + fun_nome.Text + "','" + fun_email.Text + "','" + fun_morada.Text + "'," + fun_nasc.Value.ToString("yyyy-MM-dd") + "," + fun_nif.Text + "," + fun_ssn.Text + ",'" + fun_i.Value.ToString("yyyy-MM-dd") + "','" + fun_f.Value.ToString("yyyy-MM-dd")+"'";
             SqlCommand cmd = new SqlCommand(comando, cn);
             cn.Close();
             loadFuncData();

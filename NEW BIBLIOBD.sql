@@ -502,3 +502,8 @@ GO
 CREATE FUNCTION BiblioBD.ProcurarEmprestimoNumIDMIDF(@num INT,@idm INT,@idf INT) RETURNS TABLE
 AS
 	RETURN (SELECT * FROM BiblioBD.emprestimo WHERE numero=@num and membro=@idm and funcionario=@idf)
+
+GO
+CREATE PROCEDURE BiblioBD.EditarMembro(@id INT,@nome varchar(60),@email varchar(60),@morada varchar(60),@nascimento date,@NIF int)
+AS
+UPDATE BiblioBD.membro SET nome=@nome,email=@email,morada=@morada,nascimento=@nascimento,NIF=@nif WHERE id=@id
