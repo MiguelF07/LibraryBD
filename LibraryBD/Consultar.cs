@@ -89,6 +89,11 @@ namespace LibraryBD
 
         private void loadMemberData()
         {
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
             unlockButtons();
             membro.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.membro", cn);
@@ -128,6 +133,11 @@ namespace LibraryBD
 
         private void loadFuncData()
         {
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
             unlockButtons();
             funcionario.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.funcionario", cn);
@@ -172,6 +182,11 @@ namespace LibraryBD
 
         private void loadManagData()
         {
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
             unlockButtons();
             gerente.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.gerente JOIN BiblioBD.funcionario ON BiblioBD.gerente.id=BiblioBD.funcionario.id", cn);
@@ -206,6 +221,11 @@ namespace LibraryBD
         }
         private void loadEmpresData()
         {
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
             emprestimo.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.emprestimo", cn);
 
@@ -243,6 +263,11 @@ namespace LibraryBD
         }
         private void loadJornData()
         {
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
             unlockButtons();
             revista.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.jornais", cn);
@@ -270,6 +295,11 @@ namespace LibraryBD
 
         private void loadRevData()
         {
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
             unlockButtons();
             revista.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.revistas", cn);
@@ -310,6 +340,11 @@ namespace LibraryBD
 
         private void loadFilmData()
         {
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
             unlockButtons();
             filme.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.filme", cn);
@@ -349,6 +384,11 @@ namespace LibraryBD
 
         private void loadPerData()
         {
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
             unlockButtons();
             Debug.WriteLine("Here");
             periferico.Show();
@@ -386,6 +426,11 @@ namespace LibraryBD
 
         private void loadCdData()
         {
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
             unlockButtons();
             cd.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.cd", cn);
@@ -425,6 +470,11 @@ namespace LibraryBD
 
         private void loadLivroData()
         {
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
             unlockButtons();
             Debug.WriteLine("cheguei ao load livro");
             livro.Show();
@@ -543,9 +593,9 @@ namespace LibraryBD
                 case 7:
                     ShowRev();
                     break;
-                    /*case 8:
-                        ShowPer();
-                        break;*/
+                case 8:
+                    ShowPer();
+                    break;
             }
 
         }
@@ -609,7 +659,13 @@ namespace LibraryBD
             UnlockControls();
             guardar.Enabled = true;
             adicionar.Enabled = false;
-
+            switch (currentTipo) {
+                case 0:
+                    membro_id.Enabled = false;
+                    break;
+                case 1:
+                    fun_id.Enabled = false;
+                    break;}
         }
         private void guardar_Membro()
         {
@@ -876,6 +932,8 @@ namespace LibraryBD
 
         private void guardar_Click_1(object sender, EventArgs e)
         {
+
+            
             adicionar.Enabled = true;
             Debug.WriteLine("clicamos em guardar");
             if (guardartype == 0) {
@@ -883,10 +941,12 @@ namespace LibraryBD
                 Debug.WriteLine("depois de adicionar");
                 if (currentTipo == 0)
                 {
+                    
                     AdicionarMembro();
                 }
                 if (currentTipo == 1)
                 {
+                    
                     AdicionarFunc();
                 }
             }
@@ -913,8 +973,6 @@ namespace LibraryBD
             
         }
         private void AdicionarMembro() {
-            membro_id.Enabled= false;
-            Debug.WriteLine("ahhhhhhhhhhhhhhhh");
             if (!verifySGBDConnection())
             {
                 Debug.WriteLine("no conn");
@@ -923,6 +981,10 @@ namespace LibraryBD
             String comando = "EXEC BiblioBD.AdicionarMembro "+membro_nome.Text+","+ membro_email.Text + "," + membro_morada.Text + ",'" + membro_nasc.Value.ToString("yyyy-MM-dd") + "'," + membro_nif.Text;
             Debug.WriteLine(comando);
             SqlCommand cmd = new SqlCommand(comando, cn);
+            cn.Close();
+            loadMemberData();
+            membro_id.Enabled = true;
+            
 
         }
         private void AdicionarFunc()
@@ -932,9 +994,12 @@ namespace LibraryBD
                 Debug.WriteLine("no conn");
                 return;
             };
-            String comando = "EXEC BiblioBD.AdicionarFunc " + fun_nome.Text + "," + fun_email.Text + "," + fun_morada.Text + "," + fun_nasc.Text + "," + fun_nif.Text + "," + fun_ssn.Text + "," + fun_i.Text + "," + fun_f.Text;
+            String comando = "EXEC BiblioBD.AdicionarFunc " + fun_nome.Text + "," + fun_email.Text + "," + fun_morada.Text + "," + fun_nasc.Value.ToString("yyyy-MM-dd") + "," + fun_nif.Text + "," + fun_ssn.Text + ",'" + fun_i.Value.ToString("yyyy-MM-dd") + "','" + fun_f.Value.ToString("yyyy-MM-dd")+"'";
             SqlCommand cmd = new SqlCommand(comando, cn);
-
+            cn.Close();
+            loadFuncData();
+            fun_id.Enabled = true;
+            
         }
     }
 }
