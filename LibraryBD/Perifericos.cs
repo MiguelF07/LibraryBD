@@ -10,11 +10,13 @@ namespace LibraryBD
         private String _marca;
         private String _modelo;
         private String _tipo;
+        private String _disp;
 
         public string Id { get => _id; set => _id = value; }
         public string Marca { get => _marca; set => _marca = value; }
         public string Modelo { get => _modelo; set => _modelo = value; }
         public string Tipo { get => _tipo; set => _tipo = value; }
+        public string Disp { get => _disp; set => _disp = value; }
 
         public override String ToString()
         {

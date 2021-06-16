@@ -15,6 +15,7 @@ namespace LibraryBD
         private String _isbn;
         private String _genero;
         private String _seccao;
+        private String _disp;
 
         public string Id { get => _id; set => _id = value; }
         public string Titulo { get => _titulo; set => _titulo = value; }
@@ -24,6 +25,7 @@ namespace LibraryBD
         public string Isbn { get => _isbn; set => _isbn = value; }
         public string Genero { get => _genero; set => _genero = value; }
         public string Seccao { get => _seccao; set => _seccao = value; }
+        public string Disp { get => _disp; set => _disp = value; }
 
         public Livro() : base()
         {

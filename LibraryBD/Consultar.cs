@@ -336,6 +336,7 @@ namespace LibraryBD
             revista_marca.Text = r.Marca;
             revista_seccao.Text = r.Seccao;
             revista_tipo.Text = r.Tipo;
+            rev_disp.Text = r.Disp; //disponibilidade
         }
 
         private void loadFilmData()
@@ -970,8 +971,6 @@ namespace LibraryBD
 
         private void guardar_Click_1(object sender, EventArgs e)
         {
-
-            
             adicionar.Enabled = true;
             Debug.WriteLine("clicamos em guardar");
             if (guardartype == 0) {
@@ -1060,5 +1059,6 @@ namespace LibraryBD
             fun_id.Enabled = true;
             
         }
+
     }
 }

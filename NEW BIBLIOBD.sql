@@ -503,7 +503,46 @@ CREATE FUNCTION BiblioBD.ProcurarEmprestimoNumIDMIDF(@num INT,@idm INT,@idf INT)
 AS
 	RETURN (SELECT * FROM BiblioBD.emprestimo WHERE numero=@num and membro=@idm and funcionario=@idf)
 
+
 GO
 CREATE PROCEDURE BiblioBD.EditarMembro(@id INT,@nome varchar(60),@email varchar(60),@morada varchar(60),@nascimento date,@NIF int)
 AS
 UPDATE BiblioBD.membro SET nome=@nome,email=@email,morada=@morada,nascimento=@nascimento,NIF=@nif WHERE id=@id
+
+GO
+-- Funcao para estender o emprestimo
+SELECT limite from BiblioBD.emprestimo
+SELECT limite from BiblioBD.emprestimo WHERE numero=3
+CREATE FUNCTION BiblioBD.EstenderEmp(@num INT) RETURNS TABLE
+AS
+	DECLARE @emp AS DATE;
+	DECLARE @daysToAdd AS INT;
+
+	SELECT @daysToAdd = 15;
+	
+GO
+
+CREATE PROCEDURE BiblioBD.EstenderEmprestimo(@num INT)
+AS
+DECLARE @emp AS DATE
+DECLARE @daysToAdd AS INT
+DECLARE @newDate AS DATE
+DECLARE @counter AS INT
+
+SELECT @counter=COUNT(*) FROM BiblioBD.emprestimo WHERE numero=@num
+
+IF (@counter=0)
+	RAISERROR('Não há nenhum empréstimo ativo com este número',16,1);
+ELSE
+	SELECT @emp=limite FROM BiblioBD.emprestimo WHERE numero=@num
+	SELECT @daysToAdd = 15
+	SELECT @newDate = DATEADD(day,15,@emp)
+
+	UPDATE BiblioBD.emprestimo
+	SET limite = @newDate
+	WHERE numero = @num;
+
+GO
+
+SELECT * from BiblioBD.emprestimo
+EXEC BiblioBD.EstenderEmprestimo 5
