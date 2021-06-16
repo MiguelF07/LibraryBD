@@ -815,5 +815,15 @@ namespace LibraryBD
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void eliminar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
