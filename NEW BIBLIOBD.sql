@@ -1,6 +1,13 @@
--- USE Projeto;
+USE Projeto;
 CREATE SCHEMA BiblioBD;
 
+/*DROP TABLE BiblioBD.emprestimoItem
+	DROP TABLE BiblioBD.jornais
+	DROP TABLE BiblioBD.cd
+	DROP TABLE BiblioBD.perifericos
+	DROP TABLE BiblioBD.revistas
+	DROP TABLE BiblioBD.livro
+	DROP TABLE BiblioBD.filme*/
 -- criar tabelas
 CREATE TABLE BiblioBD.biblioteca (
 	nome varchar(60) PRIMARY KEY,
@@ -9,7 +16,7 @@ CREATE TABLE BiblioBD.biblioteca (
 
 CREATE TABLE BiblioBD.funcionario (
 	biblioteca varchar(60), --fk e pk
-	id int, --pk
+	id int , --pk
 	ssn int UNIQUE,
 	email varchar(60) UNIQUE,
 	morada varchar(60),
@@ -79,17 +86,17 @@ CREATE TABLE BiblioBD.atividadeMembro (
 
 CREATE TABLE BiblioBD.item (
 	biblioteca varchar(60),
-	id int,
+	id int, 
 	PRIMARY KEY (biblioteca,id),
 	FOREIGN KEY (biblioteca) REFERENCES BiblioBD.biblioteca(nome));
-
+	
 CREATE TABLE BiblioBD.emprestimoItem (
 	biblioteca varchar(60),
 	numero int,
 	id int,
 	PRIMARY KEY (biblioteca, numero, id),
-	FOREIGN KEY (biblioteca,numero) REFERENCES BiblioBD.emprestimo(biblioteca,numero),
-	FOREIGN KEY (biblioteca,id) REFERENCES BiblioBD.item(biblioteca,id));
+	FOREIGN KEY (biblioteca,numero) REFERENCES BiblioBD.emprestimo(biblioteca,numero)ON DELETE CASCADE,
+	FOREIGN KEY (biblioteca,id) REFERENCES BiblioBD.item(biblioteca,id)ON DELETE CASCADE) ;
 
 CREATE TABLE BiblioBD.jornais (
 	biblioteca varchar(60),
@@ -100,7 +107,7 @@ CREATE TABLE BiblioBD.jornais (
 	dataL date,
 	edicao int,
 	PRIMARY KEY (biblioteca,id),
-	FOREIGN KEY (biblioteca,id) REFERENCES BiblioBD.item(biblioteca,id));
+	FOREIGN KEY (biblioteca,id) REFERENCES BiblioBD.item(biblioteca,id)ON DELETE CASCADE);
 
 CREATE TABLE BiblioBD.revistas (
 	biblioteca varchar(60),
@@ -111,7 +118,7 @@ CREATE TABLE BiblioBD.revistas (
 	dataL date,
 	edicao int,
 	PRIMARY KEY (biblioteca,id),
-	FOREIGN KEY (biblioteca,id) REFERENCES BiblioBD.item(biblioteca,id));
+	FOREIGN KEY (biblioteca,id) REFERENCES BiblioBD.item(biblioteca,id)ON DELETE CASCADE);
 
 CREATE TABLE BiblioBD.filme (
 	biblioteca varchar(60),
@@ -122,7 +129,7 @@ CREATE TABLE BiblioBD.filme (
 	ano int CHECK (ano>1887),
 	titulo varchar(60),
 	PRIMARY KEY (biblioteca,id),
-	FOREIGN KEY (biblioteca,id) REFERENCES BiblioBD.item(biblioteca,id));
+	FOREIGN KEY (biblioteca,id) REFERENCES BiblioBD.item(biblioteca,id)ON DELETE CASCADE);
 
 CREATE TABLE BiblioBD.perifericos (
 	biblioteca varchar(60),
@@ -131,17 +138,19 @@ CREATE TABLE BiblioBD.perifericos (
 	modelo varchar(60),
 	tipo varchar(60),
 	PRIMARY KEY (biblioteca,id),
-	FOREIGN KEY (biblioteca,id) REFERENCES BiblioBD.item(biblioteca,id));
+	FOREIGN KEY (biblioteca,id) REFERENCES BiblioBD.item(biblioteca,id)ON DELETE CASCADE);
 
+DROP TABLE BiblioBD.cd
 CREATE TABLE BiblioBD.cd (
 	biblioteca varchar(60),
 	id int,
 	artista varchar(60),
 	genero varchar(60),
 	ano int CHECK(ano>0),
+	seccao varchar (60),
 	titulo varchar (60),
 	PRIMARY KEY (biblioteca,id),
-	FOREIGN KEY (biblioteca,id) REFERENCES BiblioBD.item(biblioteca,id));
+	FOREIGN KEY (biblioteca,id) REFERENCES BiblioBD.item(biblioteca,id)ON DELETE CASCADE);
 
 CREATE TABLE BiblioBD.livro (
 	biblioteca varchar(60),
@@ -155,7 +164,7 @@ CREATE TABLE BiblioBD.livro (
 	seccao varchar(60),
 	titulo varchar(60),
 	PRIMARY KEY (biblioteca,id),
-	FOREIGN KEY (biblioteca,id) REFERENCES BiblioBD.item(biblioteca,id));
+	FOREIGN KEY (biblioteca,id) REFERENCES BiblioBD.item(biblioteca,id)ON DELETE CASCADE);
 
 --inserir dados
 -- 1 biblioteca:
@@ -289,11 +298,11 @@ INSERT INTO BiblioBD.filme VALUES ('Biblioteca Municipal',14,'Crianca','William 
 INSERT INTO BiblioBD.filme VALUES ('Biblioteca Municipal',15,'Adulto','Stanley Kubrick','Terror',1980,'The Shinning');
 
 -- 5 CDS:
-INSERT INTO BiblioBD.cd VALUES ('Biblioteca Municipal',16,'One Direction','Pop',2013,'Midnight Memories');
-INSERT INTO BiblioBD.cd VALUES ('Biblioteca Municipal',17,'Taylor Swift','Pop',2020,'Evermore');
-INSERT INTO BiblioBD.cd VALUES ('Biblioteca Municipal',18,'Arctic Monkeys','Indie',2013,'AM');
-INSERT INTO BiblioBD.cd VALUES ('Biblioteca Municipal',19,'Michael Jackson','Pop',1982,'Thriller');
-INSERT INTO BiblioBD.cd VALUES ('Biblioteca Municipal',20,'Pink Floyd','Pop',1973,'The Dark Side of the Moon');
+INSERT INTO BiblioBD.cd VALUES ('Biblioteca Municipal',16,'One Direction','Pop',2013,'Adulto','Midnight Memories');
+INSERT INTO BiblioBD.cd VALUES ('Biblioteca Municipal',17,'Taylor Swift','Pop',2020,'Adulto','Evermore');
+INSERT INTO BiblioBD.cd VALUES ('Biblioteca Municipal',18,'Arctic Monkeys','Indie',2013,'Adulto','AM');
+INSERT INTO BiblioBD.cd VALUES ('Biblioteca Municipal',19,'Michael Jackson','Pop',1982,'Adulto','Thriller');
+INSERT INTO BiblioBD.cd VALUES ('Biblioteca Municipal',20,'Pink Floyd','Pop',1973,'Adulto','The Dark Side of the Moon');
 
 -- 5 perifericos: 
 INSERT INTO BiblioBD.perifericos VALUES ('Biblioteca Municipal',21,'Sony','MDRZX110','Fones'); 
@@ -324,3 +333,172 @@ INSERT INTO BiblioBD.livro VALUES ('Biblioteca Municipal',30,'Louisa May Alcott'
 	SELECT t.nome FROM (SELECT BiblioBD.membro.nome,COUNT(*) AS soma FROM BiblioBD.membro JOIN BiblioBD.atividadeMembro ON BiblioBD.membro.id=BiblioBD.atividadeMembro.membro GROUP BY BiblioBD.membro.nome) AS t WHERE t.soma>1
 --g)Ver o dia e a hora de atividades do tipo ‘teatro’
 	SELECT dataAti,horario FROM BiblioBD.atividade WHERE BiblioBD.atividade.tipo LIKE 'Teatro' 
+
+--Functions
+-- adicionar membro (entrada)
+-- procurar reservas (entrada e saida)
+GO
+CREATE FUNCTION BiblioBD.ProcurarReservasMembro(@id INT) RETURNS TABLE
+AS
+	RETURN (SELECT * FROM BiblioBD.emprestimo WHERE membro=@id)
+
+GO
+SELECT * FROM BiblioBD.ProcurarReservasMembro(1)
+-- trigger para as datas
+GO
+CREATE TRIGGER checkDates ON BiblioBD.funcionario AFTER INSERT AS
+DECLARE @d1 AS DATE
+DECLARE @d2 AS DATE
+DECLARE @dn AS DATE
+SELECT @d1=inicio,@d2=fim,@dn=nascimento FROM inserted
+IF (@d1>@d2 OR @dn>@d1)
+	BEGIN
+	RAISERROR('Datas incorretas, tente de novo.', 16, 1);
+	ROLLBACK TRAN;
+	END
+
+-- estas instrução dao erro :)
+--INSERT INTO BiblioBD.funcionario VALUES('Biblioteca Municipal',11,100025356,'a@s.pt','viapublica','antonio faria da cruz','1992-05-13',15615256,'2017-02-21',NULL);
+--INSERT INTO BiblioBD.funcionario VALUES('Biblioteca Municipal',10,100023150,'ewc@rhoncus.org','2861 Non, Rd.','Chwdde Colon','1974-04-21',251454142,'2014-03-01','2013-03-02');
+
+GO
+--DROP TRIGGER BiblioBD.checkDatesMngr 
+GO
+CREATE TRIGGER checkDatesMngr ON BiblioBD.gerente INSTEAD OF INSERT AS
+DECLARE @inicio AS DATE
+DECLARE @fim AS DATE
+DECLARE @d1 AS DATE
+DECLARE @d2 AS DATE
+DECLARE @compare1 AS DATE
+DECLARE @compare2 AS DATE
+DECLARE @flag AS INT
+SELECT @d1=inicio,@d2=fim FROM inserted
+SELECT @flag=0
+SELECT @inicio=BiblioBD.funcionario.inicio,@fim=BiblioBD.funcionario.fim FROM BiblioBD.funcionario JOIN inserted ON BiblioBD.funcionario.id=inserted.id
+IF(@d1<@inicio or @d2>@fim)
+	BEGIN
+	RAISERROR('Um funcionário só pode ser gerente se já trabalhar para a biblioteca.', 16, 1);
+	SELECT @flag=1
+	END
+DECLARE c CURSOR
+FOR SELECT inicio,fim FROM BiblioBD.gerente;
+OPEN c
+FETCH c INTO @compare1,@compare2
+WHILE @@FETCH_STATUS = 0
+BEGIN
+	if (@d2<@compare1 or @d1>@compare2)
+		FETCH c INTO @compare1,@compare2
+	else
+		BEGIN
+		RAISERROR('Apenas podemos ter um gerente de cada vez', 16, 1);
+		SELECT @flag=1
+		BREAK;
+		END
+END
+CLOSE c;
+DEALLOCATE c;
+IF (@flag=0)
+	INSERT INTO BiblioBD.gerente SELECT * FROM inserted;
+
+
+--INSERT INTO BiblioBD.gerente VALUES('Biblioteca Municipal',1,'2016-01-21','2016-06-20'); nao da erro
+--INSERT INTO BiblioBD.gerente VALUES('Biblioteca Municipal',2,'2016-06-21','2016-06-25'); da erro
+select * from BiblioBD.gerente
+--select * from sysobjects where name = 'checkDatesMngr'
+--Buscar info da biblioteca
+GO
+CREATE PROC sp_Biblioteca(@nome varchar(60),@telefone int	OUTPUT,@morada varchar(60) OUTPUT)
+AS 
+SELECT @telefone=telefone,@morada=morada  FROM BiblioBD.biblioteca 
+WHERE BiblioBD.biblioteca.nome LIKE @nome
+--para usar:
+DECLARE @tel int;
+DECLARE @mor varchar(60);
+EXEC dbo.sp_Biblioteca 'Biblioteca Municipal', @tel OUTPUT,@mor OUTPUT;
+SELECT @tel AS tel ,@mor AS mor
+
+
+--SELECT * FROM BiblioBD.emprestimo JOIN BiblioBD.emprestimoItem on BiblioBD.emprestimo.numero=BiblioBD.emprestimoItem.numero where id=15
+GO
+CREATE FUNCTION BiblioBD.ProcurarMembro(@id INT) RETURNS TABLE
+AS
+	RETURN (SELECT * FROM BiblioBD.membro WHERE id=@id)
+
+GO
+--DROP FUNCTION BiblioBD.ProcurarMembroNome
+GO
+CREATE FUNCTION BiblioBD.ProcurarMembroNome(@nome varchar(60)) RETURNS TABLE
+AS
+	RETURN (SELECT * FROM BiblioBD.membro WHERE nome LIKE  '%' + @nome + '%')
+
+GO
+GO
+CREATE FUNCTION BiblioBD.ProcurarMembroIDNome(@id INT,@nome varchar(60)) RETURNS TABLE
+AS
+	RETURN (SELECT * FROM BiblioBD.membro WHERE nome LIKE  '%' + @nome + '%' and id=@id)
+
+-- temos que criar a tabela oldEmprestimo
+--DROP PROCEDURE BiblioBD.EliminarItem
+GO
+CREATE PROCEDURE BiblioBD.EliminarItem(@id INT)
+AS
+DECLARE @count AS INT
+SELECT @count=COUNT(id) FROM BiblioBD.emprestimoItem JOIN BiblioBD.emprestimo ON BiblioBD.emprestimo.numero=BiblioBD.emprestimoItem.numero WHERE id=@id AND limite>GETDATE()
+IF (@count>0)
+	RAISERROR('Não pode eliminar este item, ele está num emprestimo',16,1);
+ELSE
+BEGIN
+	DELETE FROM BiblioBD.item WHERE id=@id
+END
+
+GO
+CREATE PROCEDURE BiblioBD.AdicionarMembro(@nome varchar(60),@email varchar(60),@morada varchar(60),@nascimento date,@NIF int)
+AS
+DECLARE @newid AS INT
+SELECT @newid=MAX(id)+1 FROM BiblioBD.membro 
+INSERT INTO BiblioBD.membro VALUES('Biblioteca Municipal',@newid,@email,@morada,@nome,@nascimento,@NIF)
+
+GO
+CREATE PROCEDURE BiblioBD.AdicionarFunc(@nome varchar(60),@email varchar(60),@morada varchar(60),@nascimento date,@NIF int,@ssn int,@inicio date,@fim date)
+AS
+DECLARE @newid AS INT
+SELECT @newid=MAX(id)+1 FROM BiblioBD.funcionario
+INSERT INTO BiblioBD.funcionario VALUES('Biblioteca Municipal',@newid,@ssn,@email,@morada,@nome,@nascimento,@NIF,@inicio,@fim)
+
+--SELECT * FROM BiblioBD.membro
+--DELETE FROM BiblioBD.Membro where nif=123
+--EXEC BiblioBD.AdicionarMembro a,a,a,'2021-06-16',123
+
+GO
+CREATE FUNCTION BiblioBD.ProcurarEmprestimoNum(@num INT) RETURNS TABLE
+AS
+	RETURN (SELECT * FROM BiblioBD.emprestimo WHERE numero=@num)
+
+
+GO
+CREATE FUNCTION BiblioBD.ProcurarEmprestimoIDM(@idm INT) RETURNS TABLE
+AS
+	RETURN (SELECT * FROM BiblioBD.emprestimo WHERE membro=@idm)
+
+	
+GO
+CREATE FUNCTION BiblioBD.ProcurarEmprestimoIDF(@idf INT) RETURNS TABLE
+AS
+	RETURN (SELECT * FROM BiblioBD.emprestimo WHERE funcionario=@idf)
+
+GO
+CREATE FUNCTION BiblioBD.ProcurarEmprestimoNumIDF(@num INT,@idf INT) RETURNS TABLE
+AS
+	RETURN (SELECT * FROM BiblioBD.emprestimo WHERE numero=@num and funcionario=@idf)
+GO
+CREATE FUNCTION BiblioBD.ProcurarEmprestimoNumIDM(@num INT,@idm INT) RETURNS TABLE
+AS
+	RETURN (SELECT * FROM BiblioBD.emprestimo WHERE numero=@num and membro=@idm)
+GO
+CREATE FUNCTION BiblioBD.ProcurarEmprestimoIDMIDF(@idm INT,@idf INT) RETURNS TABLE
+AS
+	RETURN (SELECT * FROM BiblioBD.emprestimo WHERE membro=@idm and funcionario=@idf)
+GO
+CREATE FUNCTION BiblioBD.ProcurarEmprestimoNumIDMIDF(@num INT,@idm INT,@idf INT) RETURNS TABLE
+AS
+	RETURN (SELECT * FROM BiblioBD.emprestimo WHERE numero=@num and membro=@idm and funcionario=@idf)

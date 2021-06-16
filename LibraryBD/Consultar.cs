@@ -243,13 +243,13 @@ namespace LibraryBD
             }
             cn.Close();
             this.currentEntity = 0;
-            ShowEmpres();
+            ShowEmp();
             LockControls();
             editar.Enabled = false;
             adicionar.Enabled = false;
             eliminar.Enabled = false;
         }
-        public void ShowEmpres()
+        public void ShowEmp()
         {
             if (elementos.Items.Count == 0 | currentEntity < 0)
                 return;
@@ -579,7 +579,7 @@ namespace LibraryBD
                     ShowManag();
                     break;
                 case 3:
-                    ShowEmpres();
+                    ShowEmp();
                     break;
                 case 4:
                     ShowCd();
@@ -716,6 +716,63 @@ namespace LibraryBD
                 }
             }
         }
+        public void ProcurarEmprestimo() {
+
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
+            String _num =emp_num.Text;
+            String _idf = emp_idf.Text;
+            String _idm = emp_idmem.Text;
+            String command="";
+            if (!String.IsNullOrEmpty(_num) & !String.IsNullOrEmpty(_idf) & !String.IsNullOrEmpty(_idm))
+            {
+                command = "SELECT * FROM BiblioBD.ProcurarEmprestimoNumIDMIDF(" + _num + "," + _idm + "," + _idf + ");";
+            }
+            else if (!String.IsNullOrEmpty(_num) & !String.IsNullOrEmpty(_idf))
+            {
+                command = "SELECT * FROM BiblioBD.ProcurarEmprestimoNumIDF(" + _num + "," + _idf + ");";
+            }
+            else if (!String.IsNullOrEmpty(_num) & !String.IsNullOrEmpty(_idm)) {
+                command = "SELECT * FROM BiblioBD.ProcurarEmprestimoNumIDM(" + _num + "," + _idm + ");";
+            }
+            else if (!String.IsNullOrEmpty(_idm) & !String.IsNullOrEmpty(_idf))
+            {
+                command = "SELECT * FROM BiblioBD.ProcurarEmprestimoIDMIDF(" + _idm + "," + _idf + ");";
+            }
+            else if (!String.IsNullOrEmpty(_num))
+            {
+                command = "SELECT * FROM BiblioBD.ProcurarEmprestimoNum(" + _num +");";
+            }
+            else if (!String.IsNullOrEmpty(_idm))
+            {
+                command = "SELECT * FROM BiblioBD.ProcurarEmprestimoIDM(" + _idm + ");";
+            }
+            else if (!String.IsNullOrEmpty(_idf))
+            {
+                command = "SELECT * FROM BiblioBD.ProcurarEmprestimoIDF(" + _idf + ");";
+            }
+            SqlCommand cmd = new SqlCommand(command, cn);// chamar função de add á database com cenas corretas; 
+            SqlDataReader reader = cmd.ExecuteReader();
+            elementos.Items.Clear();
+            while (reader.Read())
+            {
+                Emprestimo C = new Emprestimo();
+                C.Num = reader["numero"].ToString();
+                C.Id1 = reader["funcionario"].ToString();
+                C.Id2 = reader["membro"].ToString();
+                C.Emp = reader["emprestimo"].ToString();
+                C.Limite = reader["limite"].ToString();
+                elementos.Items.Add(C);
+            }
+            cn.Close();
+            this.currentEntity = 0;
+            ShowEmp();
+            LockControls();
+            button2.Hide();
+        }
         public void ProcurarMembro()
         {
             if (!verifySGBDConnection())
@@ -725,62 +782,36 @@ namespace LibraryBD
             };
             String _id = membro_id.Text;
             String _nome = membro_nome.Text;
+            String command = "";
             if (!String.IsNullOrEmpty(_id) & !String.IsNullOrEmpty(_nome)) {
-                String command = "SELECT * FROM BiblioBD.ProcurarMembroIDNome(" + _id + ",'"+_nome+"');";
-                SqlCommand cmd = new SqlCommand(command, cn);// chamar função de add á database com cenas corretas; 
-                SqlDataReader reader = cmd.ExecuteReader();
-                elementos.Items.Clear();
-                while (reader.Read())
-                {
-                    Membro C = new Membro();
-                    C.Id = reader["id"].ToString();
-                    C.Nome = reader["nome"].ToString();
-                    C.Email = reader["email"].ToString();
-                    C.Nif = reader["Nif"].ToString();
-                    C.Nascimento = reader["nascimento"].ToString();
-                    C.Morada = reader["morada"].ToString();
-                    elementos.Items.Add(C);
-                }
-                cn.Close();
+                command = "SELECT * FROM BiblioBD.ProcurarMembroIDNome(" + _id + ",'"+_nome+"');";
+                
             }
             else if (!String.IsNullOrEmpty(_id))
             {
-                String command = "SELECT * FROM BiblioBD.ProcurarMembro(" + _id + ");";
-                SqlCommand cmd = new SqlCommand(command, cn);// chamar função de add á database com cenas corretas; 
-                SqlDataReader reader = cmd.ExecuteReader();
-                elementos.Items.Clear();
-                while (reader.Read())
-                {
-                    Membro C = new Membro();
-                    C.Id = reader["id"].ToString();
-                    C.Nome = reader["nome"].ToString();
-                    C.Email = reader["email"].ToString();
-                    C.Nif = reader["Nif"].ToString();
-                    C.Nascimento = reader["nascimento"].ToString();
-                    C.Morada = reader["morada"].ToString();
-                    elementos.Items.Add(C);
-                }
-                cn.Close();
+                command = "SELECT * FROM BiblioBD.ProcurarMembro(" + _id + ");";
+                
             }
             else if (!String.IsNullOrEmpty(_nome))
             {
-                String command = "SELECT * FROM BiblioBD.ProcurarMembroNome('" + _nome + "');";
-                SqlCommand cmd = new SqlCommand(command, cn);// chamar função de add á database com cenas corretas; 
-                SqlDataReader reader = cmd.ExecuteReader();
-                elementos.Items.Clear();
-                while (reader.Read())
-                {
-                    Membro C = new Membro();
-                    C.Id = reader["id"].ToString();
-                    C.Nome = reader["nome"].ToString();
-                    C.Email = reader["email"].ToString();
-                    C.Nif = reader["Nif"].ToString();
-                    C.Nascimento = reader["nascimento"].ToString();
-                    C.Morada = reader["morada"].ToString();
-                    elementos.Items.Add(C);
-                }
-                cn.Close();
+                command = "SELECT * FROM BiblioBD.ProcurarMembroNome('" + _nome + "');";
+                
             }
+            SqlCommand cmd = new SqlCommand(command, cn);// chamar função de add á database com cenas corretas; 
+            SqlDataReader reader = cmd.ExecuteReader();
+            elementos.Items.Clear();
+            while (reader.Read())
+            {
+                Membro C = new Membro();
+                C.Id = reader["id"].ToString();
+                C.Nome = reader["nome"].ToString();
+                C.Email = reader["email"].ToString();
+                C.Nif = reader["Nif"].ToString();
+                C.Nascimento = reader["nascimento"].ToString();
+                C.Morada = reader["morada"].ToString();
+                elementos.Items.Add(C);
+            }
+            cn.Close();
             this.currentEntity = 0;
             ShowMembro();
             LockControls();
@@ -832,6 +863,11 @@ namespace LibraryBD
             cd_ano.Text = "";
             cd_titulo.Text = "";
             cd_seccao.Text = "";
+            emp_num.Text = "";
+            emp_idf.Text = "";
+            emp_dataemp.Text = "";
+            emp_idmem.Text = "";
+            emp_limite.Text = "";
         }
         public void LockControls()
         {
@@ -964,6 +1000,9 @@ namespace LibraryBD
             //vai chamar o pesquisar membros
             if (currentTipo == 0) {
                 ProcurarMembro();
+            }
+            if (currentTipo == 3) {
+                ProcurarEmprestimo();
             }
         }
 
