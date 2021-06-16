@@ -15,6 +15,7 @@ namespace LibraryBD
         private SqlConnection cn;
         private int currentEntity;
         private int currentTipo;
+        private int guardartype;
         public Consultar()
         {
             Debug.WriteLine("Init");
@@ -30,6 +31,7 @@ namespace LibraryBD
             tipo.Items.Add("Revista");
             tipo.Items.Add("Jornal");
             tipo.Items.Add("Periferico");
+            button2.Hide();
 
 
         }
@@ -550,6 +552,10 @@ namespace LibraryBD
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //botao procurar
+            EmptyAll();
+            UnlockControls();
+            button2.Show();
 
         }
 
@@ -591,14 +597,17 @@ namespace LibraryBD
 
         private void editar_Click(object sender, EventArgs e)
         {
+            this.guardartype = 1;
             UnlockControls();
         }
 
         private void guardar_Click(object sender, EventArgs e)
         {
             //botao adicionar nao guardar
+            this.guardartype = 0;
             EmptyAll();
             UnlockControls();
+            guardar.Enabled = true;
             adicionar.Enabled = false;
 
         }
@@ -634,8 +643,8 @@ namespace LibraryBD
             String _fim = ger_fim.Text;
             try //isto nao parece funcionar tho
             {
-                String send = "INSERT INTO BiblioBD.gerente VALUES('Biblioteca Municipal'," + _id + "'" + _inicio + "','" + _fim + "');";
-                SqlCommand cmd = new SqlCommand(send, cn);// chamar função de add á database com cenas corretas; 
+                String command = "INSERT INTO BiblioBD.gerente VALUES('Biblioteca Municipal'," + _id + "'" + _inicio + "','" + _fim + "');";
+                SqlCommand cmd = new SqlCommand(command, cn);// chamar função de add á database com cenas corretas; 
                 Debug.WriteLine("Adicionar gerente");
             }
             catch (Exception ex)
@@ -650,6 +659,76 @@ namespace LibraryBD
                     this.Close();
                 }
             }
+        }
+        public void ProcurarMembro()
+        {
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
+            String _id = membro_id.Text;
+            String _nome = membro_nome.Text;
+            if (!String.IsNullOrEmpty(_id) & !String.IsNullOrEmpty(_nome)) {
+                String command = "SELECT * FROM BiblioBD.ProcurarMembroIDNome(" + _id + ",'"+_nome+"');";
+                SqlCommand cmd = new SqlCommand(command, cn);// chamar função de add á database com cenas corretas; 
+                SqlDataReader reader = cmd.ExecuteReader();
+                elementos.Items.Clear();
+                while (reader.Read())
+                {
+                    Membro C = new Membro();
+                    C.Id = reader["id"].ToString();
+                    C.Nome = reader["nome"].ToString();
+                    C.Email = reader["email"].ToString();
+                    C.Nif = reader["Nif"].ToString();
+                    C.Nascimento = reader["nascimento"].ToString();
+                    C.Morada = reader["morada"].ToString();
+                    elementos.Items.Add(C);
+                }
+                cn.Close();
+            }
+            else if (!String.IsNullOrEmpty(_id))
+            {
+                String command = "SELECT * FROM BiblioBD.ProcurarMembro(" + _id + ");";
+                SqlCommand cmd = new SqlCommand(command, cn);// chamar função de add á database com cenas corretas; 
+                SqlDataReader reader = cmd.ExecuteReader();
+                elementos.Items.Clear();
+                while (reader.Read())
+                {
+                    Membro C = new Membro();
+                    C.Id = reader["id"].ToString();
+                    C.Nome = reader["nome"].ToString();
+                    C.Email = reader["email"].ToString();
+                    C.Nif = reader["Nif"].ToString();
+                    C.Nascimento = reader["nascimento"].ToString();
+                    C.Morada = reader["morada"].ToString();
+                    elementos.Items.Add(C);
+                }
+                cn.Close();
+            }
+            else if (!String.IsNullOrEmpty(_nome))
+            {
+                String command = "SELECT * FROM BiblioBD.ProcurarMembroNome('" + _nome + "');";
+                SqlCommand cmd = new SqlCommand(command, cn);// chamar função de add á database com cenas corretas; 
+                SqlDataReader reader = cmd.ExecuteReader();
+                elementos.Items.Clear();
+                while (reader.Read())
+                {
+                    Membro C = new Membro();
+                    C.Id = reader["id"].ToString();
+                    C.Nome = reader["nome"].ToString();
+                    C.Email = reader["email"].ToString();
+                    C.Nif = reader["Nif"].ToString();
+                    C.Nascimento = reader["nascimento"].ToString();
+                    C.Morada = reader["morada"].ToString();
+                    elementos.Items.Add(C);
+                }
+                cn.Close();
+            }
+            this.currentEntity = 0;
+            ShowMembro();
+            LockControls();
+            button2.Hide();
         }
         public void EmptyAll()
         {
@@ -747,7 +826,6 @@ namespace LibraryBD
 
 
         }
-
         public void UnlockControls()
         {
             membro_id.ReadOnly = false;
@@ -799,29 +877,63 @@ namespace LibraryBD
         private void guardar_Click_1(object sender, EventArgs e)
         {
             adicionar.Enabled = true;
-            switch (currentTipo)
-            {
-                case 0:
-                    guardar_Membro();
-                    break;
-                case 1:
-                    guardar_Func();
-                    break;
-                case 2:
-                    guardar_Ger();
-                    break;
-                default:
-                    break;
+            Debug.WriteLine("clicamos em guardar");
+            if (guardartype == 0) {
+                //viemos do adicionar
+                Debug.WriteLine("depois de adicionar");
+                if (currentTipo == 0)
+                {
+                    AdicionarMembro();
+                }
+                if (currentTipo == 1)
+                {
+                    AdicionarFunc();
+                }
+            }
+            if (guardartype == 1) { 
+                //viemos do editar
+            }
+           
+            
+        }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //botao de concluir pesquisa
+            //vai chamar o pesquisar membros
+            if (currentTipo == 0) {
+                ProcurarMembro();
             }
         }
 
-        private void filme_Enter(object sender, EventArgs e)
+        private void eliminar_Click(object sender, EventArgs e)
         {
+            
+            
+        }
+        private void AdicionarMembro() {
+            membro_id.Enabled= false;
+            Debug.WriteLine("ahhhhhhhhhhhhhhhh");
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            }
+            String comando = "EXEC BiblioBD.AdicionarMembro "+membro_nome.Text+","+ membro_email.Text + "," + membro_morada.Text + ",'" + membro_nasc.Value.ToString("yyyy-MM-dd") + "'," + membro_nif.Text;
+            Debug.WriteLine(comando);
+            SqlCommand cmd = new SqlCommand(comando, cn);
 
         }
-
-        private void cd_Enter(object sender, EventArgs e)
+        private void AdicionarFunc()
         {
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
+            String comando = "EXEC BiblioBD.AdicionarFunc " + fun_nome.Text + "," + fun_email.Text + "," + fun_morada.Text + "," + fun_nasc.Text + "," + fun_nif.Text + "," + fun_ssn.Text + "," + fun_i.Text + "," + fun_f.Text;
+            SqlCommand cmd = new SqlCommand(comando, cn);
 
         }
     }
