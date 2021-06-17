@@ -29,7 +29,7 @@ namespace LibraryBD
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.atividades_lista = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,41 +55,41 @@ namespace LibraryBD
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.detalhes = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.det_hora = new System.Windows.Forms.TextBox();
+            this.det_data = new System.Windows.Forms.DateTimePicker();
+            this.det__nome = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.det_membros = new System.Windows.Forms.ListBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.adicionargroup = new System.Windows.Forms.GroupBox();
+            this.add_tipo = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.add_hora = new System.Windows.Forms.TextBox();
+            this.add_data = new System.Windows.Forms.DateTimePicker();
+            this.add_nome = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.det_tipo = new System.Windows.Forms.ComboBox();
             this.detalhes.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.adicionargroup.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listBox1
+            // atividades_lista
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(19, 57);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(331, 324);
-            this.listBox1.TabIndex = 0;
+            this.atividades_lista.FormattingEnabled = true;
+            this.atividades_lista.ItemHeight = 20;
+            this.atividades_lista.Location = new System.Drawing.Point(19, 57);
+            this.atividades_lista.Name = "atividades_lista";
+            this.atividades_lista.Size = new System.Drawing.Size(331, 324);
+            this.atividades_lista.TabIndex = 0;
             // 
             // button1
             // 
@@ -99,6 +99,7 @@ namespace LibraryBD
             this.button1.TabIndex = 1;
             this.button1.Text = "Adicionar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -126,6 +127,7 @@ namespace LibraryBD
             this.button3.TabIndex = 4;
             this.button3.Text = "Detalhes";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label2
             // 
@@ -288,19 +290,19 @@ namespace LibraryBD
             // 
             // detalhes
             // 
+            this.detalhes.Controls.Add(this.det_tipo);
             this.detalhes.Controls.Add(this.label22);
-            this.detalhes.Controls.Add(this.textBox10);
-            this.detalhes.Controls.Add(this.dateTimePicker1);
-            this.detalhes.Controls.Add(this.textBox9);
-            this.detalhes.Controls.Add(this.textBox8);
+            this.detalhes.Controls.Add(this.det_hora);
+            this.detalhes.Controls.Add(this.det_data);
+            this.detalhes.Controls.Add(this.det__nome);
             this.detalhes.Controls.Add(this.label16);
             this.detalhes.Controls.Add(this.button6);
-            this.detalhes.Controls.Add(this.listBox2);
+            this.detalhes.Controls.Add(this.det_membros);
             this.detalhes.Controls.Add(this.label15);
             this.detalhes.Controls.Add(this.label14);
             this.detalhes.Controls.Add(this.label13);
             this.detalhes.Controls.Add(this.label12);
-            this.detalhes.Location = new System.Drawing.Point(392, 446);
+            this.detalhes.Location = new System.Drawing.Point(371, 25);
             this.detalhes.Name = "detalhes";
             this.detalhes.Size = new System.Drawing.Size(385, 416);
             this.detalhes.TabIndex = 24;
@@ -316,33 +318,26 @@ namespace LibraryBD
             this.label22.TabIndex = 13;
             this.label22.Text = "Detalhes";
             // 
-            // textBox10
+            // det_hora
             // 
-            this.textBox10.Location = new System.Drawing.Point(75, 172);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(290, 27);
-            this.textBox10.TabIndex = 10;
+            this.det_hora.Location = new System.Drawing.Point(75, 172);
+            this.det_hora.Name = "det_hora";
+            this.det_hora.Size = new System.Drawing.Size(290, 27);
+            this.det_hora.TabIndex = 10;
             // 
-            // dateTimePicker1
+            // det_data
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(74, 138);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(291, 27);
-            this.dateTimePicker1.TabIndex = 9;
+            this.det_data.Location = new System.Drawing.Point(74, 138);
+            this.det_data.Name = "det_data";
+            this.det_data.Size = new System.Drawing.Size(291, 27);
+            this.det_data.TabIndex = 9;
             // 
-            // textBox9
+            // det__nome
             // 
-            this.textBox9.Location = new System.Drawing.Point(74, 105);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(291, 27);
-            this.textBox9.TabIndex = 8;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(74, 72);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(291, 27);
-            this.textBox8.TabIndex = 7;
+            this.det__nome.Location = new System.Drawing.Point(74, 72);
+            this.det__nome.Name = "det__nome";
+            this.det__nome.Size = new System.Drawing.Size(291, 27);
+            this.det__nome.TabIndex = 7;
             // 
             // label16
             // 
@@ -362,14 +357,14 @@ namespace LibraryBD
             this.button6.Text = "Fechar";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // listBox2
+            // det_membros
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 20;
-            this.listBox2.Location = new System.Drawing.Point(18, 229);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(347, 144);
-            this.listBox2.TabIndex = 4;
+            this.det_membros.FormattingEnabled = true;
+            this.det_membros.ItemHeight = 20;
+            this.det_membros.Location = new System.Drawing.Point(18, 229);
+            this.det_membros.Name = "det_membros";
+            this.det_membros.Size = new System.Drawing.Size(347, 144);
+            this.det_membros.TabIndex = 4;
             // 
             // label15
             // 
@@ -407,24 +402,32 @@ namespace LibraryBD
             this.label12.TabIndex = 0;
             this.label12.Text = "Nome";
             // 
-            // groupBox1
+            // adicionargroup
             // 
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.button8);
-            this.groupBox1.Controls.Add(this.textBox11);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.textBox12);
-            this.groupBox1.Controls.Add(this.textBox13);
-            this.groupBox1.Controls.Add(this.button7);
-            this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.label21);
-            this.groupBox1.Location = new System.Drawing.Point(827, 15);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(385, 416);
-            this.groupBox1.TabIndex = 25;
-            this.groupBox1.TabStop = false;
+            this.adicionargroup.Controls.Add(this.add_tipo);
+            this.adicionargroup.Controls.Add(this.label17);
+            this.adicionargroup.Controls.Add(this.button8);
+            this.adicionargroup.Controls.Add(this.add_hora);
+            this.adicionargroup.Controls.Add(this.add_data);
+            this.adicionargroup.Controls.Add(this.add_nome);
+            this.adicionargroup.Controls.Add(this.button7);
+            this.adicionargroup.Controls.Add(this.label18);
+            this.adicionargroup.Controls.Add(this.label19);
+            this.adicionargroup.Controls.Add(this.label20);
+            this.adicionargroup.Controls.Add(this.label21);
+            this.adicionargroup.Location = new System.Drawing.Point(827, 15);
+            this.adicionargroup.Name = "adicionargroup";
+            this.adicionargroup.Size = new System.Drawing.Size(385, 416);
+            this.adicionargroup.TabIndex = 25;
+            this.adicionargroup.TabStop = false;
+            // 
+            // add_tipo
+            // 
+            this.add_tipo.FormattingEnabled = true;
+            this.add_tipo.Location = new System.Drawing.Point(78, 107);
+            this.add_tipo.Name = "add_tipo";
+            this.add_tipo.Size = new System.Drawing.Size(290, 28);
+            this.add_tipo.TabIndex = 13;
             // 
             // label17
             // 
@@ -444,34 +447,28 @@ namespace LibraryBD
             this.button8.TabIndex = 11;
             this.button8.Text = "Cancelar";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // textBox11
+            // add_hora
             // 
-            this.textBox11.Location = new System.Drawing.Point(78, 174);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(290, 27);
-            this.textBox11.TabIndex = 10;
+            this.add_hora.Location = new System.Drawing.Point(78, 174);
+            this.add_hora.Name = "add_hora";
+            this.add_hora.Size = new System.Drawing.Size(290, 27);
+            this.add_hora.TabIndex = 10;
             // 
-            // dateTimePicker2
+            // add_data
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(77, 140);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(291, 27);
-            this.dateTimePicker2.TabIndex = 9;
+            this.add_data.Location = new System.Drawing.Point(77, 140);
+            this.add_data.Name = "add_data";
+            this.add_data.Size = new System.Drawing.Size(291, 27);
+            this.add_data.TabIndex = 9;
             // 
-            // textBox12
+            // add_nome
             // 
-            this.textBox12.Location = new System.Drawing.Point(77, 107);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(291, 27);
-            this.textBox12.TabIndex = 8;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(77, 74);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(291, 27);
-            this.textBox13.TabIndex = 7;
+            this.add_nome.Location = new System.Drawing.Point(77, 74);
+            this.add_nome.Name = "add_nome";
+            this.add_nome.Size = new System.Drawing.Size(291, 27);
+            this.add_nome.TabIndex = 7;
             // 
             // button7
             // 
@@ -481,6 +478,7 @@ namespace LibraryBD
             this.button7.TabIndex = 5;
             this.button7.Text = "Concluir";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // label18
             // 
@@ -518,12 +516,20 @@ namespace LibraryBD
             this.label21.TabIndex = 0;
             this.label21.Text = "Nome";
             // 
+            // det_tipo
+            // 
+            this.det_tipo.FormattingEnabled = true;
+            this.det_tipo.Location = new System.Drawing.Point(74, 106);
+            this.det_tipo.Name = "det_tipo";
+            this.det_tipo.Size = new System.Drawing.Size(291, 28);
+            this.det_tipo.TabIndex = 14;
+            // 
             // Atividades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1415, 590);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.adicionargroup);
             this.Controls.Add(this.detalhes);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
@@ -548,13 +554,13 @@ namespace LibraryBD
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.atividades_lista);
             this.Name = "Atividades";
             this.Text = "Atividades";
             this.detalhes.ResumeLayout(false);
             this.detalhes.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.adicionargroup.ResumeLayout(false);
+            this.adicionargroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -562,7 +568,7 @@ namespace LibraryBD
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox atividades_lista;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
@@ -587,29 +593,31 @@ namespace LibraryBD
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.GroupBox detalhes;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox det_hora;
+        private System.Windows.Forms.DateTimePicker det_data;
+        private System.Windows.Forms.TextBox det__nome;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox det_membros;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox adicionargroup;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.DateTimePicker add_date;
+        private System.Windows.Forms.TextBox add_nome;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ComboBox add_tipo;
+        private System.Windows.Forms.TextBox add_hora;
+        private System.Windows.Forms.DateTimePicker add_data;
+        private System.Windows.Forms.ComboBox det_tipo;
     }
 }

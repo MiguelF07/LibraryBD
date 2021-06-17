@@ -510,6 +510,22 @@ AS
 UPDATE BiblioBD.membro SET nome=@nome,email=@email,morada=@morada,nascimento=@nascimento,NIF=@nif WHERE id=@id
 
 GO
+CREATE PROC BiblioBD.Disponivel(@id INT,@disp varchar(3) OUTPUT)
+AS 
+DECLARE @count INT
+SELECT @count=COUNT(*) FROM BiblioBD.emprestimoItem JOIN BiblioBD.emprestimo ON BiblioBD.emprestimoItem.numero=BiblioBD.emprestimo.numero WHERE @id=id and limite<GETDATE()
+IF @count>0
+	SELECT @disp='Não'
+ELSE
+	SELECT @disp='Sim'
+
+--para usar:
+GO
+DECLARE @disp varchar(3);
+EXEC BiblioBD.Disponivel 3, @disp OUTPUT;
+print(@disp)
+
+-- EMPRESTIMO
 -- Funcao para estender o emprestimo
 SELECT limite from BiblioBD.emprestimo
 SELECT limite from BiblioBD.emprestimo WHERE numero=3
@@ -546,3 +562,35 @@ GO
 
 SELECT * from BiblioBD.emprestimo
 EXEC BiblioBD.EstenderEmprestimo 5
+
+-- ATIVIDADES
+--adicionar atividade
+GO
+CREATE PROC BiblioBD.adicionarAtividade(@nome varchar(60),
+	@tipo varchar(60),
+	@dataAti date,
+	@horario time)
+AS
+	DECLARE @count INT
+	SELECT @count=count(*) FROM BiblioBD.atividade WHERE @tipo=tipo and @dataAti=dataAti
+	IF @count=0
+		INSERT INTO BiblioBD.atividade VALUES ('Biblioteca Municipal',@nome,@tipo,@dataAti,@horario)
+	ELSE
+		RAISERROR('ERRO: já existe uma atividade desse tipo nesse dia.',16,1);
+
+EXEC BiblioBD.adicionarAtividade 'ola','Pintura','2021-06-25','15:00'
+DELETE FROM BiblioBD.atividade where nome='ola'
+SELECT * FROM BiblioBD.atividade
+--obter atividades
+GO
+CREATE FUNCTION BiblioBD.obterAtividades() RETURNS TABLE
+AS
+	RETURN SELECT * FROM BiblioBD.atividade WHERE dataAti>GETDATE()
+
+GO
+CREATE FUNCTION BiblioBD.membrosAtividade(@nome varchar(60)) RETURNS TABLE
+AS
+	RETURN SELECT membro FROM BiblioBD.atividadeMembro WHERE nome=@nome
+GO
+SELECT * From BiblioBD.atividade
+DELETE FROM BiblioBD.atividade WHERE nome='as'

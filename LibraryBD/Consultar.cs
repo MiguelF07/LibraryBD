@@ -1003,9 +1003,16 @@ namespace LibraryBD
                 Debug.WriteLine("no conn");
                 return;
             }
-            String comando = "EXEC BiblioBD.EditarMembro " + membro_id.Text+",'"+membro_nome.Text + "','" + membro_email.Text + "','" + membro_morada.Text + "','" + membro_nasc.Value.ToString("yyyy-MM-dd") + "'," + membro_nif.Text;
-            Debug.WriteLine(comando);
-            SqlCommand cmd = new SqlCommand(comando, cn);
+            
+            SqlCommand cmd = new SqlCommand("BiblioBD.EditarMembro", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@id", membro_id.Text));
+            cmd.Parameters.Add(new SqlParameter("@nome", membro_nome.Text));
+            cmd.Parameters.Add(new SqlParameter("@email", membro_email.Text));
+            cmd.Parameters.Add(new SqlParameter("@morada", membro_morada.Text));
+            cmd.Parameters.Add(new SqlParameter("@nascimento", membro_nasc.Value.ToString("yyyy-MM-dd")));
+            cmd.Parameters.Add(new SqlParameter("@NIF", membro_nif.Text));
+            cmd.ExecuteNonQuery();
             cn.Close();
             loadMemberData();
             membro_id.Enabled = true;
