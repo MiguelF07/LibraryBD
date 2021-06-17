@@ -1,4 +1,4 @@
-USE Projeto;
+USE Projeto2;
 CREATE SCHEMA BiblioBD;
 
 /*DROP TABLE BiblioBD.emprestimoItem
@@ -562,6 +562,19 @@ GO
 
 SELECT * from BiblioBD.emprestimo
 EXEC BiblioBD.EstenderEmprestimo 5
+GO
+
+-- Chamar este procedimento sempre que fazemos uma reserva
+-- Verificar se nao estamos a emprestar algo ja emprestado
+CREATE PROCEDURE BiblioBD.VerDisponibilidade(@id INT)
+AS
+DECLARE @tabelaID AS INT
+DECLARE @count AS INT
+SELECT @count=COUNT(*) FROM BiblioBD.emprestimo JOIN BiblioBD.emprestimoItem ON BiblioBD.emprestimo.numero = BiblioBD.emprestimoItem.numero WHERE id=@id
+
+IF(@count!=0)
+	RAISERROR('Este artigo já está emprestado',16,1);
+GO
 
 -- ATIVIDADES
 --adicionar atividade
@@ -613,4 +626,5 @@ GO
 CREATE FUNCTION BiblioBD.obterAtividadesTipo(@tipo varchar(60)) RETURNS TABLE
 AS
 	RETURN SELECT * FROM BiblioBD.atividade where dataAti>=GETDATE() and tipo=@tipo
+
 
