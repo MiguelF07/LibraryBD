@@ -582,15 +582,35 @@ EXEC BiblioBD.adicionarAtividade 'ola','Pintura','2021-06-25','15:00'
 DELETE FROM BiblioBD.atividade where nome='ola'
 SELECT * FROM BiblioBD.atividade
 --obter atividades
+DROP FUNCTION BiblioBD.obterAtividades
 GO
 CREATE FUNCTION BiblioBD.obterAtividades() RETURNS TABLE
 AS
-	RETURN SELECT * FROM BiblioBD.atividade WHERE dataAti>GETDATE()
-
+	RETURN SELECT * FROM BiblioBD.atividade WHERE dataAti>=GETDATE()
+--DROP FUNCTION BiblioBD.membrosAtividade 
 GO
 CREATE FUNCTION BiblioBD.membrosAtividade(@nome varchar(60)) RETURNS TABLE
 AS
-	RETURN SELECT membro FROM BiblioBD.atividadeMembro WHERE nome=@nome
+	RETURN SELECT membro,id,email,morada,BiblioBD.membro.nome,nascimento,NIF FROM BiblioBD.atividadeMembro JOIN BiblioBD.membro ON membro=id WHERE BiblioBD.atividadeMembro.nome=@nome
 GO
-SELECT * From BiblioBD.atividade
-DELETE FROM BiblioBD.atividade WHERE nome='as'
+
+GO
+CREATE PROC BiblioBD.eliminarAtividade(@nome varchar(60))
+AS
+DELETE FROM BiblioBD.atividade WHERE nome=@nome
+
+GO
+CREATE FUNCTION BiblioBD.obterAtividadesMembro(@id INT) RETURNS TABLE
+AS
+	RETURN SELECT BiblioBD.atividade.nome,tipo,dataAti,horario FROM BiblioBD.atividade JOIN BiblioBD.atividadeMembro ON BiblioBD.atividade.nome=BiblioBD.atividadeMembro.nome where dataAti>=GETDATE() and membro=@id
+
+GO
+CREATE FUNCTION BiblioBD.obterAtividadesMembroTipo(@id INT,@tipo varchar(60)) RETURNS TABLE
+AS
+	RETURN SELECT BiblioBD.atividade.nome,tipo,dataAti,horario FROM BiblioBD.atividade JOIN BiblioBD.atividadeMembro ON BiblioBD.atividade.nome=BiblioBD.atividadeMembro.nome where dataAti>=GETDATE() and membro=@id and tipo=@tipo
+
+GO
+CREATE FUNCTION BiblioBD.obterAtividadesTipo(@tipo varchar(60)) RETURNS TABLE
+AS
+	RETURN SELECT * FROM BiblioBD.atividade where dataAti>=GETDATE() and tipo=@tipo
+

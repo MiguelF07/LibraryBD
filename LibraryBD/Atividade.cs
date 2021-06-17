@@ -15,5 +15,9 @@ namespace LibraryBD
         public string Tipo { get => _tipo; set => _tipo = value; }
         public string Data { get => _data; set => _data = value; }
         public string Hora { get => _hora; set => _hora = value; }
+        public override String ToString()
+        {
+            return _tipo + " : "+ _nome; // mudar string que vai aparecer na lista
+        }
     }
 }

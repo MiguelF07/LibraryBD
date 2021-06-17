@@ -39,21 +39,19 @@ namespace LibraryBD
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.add_membro = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.rem_membro = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.pes_nome = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.detalhes = new System.Windows.Forms.GroupBox();
+            this.det_tipo = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.det_hora = new System.Windows.Forms.TextBox();
             this.det_data = new System.Windows.Forms.DateTimePicker();
@@ -77,7 +75,10 @@ namespace LibraryBD
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.det_tipo = new System.Windows.Forms.ComboBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pesquisar = new System.Windows.Forms.Button();
+            this.pes_tipo = new System.Windows.Forms.ComboBox();
             this.detalhes.SuspendLayout();
             this.adicionargroup.SuspendLayout();
             this.SuspendLayout();
@@ -109,6 +110,7 @@ namespace LibraryBD
             this.button2.TabIndex = 2;
             this.button2.Text = "Remover";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -174,15 +176,6 @@ namespace LibraryBD
             this.label6.TabIndex = 9;
             this.label6.Text = "Data";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(392, 231);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 20);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Hora";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -203,12 +196,12 @@ namespace LibraryBD
             this.label9.Text = "Remover membro:";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // textBox1
+            // add_membro
             // 
-            this.textBox1.Location = new System.Drawing.Point(497, 306);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 27);
-            this.textBox1.TabIndex = 13;
+            this.add_membro.Location = new System.Drawing.Point(497, 306);
+            this.add_membro.Name = "add_membro";
+            this.add_membro.Size = new System.Drawing.Size(222, 27);
+            this.add_membro.TabIndex = 13;
             // 
             // label10
             // 
@@ -228,12 +221,12 @@ namespace LibraryBD
             this.label11.TabIndex = 16;
             this.label11.Text = "ID Membro";
             // 
-            // textBox2
+            // rem_membro
             // 
-            this.textBox2.Location = new System.Drawing.Point(497, 392);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(222, 27);
-            this.textBox2.TabIndex = 15;
+            this.rem_membro.Location = new System.Drawing.Point(497, 392);
+            this.rem_membro.Name = "rem_membro";
+            this.rem_membro.Size = new System.Drawing.Size(222, 27);
+            this.rem_membro.TabIndex = 15;
             // 
             // button4
             // 
@@ -243,6 +236,7 @@ namespace LibraryBD
             this.button4.TabIndex = 17;
             this.button4.Text = "+";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -252,20 +246,14 @@ namespace LibraryBD
             this.button5.TabIndex = 18;
             this.button5.Text = "-";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // textBox3
+            // pes_nome
             // 
-            this.textBox3.Location = new System.Drawing.Point(497, 54);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(262, 27);
-            this.textBox3.TabIndex = 19;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(497, 97);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(262, 27);
-            this.textBox4.TabIndex = 20;
+            this.pes_nome.Location = new System.Drawing.Point(497, 54);
+            this.pes_nome.Name = "pes_nome";
+            this.pes_nome.Size = new System.Drawing.Size(262, 27);
+            this.pes_nome.TabIndex = 19;
             // 
             // textBox5
             // 
@@ -281,13 +269,6 @@ namespace LibraryBD
             this.textBox6.Size = new System.Drawing.Size(262, 27);
             this.textBox6.TabIndex = 22;
             // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(497, 228);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(262, 27);
-            this.textBox7.TabIndex = 23;
-            // 
             // detalhes
             // 
             this.detalhes.Controls.Add(this.det_tipo);
@@ -302,11 +283,19 @@ namespace LibraryBD
             this.detalhes.Controls.Add(this.label14);
             this.detalhes.Controls.Add(this.label13);
             this.detalhes.Controls.Add(this.label12);
-            this.detalhes.Location = new System.Drawing.Point(371, 25);
+            this.detalhes.Location = new System.Drawing.Point(789, 68);
             this.detalhes.Name = "detalhes";
             this.detalhes.Size = new System.Drawing.Size(385, 416);
             this.detalhes.TabIndex = 24;
             this.detalhes.TabStop = false;
+            // 
+            // det_tipo
+            // 
+            this.det_tipo.Enabled = false;
+            this.det_tipo.Location = new System.Drawing.Point(74, 105);
+            this.det_tipo.Name = "det_tipo";
+            this.det_tipo.Size = new System.Drawing.Size(291, 27);
+            this.det_tipo.TabIndex = 14;
             // 
             // label22
             // 
@@ -320,6 +309,7 @@ namespace LibraryBD
             // 
             // det_hora
             // 
+            this.det_hora.Enabled = false;
             this.det_hora.Location = new System.Drawing.Point(75, 172);
             this.det_hora.Name = "det_hora";
             this.det_hora.Size = new System.Drawing.Size(290, 27);
@@ -327,6 +317,7 @@ namespace LibraryBD
             // 
             // det_data
             // 
+            this.det_data.Enabled = false;
             this.det_data.Location = new System.Drawing.Point(74, 138);
             this.det_data.Name = "det_data";
             this.det_data.Size = new System.Drawing.Size(291, 27);
@@ -334,6 +325,7 @@ namespace LibraryBD
             // 
             // det__nome
             // 
+            this.det__nome.Enabled = false;
             this.det__nome.Location = new System.Drawing.Point(74, 72);
             this.det__nome.Name = "det__nome";
             this.det__nome.Size = new System.Drawing.Size(291, 27);
@@ -356,9 +348,11 @@ namespace LibraryBD
             this.button6.TabIndex = 5;
             this.button6.Text = "Fechar";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // det_membros
             // 
+            this.det_membros.Enabled = false;
             this.det_membros.FormattingEnabled = true;
             this.det_membros.ItemHeight = 20;
             this.det_membros.Location = new System.Drawing.Point(18, 229);
@@ -516,32 +510,59 @@ namespace LibraryBD
             this.label21.TabIndex = 0;
             this.label21.Text = "Nome";
             // 
-            // det_tipo
+            // textBox7
             // 
-            this.det_tipo.FormattingEnabled = true;
-            this.det_tipo.Location = new System.Drawing.Point(74, 106);
-            this.det_tipo.Name = "det_tipo";
-            this.det_tipo.Size = new System.Drawing.Size(291, 28);
-            this.det_tipo.TabIndex = 14;
+            this.textBox7.Location = new System.Drawing.Point(497, 228);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(262, 27);
+            this.textBox7.TabIndex = 23;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(392, 231);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(42, 20);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Hora";
+            // 
+            // pesquisar
+            // 
+            this.pesquisar.Location = new System.Drawing.Point(662, 261);
+            this.pesquisar.Name = "pesquisar";
+            this.pesquisar.Size = new System.Drawing.Size(94, 29);
+            this.pesquisar.TabIndex = 26;
+            this.pesquisar.Text = "Pesquisar";
+            this.pesquisar.UseVisualStyleBackColor = true;
+            this.pesquisar.Click += new System.EventHandler(this.pesquisar_Click);
+            // 
+            // pes_tipo
+            // 
+            this.pes_tipo.FormattingEnabled = true;
+            this.pes_tipo.Location = new System.Drawing.Point(497, 98);
+            this.pes_tipo.Name = "pes_tipo";
+            this.pes_tipo.Size = new System.Drawing.Size(262, 28);
+            this.pes_tipo.TabIndex = 27;
             // 
             // Atividades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1415, 590);
+            this.Controls.Add(this.pes_tipo);
+            this.Controls.Add(this.pesquisar);
             this.Controls.Add(this.adicionargroup);
             this.Controls.Add(this.detalhes);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.pes_nome);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.rem_membro);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.add_membro);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -578,10 +599,9 @@ namespace LibraryBD
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox add_membro;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox2;
@@ -591,7 +611,6 @@ namespace LibraryBD
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.GroupBox detalhes;
         private System.Windows.Forms.TextBox det_hora;
         private System.Windows.Forms.DateTimePicker det_data;
@@ -618,6 +637,12 @@ namespace LibraryBD
         private System.Windows.Forms.ComboBox add_tipo;
         private System.Windows.Forms.TextBox add_hora;
         private System.Windows.Forms.DateTimePicker add_data;
-        private System.Windows.Forms.ComboBox det_tipo;
+        private System.Windows.Forms.TextBox det_tipo;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button pesquisar;
+        private System.Windows.Forms.TextBox pes_nome;
+        private System.Windows.Forms.ComboBox pes_tipo;
+        private System.Windows.Forms.TextBox rem_membro;
     }
 }

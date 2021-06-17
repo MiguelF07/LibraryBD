@@ -18,6 +18,7 @@ namespace LibraryBD
         {
             InitializeComponent();
             adicionargroup.Hide();
+            detalhes.Hide();
             add_tipo.Items.Add("Pintura");
             add_tipo.Items.Add("Teatro");
             add_tipo.Items.Add("Leitura");
@@ -55,12 +56,10 @@ namespace LibraryBD
             while (reader.Read())
             {
                 Atividade C = new Atividade();
-                C.Id = reader["id"].ToString();
                 C.Nome = reader["nome"].ToString();
-                C.Email = reader["email"].ToString();
-                C.Nif = reader["Nif"].ToString();
-                C.Nascimento = reader["nascimento"].ToString();
-                C.Morada = reader["morada"].ToString();
+                C.Tipo = reader["tipo"].ToString();
+                C.Data = reader["dataAti"].ToString();
+                C.Hora = reader["horario"].ToString();
                 atividades_lista.Items.Add(C);
             }
             cn.Close();
@@ -78,7 +77,7 @@ namespace LibraryBD
         private void button1_Click(object sender, EventArgs e)
         {
             adicionargroup.Show();
-
+            clearAll();
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -88,17 +87,26 @@ namespace LibraryBD
                 Debug.WriteLine("no conn");
                 return;
             }
+            try { 
             SqlCommand cmd = new SqlCommand("BiblioBD.adicionarAtividade", cn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@nome", add_nome.Text));
             cmd.Parameters.Add(new SqlParameter("@tipo", add_tipo.Text));
             cmd.Parameters.Add(new SqlParameter("@dataAti", add_data.Value.ToString("yyyy-MM-dd")));
             cmd.Parameters.Add(new SqlParameter("@horario", add_hora.Text));
+            Debug.WriteLine(add_data.Value.ToString("yyyy-MM-dd"));
+            Debug.WriteLine(add_tipo.Text);
             cmd.ExecuteNonQuery();
             cn.Close();
+            carregarAtividades();}
+            catch (SqlException se)
+            {
+                System.Windows.Forms.MessageBox.Show("Não foi possível adicionar a atividade. Verifique que não existe outra atividade desse tipo no mesmo dia.");
+          
+            }
             adicionargroup.Hide();
         }
-
+        
         private void button8_Click(object sender, EventArgs e)
         {
             adicionargroup.Hide();
@@ -107,6 +115,7 @@ namespace LibraryBD
         private void button3_Click(object sender, EventArgs e)
         {
             detalhes.Show();
+            clearAll();
             currentEntity = atividades_lista.SelectedIndex;
             if (atividades_lista.Items.Count == 0 | currentEntity < 0)
                 return;
@@ -117,6 +126,115 @@ namespace LibraryBD
             det_hora.Text = m.Hora;
             det_data.Text = m.Data;
             //executar comandos para ir buscar membros
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            }
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.membrosAtividade('"+m.Nome+"')", cn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Membro C = new Membro();
+                C.Id = reader["id"].ToString();
+                C.Nome = reader["nome"].ToString();
+                C.Email = reader["email"].ToString();
+                C.Nif = reader["Nif"].ToString();
+                C.Nascimento = reader["nascimento"].ToString();
+                C.Morada = reader["morada"].ToString();
+                det_membros.Items.Add(C);
+            }
+            cn.Close();
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            detalhes.Hide();
+        }
+        private void clearAll() {
+            det__nome.Text = "";
+            det_tipo.Text = "";
+            det_hora.Text = "";
+            det_data.Text = "";
+            add_data.Text = "";
+            add_nome.Text = "";
+            add_hora.Text = "";
+            add_tipo.Text = "";
+            det_membros.Items.Clear();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Atividade m = new Atividade();
+            m = (Atividade)atividades_lista.Items[atividades_lista.SelectedIndex];
+            Debug.WriteLine(m.Nome);
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            }
+            SqlCommand cmd = new SqlCommand("BiblioBD.eliminarAtividade", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@nome", m.Nome));
+            cmd.ExecuteNonQuery();
+            cn.Close();
+            carregarAtividades();
+        }
+
+        private void pesquisar_Click(object sender, EventArgs e)
+        {
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            }
+            String _membro = pes_nome.Text;
+            String _tipo=pes_tipo.Text;
+            String comando = "";
+            if (!String.IsNullOrEmpty(_membro) & !String.IsNullOrEmpty(_tipo))
+            {
+                comando = "SELECT * FROM BiblioBD.obterAtividadesMembroTipo(" + _membro + ",'" + _tipo + "');";
+            }
+            else if (!String.IsNullOrEmpty(_membro))
+            {
+                comando = "SELECT * FROM BiblioBD.obterAtividadesMembro(" + _membro + ");";
+            }
+            else if (!String.IsNullOrEmpty(_tipo))
+            {
+                comando = "SELECT * FROM BiblioBD.obterAtividadesTipo('" + _tipo + "');";
+            }
+            else {
+                cn.Close();
+                carregarAtividades();
+                return;
+            }
+            Debug.WriteLine(_membro);
+            SqlCommand cmd = new SqlCommand(comando, cn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            atividades_lista.Items.Clear();
+            while (reader.Read())
+            {
+                Atividade C = new Atividade();
+                C.Nome = reader["nome"].ToString();
+                C.Tipo = reader["tipo"].ToString();
+                C.Data = reader["dataAti"].ToString();
+                C.Hora = reader["horario"].ToString();
+                atividades_lista.Items.Add(C);
+            }
+            cn.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //adicionar membro
+            String _id = add_membro.Text;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //remover membro
+            String _id = rem_membro.Text;
         }
     }
 }
