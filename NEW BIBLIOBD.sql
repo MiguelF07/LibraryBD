@@ -1,4 +1,4 @@
-USE Projeto2;
+USE Projeto;
 CREATE SCHEMA BiblioBD;
 
 /*DROP TABLE BiblioBD.emprestimoItem
@@ -465,6 +465,16 @@ DECLARE @newid AS INT
 SELECT @newid=MAX(id)+1 FROM BiblioBD.funcionario
 INSERT INTO BiblioBD.funcionario VALUES('Biblioteca Municipal',@newid,@ssn,@email,@morada,@nome,@nascimento,@NIF,@inicio,@fim)
 
+GO
+CREATE PROCEDURE BiblioBD.EliminarMembro(@id INT)
+AS 
+	DELETE FROM BiblioBD.membro WHERE id=@id
+
+GO
+CREATE PROCEDURE BiblioBD.EliminarFunc(@id INT)
+AS 
+	DELETE FROM BiblioBD.funcionario WHERE id=@id
+
 --SELECT * FROM BiblioBD.membro
 --DELETE FROM BiblioBD.Membro where nif=123
 --EXEC BiblioBD.AdicionarMembro a,a,a,'2021-06-16',123
@@ -519,10 +529,12 @@ IF @count>0
 ELSE
 	SELECT @disp='Sim'
 
+	--SELECT * FROM BiblioBD.emprestimoItem JOIN BiblioBD.emprestimo ON BiblioBD.emprestimoItem.numero=BiblioBD.emprestimo.numero WHERE id=15 and limite<GETDATE()
 --para usar:
 GO
 DECLARE @disp varchar(3);
 EXEC BiblioBD.Disponivel 3, @disp OUTPUT;
+SELECT @disp AS disp
 print(@disp)
 
 -- EMPRESTIMO
@@ -627,4 +639,21 @@ CREATE FUNCTION BiblioBD.obterAtividadesTipo(@tipo varchar(60)) RETURNS TABLE
 AS
 	RETURN SELECT * FROM BiblioBD.atividade where dataAti>=GETDATE() and tipo=@tipo
 
+GO
+CREATE PROCEDURE BiblioBD.adicionarMembroAtividade(@id INT,@nome varchar(60))
+AS
+	DECLARE @count INT
+	DECLARE @data DATE
+	SELECT @data=dataAti FROM BiblioBD.atividade WHERE nome=@nome
+	SELECT @count=COUNT(*) FROM BiblioBD.atividadeMembro JOIN BiblioBD.atividade ON BiblioBD.atividadeMembro.nome=BiblioBD.atividade.nome WHERE membro=@id and dataAti=@data
+	IF @count=0
+		INSERT INTO BiblioBD.atividadeMembro VALUES ('Biblioteca Municipal',@id,@nome)
+	ELSE
+		RAISERROR('ERRO: O membro já participa numa atividade nesse dia.',16,1);
+
+GO
+CREATE PROCEDURE BiblioBD.removerMembroAtividade(@id INT,@nome varchar(60))
+AS
+	DELETE FROM BiblioBD.atividadeMembro WHERE @id=membro and @nome=nome
+	
 

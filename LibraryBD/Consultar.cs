@@ -31,6 +31,7 @@ namespace LibraryBD
             tipo.Items.Add("Revista");
             tipo.Items.Add("Jornal");
             tipo.Items.Add("Periferico");
+            tipo.Items.Add("Filme");
             button2.Hide();
 
 
@@ -336,7 +337,20 @@ namespace LibraryBD
             revista_marca.Text = r.Marca;
             revista_seccao.Text = r.Seccao;
             revista_tipo.Text = r.Tipo;
-            rev_disp.Text = r.Disp; //disponibilidade
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
+            SqlCommand cmd = new SqlCommand("BiblioBD.Disponivel", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@id", revista_id.Text));
+            cmd.Parameters.Add("@disp", SqlDbType.VarChar, 100);
+            cmd.Parameters["@disp"].Direction = ParameterDirection.Output;
+            cmd.ExecuteNonQuery();
+            String disp = Convert.ToString(cmd.Parameters["@disp"].Value);
+            rev_disp.Text = disp;
+            cn.Close();
         }
 
         private void loadFilmData()
@@ -381,6 +395,20 @@ namespace LibraryBD
             filme_genero.Text = f.Genero;
             filme_ano.Text = f.Ano;
             filme_titulo.Text = f.Titulo;
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
+            SqlCommand cmd = new SqlCommand("BiblioBD.Disponivel", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@id", filme_id.Text));
+            cmd.Parameters.Add("@disp", SqlDbType.VarChar, 100);
+            cmd.Parameters["@disp"].Direction = ParameterDirection.Output;
+            cmd.ExecuteNonQuery();
+            String disp = Convert.ToString(cmd.Parameters["@disp"].Value);
+            filme_disp.Text = disp;
+            cn.Close();
         }
 
         private void loadPerData()
@@ -422,7 +450,21 @@ namespace LibraryBD
             per_id.Text = p.Id;
             per_marca.Text = p.Marca;
             per_modelo.Text = p.Modelo;
-            per_tipo.Text = p.Tipo;
+            per_tipo.Text = p.Tipo; 
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
+            SqlCommand cmd = new SqlCommand("BiblioBD.Disponivel", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@id", per_id.Text));
+            cmd.Parameters.Add("@disp", SqlDbType.VarChar, 100);
+            cmd.Parameters["@disp"].Direction = ParameterDirection.Output;
+            cmd.ExecuteNonQuery();
+            String disp = Convert.ToString(cmd.Parameters["@disp"].Value);
+            per_disp.Text = disp;
+            cn.Close();
         }
 
         private void loadCdData()
@@ -466,7 +508,21 @@ namespace LibraryBD
             cd_genero.Text = c.Genero;
             cd_ano.Text = c.Ano;
             cd_titulo.Text = c.Titulo;
-            cd_seccao.Text = c.Seccao;
+            cd_seccao.Text = c.Seccao; 
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
+            SqlCommand cmd = new SqlCommand("BiblioBD.Disponivel", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@id", cd_id.Text));
+            cmd.Parameters.Add("@disp", SqlDbType.VarChar, 100);
+            cmd.Parameters["@disp"].Direction = ParameterDirection.Output;
+            cmd.ExecuteNonQuery();
+            String disp = Convert.ToString(cmd.Parameters["@disp"].Value);
+            cd_disp.Text = disp;
+            cn.Close();
         }
 
         private void loadLivroData()
@@ -507,6 +563,7 @@ namespace LibraryBD
         {
             if (elementos.Items.Count == 0 | currentEntity < 0)
                 return;
+            
             Livro l = new Livro();
             l = (Livro)elementos.Items[currentEntity];
             livro_id.Text = l.Id;
@@ -517,6 +574,20 @@ namespace LibraryBD
             livro_isbn.Text = l.Isbn;
             livro_genero.Text = l.Genero;
             livro_seccao.Text = l.Seccao;
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            };
+            SqlCommand cmd = new SqlCommand("BiblioBD.Disponivel", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@id", livro_id.Text));
+            cmd.Parameters.Add("@disp", SqlDbType.VarChar, 100);
+            cmd.Parameters["@disp"].Direction = ParameterDirection.Output;
+            cmd.ExecuteNonQuery();
+            String disp = Convert.ToString(cmd.Parameters["@disp"].Value);
+            livro_disp.Text = disp;
+            cn.Close();
         }
         private void unlockButtons() {
             editar.Enabled = true;
@@ -561,6 +632,9 @@ namespace LibraryBD
                     break;
                 case 8:
                     loadPerData();
+                    break;
+                case 9:
+                    loadFilmData();
                     break;
             }
         }
@@ -708,15 +782,7 @@ namespace LibraryBD
             }
             catch (Exception ex)
             {
-                string message = "A sua operação foi cancelada. Verifique os seus parametros.";
-                string caption = "Erro";
-                MessageBoxButtons buttons = MessageBoxButtons.OK;
-                DialogResult result = MessageBox.Show(message, caption, buttons);
-                if (result == System.Windows.Forms.DialogResult.Yes)
-                {
-                    // Closes the parent form.
-                    this.Close();
-                }
+                System.Windows.Forms.MessageBox.Show("Operação falhou. Tente de novo.");
             }
         }
         public void ProcurarEmprestimo() {
@@ -1032,39 +1098,113 @@ namespace LibraryBD
             }
         }
 
-        private void eliminar_Click(object sender, EventArgs e)
-        {
-            
-            
-        }
+        
         private void AdicionarMembro() {
             if (!verifySGBDConnection())
             {
                 Debug.WriteLine("no conn");
                 return;
             }
-            String comando = "EXEC BiblioBD.AdicionarMembro '"+membro_nome.Text+"','"+ membro_email.Text + "','" + membro_morada.Text + "','" + membro_nasc.Value.ToString("yyyy-MM-dd") + "'," + membro_nif.Text;
-            Debug.WriteLine(comando);
-            SqlCommand cmd = new SqlCommand(comando, cn);
+            SqlCommand cmd = new SqlCommand("BiblioBD.AdicionarMembro", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@nome", membro_nome.Text));
+            cmd.Parameters.Add(new SqlParameter("@email", membro_email.Text));
+            cmd.Parameters.Add(new SqlParameter("@morada", membro_morada.Text));
+            cmd.Parameters.Add(new SqlParameter("@nascimento", membro_nasc.Value.ToString("yyyy-MM-dd")));
+            cmd.Parameters.Add(new SqlParameter("@NIF", membro_nif.Text));
+            cmd.ExecuteNonQuery();
             cn.Close();
             loadMemberData();
             membro_id.Enabled = true;
             
 
         }
+        private void EliminarMembro()
+        {
+            string message = "Deseja mesmo eliminar este membro?";
+            string caption = "Confirme";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+            result = MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                if (!verifySGBDConnection())
+                {
+                    Debug.WriteLine("no conn");
+                    return;
+                }
+                Membro m = new Membro();
+                m = (Membro)elementos.Items[elementos.SelectedIndex];
+                SqlCommand cmd = new SqlCommand("BiblioBD.EliminarMembro", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@id", m.Id));
+                cmd.ExecuteNonQuery();
+                cn.Close();
+                loadMemberData();
+                membro_id.Enabled = true;
+            }
+            
+        }
         private void AdicionarFunc()
+        {
+            string message = "Deseja mesmo eliminar este funcionario?";
+            string caption = "Confirme";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+            result = MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+
+                if (!verifySGBDConnection())
+                {
+                    Debug.WriteLine("no conn");
+                    return;
+                };
+
+                SqlCommand cmd = new SqlCommand("BiblioBD.AdicionarFunc", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@nome", fun_nome.Text));
+                cmd.Parameters.Add(new SqlParameter("@email", fun_email.Text));
+                cmd.Parameters.Add(new SqlParameter("@morada", fun_morada.Text));
+                cmd.Parameters.Add(new SqlParameter("@nascimento", fun_nasc.Value.ToString("yyyy-MM-dd")));
+                cmd.Parameters.Add(new SqlParameter("@NIF", fun_nif.Text));
+                cmd.Parameters.Add(new SqlParameter("@ssn", fun_ssn.Text));
+                cmd.Parameters.Add(new SqlParameter("@inicio", fun_i.Value.ToString("yyyy-MM-dd")));
+                cmd.Parameters.Add(new SqlParameter("@fim", fun_f.Value.ToString("yyyy-MM-dd")));
+                cmd.ExecuteNonQuery();
+                cn.Close();
+                loadFuncData();
+                fun_id.Enabled = true;
+            }
+            
+        }
+        
+        private void EliminarFunc()
         {
             if (!verifySGBDConnection())
             {
                 Debug.WriteLine("no conn");
                 return;
-            };
-            String comando = "EXEC BiblioBD.AdicionarFunc '" + fun_nome.Text + "','" + fun_email.Text + "','" + fun_morada.Text + "'," + fun_nasc.Value.ToString("yyyy-MM-dd") + "," + fun_nif.Text + "," + fun_ssn.Text + ",'" + fun_i.Value.ToString("yyyy-MM-dd") + "','" + fun_f.Value.ToString("yyyy-MM-dd")+"'";
-            SqlCommand cmd = new SqlCommand(comando, cn);
+            }
+            Funcionario m = new Funcionario();
+            m = (Funcionario)elementos.Items[elementos.SelectedIndex];
+            SqlCommand cmd = new SqlCommand("BiblioBD.EliminarFunc", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@id", m.Id));
+            cmd.ExecuteNonQuery();
             cn.Close();
-            loadFuncData();
-            fun_id.Enabled = true;
-            
+            loadMemberData();
+            membro_id.Enabled = true;
+        }
+        private void eliminar_Click(object sender, EventArgs e)
+        {
+            if (currentTipo == 0) {
+                EliminarMembro();
+            }
+            if (currentTipo == 1) {
+                EliminarFunc();
+            }
+
         }
 
     }

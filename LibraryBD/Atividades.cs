@@ -77,6 +77,7 @@ namespace LibraryBD
         private void button1_Click(object sender, EventArgs e)
         {
             adicionargroup.Show();
+            principal.Hide();
             clearAll();
         }
 
@@ -87,34 +88,39 @@ namespace LibraryBD
                 Debug.WriteLine("no conn");
                 return;
             }
-            try { 
-            SqlCommand cmd = new SqlCommand("BiblioBD.adicionarAtividade", cn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add(new SqlParameter("@nome", add_nome.Text));
-            cmd.Parameters.Add(new SqlParameter("@tipo", add_tipo.Text));
-            cmd.Parameters.Add(new SqlParameter("@dataAti", add_data.Value.ToString("yyyy-MM-dd")));
-            cmd.Parameters.Add(new SqlParameter("@horario", add_hora.Text));
-            Debug.WriteLine(add_data.Value.ToString("yyyy-MM-dd"));
-            Debug.WriteLine(add_tipo.Text);
-            cmd.ExecuteNonQuery();
-            cn.Close();
-            carregarAtividades();}
+            try
+            {
+                SqlCommand cmd = new SqlCommand("BiblioBD.adicionarAtividade", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@nome", add_nome.Text));
+                cmd.Parameters.Add(new SqlParameter("@tipo", add_tipo.Text));
+                cmd.Parameters.Add(new SqlParameter("@dataAti", add_data.Value.ToString("yyyy-MM-dd")));
+                cmd.Parameters.Add(new SqlParameter("@horario", add_hora.Text));
+                Debug.WriteLine(add_data.Value.ToString("yyyy-MM-dd"));
+                Debug.WriteLine(add_tipo.Text);
+                cmd.ExecuteNonQuery();
+                cn.Close();
+                carregarAtividades();
+            }
             catch (SqlException se)
             {
                 System.Windows.Forms.MessageBox.Show("Não foi possível adicionar a atividade. Verifique que não existe outra atividade desse tipo no mesmo dia.");
-          
+
             }
             adicionargroup.Hide();
+            principal.Show();
         }
-        
+
         private void button8_Click(object sender, EventArgs e)
         {
             adicionargroup.Hide();
+            principal.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             detalhes.Show();
+            principal.Hide();
             clearAll();
             currentEntity = atividades_lista.SelectedIndex;
             if (atividades_lista.Items.Count == 0 | currentEntity < 0)
@@ -131,7 +137,7 @@ namespace LibraryBD
                 Debug.WriteLine("no conn");
                 return;
             }
-            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.membrosAtividade('"+m.Nome+"')", cn);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.membrosAtividade('" + m.Nome + "')", cn);
             SqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
@@ -151,8 +157,10 @@ namespace LibraryBD
         private void button6_Click(object sender, EventArgs e)
         {
             detalhes.Hide();
+            principal.Show();
         }
-        private void clearAll() {
+        private void clearAll()
+        {
             det__nome.Text = "";
             det_tipo.Text = "";
             det_hora.Text = "";
@@ -167,19 +175,26 @@ namespace LibraryBD
         private void button2_Click(object sender, EventArgs e)
         {
             Atividade m = new Atividade();
-            m = (Atividade)atividades_lista.Items[atividades_lista.SelectedIndex];
-            Debug.WriteLine(m.Nome);
-            if (!verifySGBDConnection())
+            if (atividades_lista.SelectedIndex >= 0)
             {
-                Debug.WriteLine("no conn");
-                return;
+                m = (Atividade)atividades_lista.Items[atividades_lista.SelectedIndex];
+                Debug.WriteLine(m.Nome);
+                if (!verifySGBDConnection())
+                {
+                    Debug.WriteLine("no conn");
+                    return;
+                }
+                SqlCommand cmd = new SqlCommand("BiblioBD.eliminarAtividade", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@nome", m.Nome));
+                cmd.ExecuteNonQuery();
+                cn.Close();
+                carregarAtividades();
             }
-            SqlCommand cmd = new SqlCommand("BiblioBD.eliminarAtividade", cn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add(new SqlParameter("@nome", m.Nome));
-            cmd.ExecuteNonQuery();
-            cn.Close();
-            carregarAtividades();
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Selecione uma atividade para eliminar.");
+            }
         }
 
         private void pesquisar_Click(object sender, EventArgs e)
@@ -190,7 +205,7 @@ namespace LibraryBD
                 return;
             }
             String _membro = pes_nome.Text;
-            String _tipo=pes_tipo.Text;
+            String _tipo = pes_tipo.Text;
             String comando = "";
             if (!String.IsNullOrEmpty(_membro) & !String.IsNullOrEmpty(_tipo))
             {
@@ -204,7 +219,8 @@ namespace LibraryBD
             {
                 comando = "SELECT * FROM BiblioBD.obterAtividadesTipo('" + _tipo + "');";
             }
-            else {
+            else
+            {
                 cn.Close();
                 carregarAtividades();
                 return;
@@ -228,13 +244,64 @@ namespace LibraryBD
         private void button4_Click(object sender, EventArgs e)
         {
             //adicionar membro
-            String _id = add_membro.Text;
+
+            if (atividades_lista.SelectedIndex >= 0)
+            {
+                Atividade m = new Atividade();
+                m = (Atividade)atividades_lista.Items[atividades_lista.SelectedIndex];
+                Debug.WriteLine(m.Nome);
+                if (!verifySGBDConnection())
+                {
+                    Debug.WriteLine("no conn");
+                    return;
+                }
+                SqlCommand cmd = new SqlCommand("BiblioBD.adicionarMembroAtividade", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@id", add_membro.Text));
+                cmd.Parameters.Add(new SqlParameter("@nome", m.Nome));
+                cmd.ExecuteNonQuery();
+                cn.Close();
+                add_membro.Text = "";
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Selectione uma atividade.");
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             //remover membro
-            String _id = rem_membro.Text;
+            if (atividades_lista.SelectedIndex >= 0)
+            {
+                string message = "Deseja mesmo remover este membro?";
+                string caption = "Confirme";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+                result= MessageBox.Show(message, caption, buttons);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    this.Close();
+                Atividade m = new Atividade();
+                m = (Atividade)atividades_lista.Items[atividades_lista.SelectedIndex];
+                Debug.WriteLine(m.Nome);
+                if (!verifySGBDConnection())
+                {
+                    Debug.WriteLine("no conn");
+                    return;
+                }
+                SqlCommand cmd = new SqlCommand("BiblioBD.removerMembroAtividade", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@id", rem_membro.Text));
+                cmd.Parameters.Add(new SqlParameter("@nome", m.Nome));
+                cmd.ExecuteNonQuery();
+                cn.Close();
+                rem_membro.Text = "";
+            }}
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Selecione uma atividade.");
+            }
         }
     }
 }
