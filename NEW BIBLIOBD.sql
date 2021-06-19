@@ -1,4 +1,4 @@
-USE Projeto;
+USE Projeto2;
 CREATE SCHEMA BiblioBD;
 
 /*DROP TABLE BiblioBD.emprestimoItem
@@ -541,13 +541,6 @@ print(@disp)
 -- Funcao para estender o emprestimo
 SELECT limite from BiblioBD.emprestimo
 SELECT limite from BiblioBD.emprestimo WHERE numero=3
-CREATE FUNCTION BiblioBD.EstenderEmp(@num INT) RETURNS TABLE
-AS
-	DECLARE @emp AS DATE;
-	DECLARE @daysToAdd AS INT;
-
-	SELECT @daysToAdd = 15;
-	
 GO
 
 CREATE PROCEDURE BiblioBD.EstenderEmprestimo(@num INT)
@@ -578,15 +571,135 @@ GO
 
 -- Chamar este procedimento sempre que fazemos uma reserva
 -- Verificar se nao estamos a emprestar algo ja emprestado
-CREATE PROCEDURE BiblioBD.VerDisponibilidade(@id INT)
+CREATE FUNCTION BiblioBD.VerDisponibilidade(@id INT) RETURNS BIT
 AS
+BEGIN
+DECLARE @ret as BIT
 DECLARE @tabelaID AS INT
 DECLARE @count AS INT
 SELECT @count=COUNT(*) FROM BiblioBD.emprestimo JOIN BiblioBD.emprestimoItem ON BiblioBD.emprestimo.numero = BiblioBD.emprestimoItem.numero WHERE id=@id
 
 IF(@count!=0)
-	RAISERROR('Este artigo já está emprestado',16,1);
+BEGIN
+	SET @ret = 0 -- Ja esta emprestado
+END
+ELSE
+BEGIN
+	SET @ret = 1
+END
+RETURN @ret
+END
 GO
+
+SELECT * FROM BiblioBD.emprestimo JOIN BiblioBD.emprestimoItem ON BiblioBD.emprestimo.numero=BiblioBD.emprestimoItem.numero
+SELECT sum(CASE WHEN membro=5 then 1 else 0 end) FROM BiblioBD.emprestimo JOIN BiblioBD.emprestimoItem ON BiblioBD.emprestimo.numero=BiblioBD.emprestimoItem.numero
+
+GO
+
+--funcao que verifica se utilizador pode fazer emprestimos
+--DROP FUNCTION BiblioBD.PodeReservar
+CREATE FUNCTION BiblioBD.PodeReservar(@num INT) RETURNS BIT
+AS
+BEGIN
+	DECLARE @numEmprestimos AS INT
+	DECLARE @ret AS BIT
+	SELECT @numEmprestimos = sum(CASE WHEN membro=@num then 1 else 0 end) FROM BiblioBD.emprestimo FULL OUTER JOIN BiblioBD.emprestimoItem ON BiblioBD.emprestimo.numero=BiblioBD.emprestimoItem.numero
+	IF (@numEmprestimos>=5)
+	BEGIN
+		SET @ret = 0 --Nao pode fazer mais reservas
+	END
+	ELSE
+	BEGIN
+		SET @ret = 1 -- Pode fazer mais reservas
+	END
+	RETURN @ret
+END
+GO
+
+--funcao que verifica se o utilizador tem algum emprestimo em atraso
+CREATE FUNCTION BiblioBD.TemAtraso(@num INT,@todayDate DATE) RETURNS BIT
+AS
+BEGIN
+	DECLARE @ret AS BIT
+	DECLARE @empAtrasados AS INT
+	SELECT @empAtrasados = COUNT(*) FROM BiblioBD.emprestimo JOIN BiblioBD.emprestimoItem ON BiblioBD.emprestimo.numero=BiblioBD.emprestimoItem.numero WHERE limite < @todayDate
+	IF (@empAtrasados>0)
+	BEGIN
+		SET @ret = 0 --Nao pode fazer mais reservas
+	END
+	ELSE
+	BEGIN
+		SET @ret = 1 -- Pode fazer mais reservas
+	END
+	RETURN @ret
+END
+GO
+
+-- funcao para adicionar um emprestimo
+--DROP PROCEDURE BiblioBD.AddEmprestimo
+CREATE PROCEDURE BiblioBD.AddEmprestimo(@num INT,@idF INT, @idM INT, @dataAtual DATE)
+AS
+	DECLARE @dataLimite AS DATE
+	DECLARE @podeEmprestar AS BIT
+	DECLARE @emAtraso AS BIT
+	SET @podeEmprestar = BiblioBD.PodeReservar(@idM)
+	SET @emAtraso = BiblioBD.TemAtraso(@idM,@dataAtual)
+	IF @emAtraso=0
+	BEGIN
+		RAISERROR('O utilizador não pode efetuar reservas porque tem emprestimos em atraso.',16,1);
+	END
+	ELSE
+	BEGIN
+		PRINT @podeEmprestar
+		IF @podeEmprestar=0
+		BEGIN
+			RAISERROR('O utilizador já tem 5 empréstimos ativos, não pode realizar mais nenhum.',16,1);
+		END
+		ELSE
+		BEGIN
+			SELECT @dataLimite = DATEADD(day,15,@dataAtual)
+			INSERT INTO BiblioBD.emprestimo(numero,funcionario,biblioteca,membro,limite,emprestimo)
+			VALUES (@num,@idF,'Biblioteca Municipal',@idM,@dataLimite,@dataAtual)
+		END
+	END
+GO
+
+--adicionar itens ao emprestimo
+--DROP PROCEDURE BiblioBD.AddItemEmprestimo
+CREATE PROCEDURE BiblioBD.AddItemEmprestimo(@num INT, @idItem INT)
+--ver se o emprestimo existe
+AS
+DECLARE @exist AS INT
+DECLARE @itemDisp AS BIT
+SET @itemDisp = BiblioBD.VerDisponibilidade(@idItem)
+SELECT @exist = COUNT(*) FROM BiblioBD.emprestimo WHERE BiblioBD.emprestimo.numero=@num
+IF @itemDisp=0
+BEGIN
+	RAISERROR('Este artigo já está emprestado',16,1);
+END
+ELSE
+BEGIN
+IF @exist=0
+BEGIN
+	RAISERROR('O empréstimo ao qual está a tentar adicionar o item não existe.',16,1);
+END
+ELSE
+BEGIN
+	INSERT INTO BiblioBD.emprestimoItem(biblioteca,numero,id)
+	VALUES ('Biblioteca Municipal',@num,@idItem)
+END
+END
+GO
+EXEC BiblioBD.AddItemEmprestimo '7','23'
+
+
+-- ENTREGAR
+--SELECT * from BiblioBD.emprestimo
+--numero funcionario biblioteca membro limite emprestimo
+--SELECT * FROM BiblioBD.emprestimo FULL OUTER JOIN BiblioBD.emprestimoItem ON BiblioBD.emprestimo.numero=BiblioBD.emprestimoItem.numero
+--biblioteca numero id
+--EXEC BiblioBD.AddEmprestimo '14','7','5','2021-06-13'
+
 
 -- ATIVIDADES
 --adicionar atividade
