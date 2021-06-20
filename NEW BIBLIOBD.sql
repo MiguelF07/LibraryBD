@@ -617,12 +617,13 @@ END
 GO
 
 --funcao que verifica se o utilizador tem algum emprestimo em atraso
+DROP FUNCTION BiblioBD.TemAtraso
 CREATE FUNCTION BiblioBD.TemAtraso(@num INT,@todayDate DATE) RETURNS BIT
 AS
 BEGIN
 	DECLARE @ret AS BIT
 	DECLARE @empAtrasados AS INT
-	SELECT @empAtrasados = COUNT(*) FROM BiblioBD.emprestimo JOIN BiblioBD.emprestimoItem ON BiblioBD.emprestimo.numero=BiblioBD.emprestimoItem.numero WHERE limite < @todayDate
+	SELECT @empAtrasados = COUNT(*) FROM BiblioBD.emprestimo JOIN BiblioBD.emprestimoItem ON BiblioBD.emprestimo.numero=BiblioBD.emprestimoItem.numero WHERE (limite < @todayDate AND membro = @num)
 	IF (@empAtrasados>0)
 	BEGIN
 		SET @ret = 0 --Nao pode fazer mais reservas
@@ -635,6 +636,24 @@ BEGIN
 END
 GO
 
+CREATE FUNCTION BiblioBD.Trabalha(@num INT) RETURNS BIT
+AS
+BEGIN
+	DECLARE @ret AS BIT
+	DECLARE @tabelaFunc AS INT
+	SELECT @tabelaFunc = COUNT(*) FROM BiblioBD.funcionario WHERE (id=@num AND fim IS NULL)
+	IF (@tabelaFunc = 0)
+	BEGIN
+	SET @ret = 0 -- funcionario ja nao trabalha lá (data de fim nao e nula)
+	END
+	ELSE
+	BEGIN
+	SET @ret = 1 -- funcionario ainda la trabalha
+	END
+	RETURN @ret
+END
+GO
+
 -- funcao para adicionar um emprestimo
 --DROP PROCEDURE BiblioBD.AddEmprestimo
 CREATE PROCEDURE BiblioBD.AddEmprestimo(@num INT,@idF INT, @idM INT, @dataAtual DATE)
@@ -642,27 +661,40 @@ AS
 	DECLARE @dataLimite AS DATE
 	DECLARE @podeEmprestar AS BIT
 	DECLARE @emAtraso AS BIT
+	DECLARE @funcTrabalha AS BIT
 	SET @podeEmprestar = BiblioBD.PodeReservar(@idM)
 	SET @emAtraso = BiblioBD.TemAtraso(@idM,@dataAtual)
-	IF @emAtraso=0
+	SET @funcTrabalha = BiblioBD.Trabalha(@idF)
+	IF @funcTrabalha = 0
 	BEGIN
-		RAISERROR('O utilizador não pode efetuar reservas porque tem emprestimos em atraso.',16,1);
+		RAISERROR('ID de funcionário inválido. O funcionário já não trabalha na Biblioteca',16,1);
 	END
 	ELSE
 	BEGIN
-		PRINT @podeEmprestar
-		IF @podeEmprestar=0
+		IF @emAtraso=0
 		BEGIN
-			RAISERROR('O utilizador já tem 5 empréstimos ativos, não pode realizar mais nenhum.',16,1);
+			RAISERROR('O utilizador não pode efetuar reservas porque tem emprestimos em atraso.',16,1);
 		END
 		ELSE
 		BEGIN
-			SELECT @dataLimite = DATEADD(day,15,@dataAtual)
-			INSERT INTO BiblioBD.emprestimo(numero,funcionario,biblioteca,membro,limite,emprestimo)
-			VALUES (@num,@idF,'Biblioteca Municipal',@idM,@dataLimite,@dataAtual)
+			IF @podeEmprestar=0
+			BEGIN
+				RAISERROR('O utilizador já tem 5 empréstimos ativos, não pode realizar mais nenhum.',16,1);
+			END
+			ELSE
+			BEGIN
+				SELECT @dataLimite = DATEADD(day,15,@dataAtual)
+				INSERT INTO BiblioBD.emprestimo(numero,funcionario,biblioteca,membro,limite,emprestimo)
+				VALUES (@num,@idF,'Biblioteca Municipal',@idM,@dataLimite,@dataAtual)
+			END
 		END
 	END
 GO
+
+EXEC BiblioBD.AddEmprestimo '13' ,'3' ,'7' ,'2021-09-27'
+SELECT * FROM BiblioBD.funcionario
+SELECT * from BiblioBD.emprestimo
+
 
 --adicionar itens ao emprestimo
 --DROP PROCEDURE BiblioBD.AddItemEmprestimo
@@ -692,6 +724,11 @@ END
 GO
 EXEC BiblioBD.AddItemEmprestimo '7','23'
 
+--Verificar se o funcionario ainda la trabalha
+SELECT * from BiblioBD.funcionario
+GO
+
+
 
 -- ENTREGAR
 --SELECT * from BiblioBD.emprestimo
@@ -699,6 +736,27 @@ EXEC BiblioBD.AddItemEmprestimo '7','23'
 --SELECT * FROM BiblioBD.emprestimo FULL OUTER JOIN BiblioBD.emprestimoItem ON BiblioBD.emprestimo.numero=BiblioBD.emprestimoItem.numero
 --biblioteca numero id
 --EXEC BiblioBD.AddEmprestimo '14','7','5','2021-06-13'
+
+
+--Apagar um item do emprestimo (entrega-lo)
+CREATE PROCEDURE BiblioBD.EliminarItemEmprestimo (@item INT)
+AS
+DELETE FROM BiblioBD.emprestimoItem WHERE BiblioBD.emprestimoItem.id=@item
+GO
+
+--Entregar tudo de um emprestimo
+CREATE PROCEDURE BiblioBD.EliminarEmprestimo (@id INT)
+AS
+--Elimina as colunas que façam parte desse emprestimo
+DELETE FROM BiblioBD.emprestimoItem WHERE BiblioBD.emprestimoItem.numero=@id
+
+
+
+
+
+
+
+
 
 
 -- ATIVIDADES
