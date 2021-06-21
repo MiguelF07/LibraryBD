@@ -17,7 +17,6 @@ C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryB
 C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryBD.genruntimeconfig.cache
 C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryBD.Atividades.resources
 C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryBD.Entregar.resources
-C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryBD.Reservar.resources
 C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryBD.Infobibl.resources
 C:\Users\andre\source\repos\LibraryBD\LibraryBD\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 C:\Users\andre\source\repos\LibraryBD\LibraryBD\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
@@ -54,3 +53,4 @@ C:\Users\MiguelFerreira\Desktop\ProjetoBD\LibraryBD\LibraryBD\bin\Debug\netcorea
 C:\Users\MiguelFerreira\Desktop\ProjetoBD\LibraryBD\LibraryBD\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\MiguelFerreira\Desktop\ProjetoBD\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryBD.csproj.CopyComplete
 C:\Users\MiguelFerreira\Desktop\ProjetoBD\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryBD.genruntimeconfig.cache
+C:\Users\andre\source\repos\LibraryBD\LibraryBD\obj\Debug\netcoreapp3.1\LibraryBD.Emprestar.resources

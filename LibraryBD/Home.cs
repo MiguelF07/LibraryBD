@@ -47,7 +47,7 @@ namespace LibraryBD
         private void button1_Click_1(object sender, EventArgs e)
         {
             //botao reservar
-            Reservar cons = new Reservar();
+            Emprestar cons = new Emprestar();
             cons.ShowDialog();
         }
 

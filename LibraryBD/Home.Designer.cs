@@ -68,7 +68,7 @@ namespace LibraryBD
             this.reservar.Name = "reservar";
             this.reservar.Size = new System.Drawing.Size(177, 50);
             this.reservar.TabIndex = 1;
-            this.reservar.Text = "Reservar";
+            this.reservar.Text = "Emprestar";
             this.reservar.UseVisualStyleBackColor = false;
             this.reservar.Click += new System.EventHandler(this.button1_Click_1);
             // 

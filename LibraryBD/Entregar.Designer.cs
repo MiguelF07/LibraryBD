@@ -32,13 +32,13 @@ namespace LibraryBD
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.ent1 = new System.Windows.Forms.Button();
+            this.enttodos = new System.Windows.Forms.Button();
+            this.estender = new System.Windows.Forms.Button();
+            this.itens = new System.Windows.Forms.ListBox();
+            this.emprestimos = new System.Windows.Forms.ListBox();
+            this.idm = new System.Windows.Forms.TextBox();
+            this.procurar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -69,80 +69,82 @@ namespace LibraryBD
             this.label3.TabIndex = 2;
             this.label3.Text = "Itens";
             // 
-            // button1
+            // ent1
             // 
-            this.button1.Location = new System.Drawing.Point(386, 373);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 29);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Entregar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ent1.Location = new System.Drawing.Point(386, 373);
+            this.ent1.Name = "ent1";
+            this.ent1.Size = new System.Drawing.Size(129, 29);
+            this.ent1.TabIndex = 3;
+            this.ent1.Text = "Entregar";
+            this.ent1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // enttodos
             // 
-            this.button2.Location = new System.Drawing.Point(521, 373);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 29);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Entregar Tudo";
-            this.button2.UseVisualStyleBackColor = true;
+            this.enttodos.Location = new System.Drawing.Point(521, 373);
+            this.enttodos.Name = "enttodos";
+            this.enttodos.Size = new System.Drawing.Size(126, 29);
+            this.enttodos.TabIndex = 4;
+            this.enttodos.Text = "Entregar Tudo";
+            this.enttodos.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // estender
             // 
-            this.button3.Location = new System.Drawing.Point(386, 409);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(261, 29);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Estender Emprestimo";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.estender.Location = new System.Drawing.Point(386, 409);
+            this.estender.Name = "estender";
+            this.estender.Size = new System.Drawing.Size(261, 29);
+            this.estender.TabIndex = 5;
+            this.estender.Text = "Estender Emprestimo";
+            this.estender.UseVisualStyleBackColor = true;
+            this.estender.Click += new System.EventHandler(this.button3_Click);
             // 
-            // listBox1
+            // itens
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(386, 102);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(260, 244);
-            this.listBox1.TabIndex = 6;
+            this.itens.FormattingEnabled = true;
+            this.itens.ItemHeight = 20;
+            this.itens.Location = new System.Drawing.Point(386, 102);
+            this.itens.Name = "itens";
+            this.itens.Size = new System.Drawing.Size(260, 244);
+            this.itens.TabIndex = 6;
             // 
-            // listBox2
+            // emprestimos
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 20;
-            this.listBox2.Location = new System.Drawing.Point(22, 50);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(329, 384);
-            this.listBox2.TabIndex = 7;
+            this.emprestimos.FormattingEnabled = true;
+            this.emprestimos.ItemHeight = 20;
+            this.emprestimos.Location = new System.Drawing.Point(22, 50);
+            this.emprestimos.Name = "emprestimos";
+            this.emprestimos.Size = new System.Drawing.Size(329, 384);
+            this.emprestimos.TabIndex = 7;
+            this.emprestimos.SelectedIndexChanged += new System.EventHandler(this.emprestimos_SelectedIndexChanged);
             // 
-            // textBox1
+            // idm
             // 
-            this.textBox1.Location = new System.Drawing.Point(478, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 27);
-            this.textBox1.TabIndex = 8;
+            this.idm.Location = new System.Drawing.Point(478, 37);
+            this.idm.Name = "idm";
+            this.idm.Size = new System.Drawing.Size(125, 27);
+            this.idm.TabIndex = 8;
             // 
-            // button4
+            // procurar
             // 
-            this.button4.Location = new System.Drawing.Point(609, 37);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(37, 29);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "🔎";
-            this.button4.UseVisualStyleBackColor = true;
+            this.procurar.Location = new System.Drawing.Point(609, 37);
+            this.procurar.Name = "procurar";
+            this.procurar.Size = new System.Drawing.Size(37, 29);
+            this.procurar.TabIndex = 9;
+            this.procurar.Text = "🔎";
+            this.procurar.UseVisualStyleBackColor = true;
+            this.procurar.Click += new System.EventHandler(this.procurar_Click);
             // 
             // Entregar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 450);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.procurar);
+            this.Controls.Add(this.idm);
+            this.Controls.Add(this.emprestimos);
+            this.Controls.Add(this.itens);
+            this.Controls.Add(this.estender);
+            this.Controls.Add(this.enttodos);
+            this.Controls.Add(this.ent1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -158,12 +160,12 @@ namespace LibraryBD
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button ent1;
+        private System.Windows.Forms.Button enttodos;
+        private System.Windows.Forms.Button estender;
+        private System.Windows.Forms.ListBox itens;
+        private System.Windows.Forms.ListBox emprestimos;
+        private System.Windows.Forms.TextBox idm;
+        private System.Windows.Forms.Button procurar;
     }
 }
