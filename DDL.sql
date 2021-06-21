@@ -66,6 +66,7 @@ CREATE TABLE BiblioBD.atividade (
 	dataAti date,
 	horario time,
 	PRIMARY KEY (biblioteca, nome),
+	FOREIGN KEY (tipo) REFERENCES BiblioBD.tipoAtividade(tipo) ON DELETE NO ACTION,
 	FOREIGN KEY (biblioteca) REFERENCES BiblioBD.biblioteca(nome)ON DELETE CASCADE);
 
 CREATE TABLE BiblioBD.atividadeMembro (
