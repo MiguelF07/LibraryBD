@@ -197,6 +197,7 @@ namespace LibraryBD
             cmd.ExecuteNonQuery();
             cn.Close();
             itens.Items.Remove(m);
+            loadEmp();
 
         }
 

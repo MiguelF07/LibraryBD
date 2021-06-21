@@ -199,21 +199,23 @@ BEGIN
 END
 END
 GO
-
+--DROP PROCEDURE BiblioBD.EliminarItemEmprestimo
 --Procedimento que elimina um certo item emprestado da tabela de itens emprestados (funciona como entrega de um item)
 CREATE PROCEDURE BiblioBD.EliminarItemEmprestimo (@item INT)
 AS
 DECLARE @numero AS INT
 DECLARE @nrRows AS INT
 SELECT @numero FROM BiblioBD.emprestimoItem WHERE BiblioBD.emprestimoItem.id = @item
+PRINT @numero
 DELETE FROM BiblioBD.emprestimoItem WHERE BiblioBD.emprestimoItem.id=@item
 SELECT @nrRows = COUNT(*) FROM BiblioBD.emprestimoItem WHERE BiblioBD.emprestimoItem.numero = @numero
+PRINT @numero
 IF(@nrRows=0)
-BEGIN
-	DELETE FROM BiblioBD.emprestimo WHERE BiblioBD.emprestimo.numero = @numero
-END
+	PRINT @numero
+	BEGIN
+		EXEC BiblioBD.EliminarEmprestimo @numero
+	END
 GO
-
 --Procedimento que elimina um empréstimo da tabela de empréstimos, e todos os itens que estejam nesse empréstimo (funciona como entrega de todos os itens do empréstimo)
 CREATE PROCEDURE BiblioBD.EliminarEmprestimo (@id INT)
 AS
