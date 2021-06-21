@@ -83,6 +83,8 @@ namespace LibraryBD
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.periferico = new System.Windows.Forms.GroupBox();
+            this.per_disp = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.per_tipo = new System.Windows.Forms.TextBox();
             this.per_modelo = new System.Windows.Forms.TextBox();
@@ -93,6 +95,8 @@ namespace LibraryBD
             this.label55 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.revista = new System.Windows.Forms.GroupBox();
+            this.rev_disp = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
             this.revista_edicao = new System.Windows.Forms.TextBox();
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
@@ -107,6 +111,8 @@ namespace LibraryBD
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.filme = new System.Windows.Forms.GroupBox();
+            this.filme_disp = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
             this.filme_ano = new System.Windows.Forms.TextBox();
             this.filme_genero = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
@@ -121,6 +127,8 @@ namespace LibraryBD
             this.label48 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.cd = new System.Windows.Forms.GroupBox();
+            this.cd_disp = new System.Windows.Forms.TextBox();
+            this.label30 = new System.Windows.Forms.Label();
             this.cd_ano = new System.Windows.Forms.TextBox();
             this.cd_genero = new System.Windows.Forms.TextBox();
             this.label50 = new System.Windows.Forms.Label();
@@ -143,6 +151,8 @@ namespace LibraryBD
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.livro = new System.Windows.Forms.GroupBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.livro_disp = new System.Windows.Forms.TextBox();
             this.livro_isbn = new System.Windows.Forms.TextBox();
             this.livro_editora = new System.Windows.Forms.TextBox();
             this.label70 = new System.Windows.Forms.Label();
@@ -162,16 +172,6 @@ namespace LibraryBD
             this.label68 = new System.Windows.Forms.Label();
             this.guardar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label29 = new System.Windows.Forms.Label();
-            this.per_disp = new System.Windows.Forms.TextBox();
-            this.cd_disp = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.livro_disp = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.filme_disp = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.rev_disp = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
             this.funcionario.SuspendLayout();
             this.emprestimo.SuspendLayout();
             this.membro.SuspendLayout();
@@ -692,6 +692,23 @@ namespace LibraryBD
             this.periferico.TabIndex = 30;
             this.periferico.TabStop = false;
             // 
+            // per_disp
+            // 
+            this.per_disp.Enabled = false;
+            this.per_disp.Location = new System.Drawing.Point(99, 180);
+            this.per_disp.Name = "per_disp";
+            this.per_disp.Size = new System.Drawing.Size(269, 27);
+            this.per_disp.TabIndex = 27;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(13, 180);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(79, 20);
+            this.label29.TabIndex = 26;
+            this.label29.Text = "Disponível";
+            // 
             // label51
             // 
             this.label51.AutoSize = true;
@@ -787,6 +804,23 @@ namespace LibraryBD
             this.revista.Size = new System.Drawing.Size(377, 368);
             this.revista.TabIndex = 28;
             this.revista.TabStop = false;
+            // 
+            // rev_disp
+            // 
+            this.rev_disp.Enabled = false;
+            this.rev_disp.Location = new System.Drawing.Point(100, 260);
+            this.rev_disp.Name = "rev_disp";
+            this.rev_disp.Size = new System.Drawing.Size(269, 27);
+            this.rev_disp.TabIndex = 34;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(14, 260);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(79, 20);
+            this.label33.TabIndex = 33;
+            this.label33.Text = "Disponível";
             // 
             // revista_edicao
             // 
@@ -916,6 +950,23 @@ namespace LibraryBD
             this.filme.TabIndex = 29;
             this.filme.TabStop = false;
             // 
+            // filme_disp
+            // 
+            this.filme_disp.Enabled = false;
+            this.filme_disp.Location = new System.Drawing.Point(99, 260);
+            this.filme_disp.Name = "filme_disp";
+            this.filme_disp.Size = new System.Drawing.Size(269, 27);
+            this.filme_disp.TabIndex = 30;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(13, 260);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(79, 20);
+            this.label32.TabIndex = 29;
+            this.label32.Text = "Disponível";
+            // 
             // filme_ano
             // 
             this.filme_ano.Location = new System.Drawing.Point(74, 182);
@@ -1043,6 +1094,23 @@ namespace LibraryBD
             this.cd.Size = new System.Drawing.Size(377, 368);
             this.cd.TabIndex = 30;
             this.cd.TabStop = false;
+            // 
+            // cd_disp
+            // 
+            this.cd_disp.Enabled = false;
+            this.cd_disp.Location = new System.Drawing.Point(98, 260);
+            this.cd_disp.Name = "cd_disp";
+            this.cd_disp.Size = new System.Drawing.Size(269, 27);
+            this.cd_disp.TabIndex = 34;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(12, 260);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(79, 20);
+            this.label30.TabIndex = 33;
+            this.label30.Text = "Disponível";
             // 
             // cd_ano
             // 
@@ -1249,6 +1317,23 @@ namespace LibraryBD
             this.livro.TabIndex = 30;
             this.livro.TabStop = false;
             // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(13, 340);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(79, 20);
+            this.label31.TabIndex = 33;
+            this.label31.Text = "Disponível";
+            // 
+            // livro_disp
+            // 
+            this.livro_disp.Enabled = false;
+            this.livro_disp.Location = new System.Drawing.Point(99, 340);
+            this.livro_disp.Name = "livro_disp";
+            this.livro_disp.Size = new System.Drawing.Size(269, 27);
+            this.livro_disp.TabIndex = 34;
+            // 
             // livro_isbn
             // 
             this.livro_isbn.Location = new System.Drawing.Point(74, 300);
@@ -1406,96 +1491,11 @@ namespace LibraryBD
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(13, 180);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(79, 20);
-            this.label29.TabIndex = 26;
-            this.label29.Text = "Disponível";
-            // 
-            // per_disp
-            // 
-            this.per_disp.Enabled = false;
-            this.per_disp.Location = new System.Drawing.Point(99, 180);
-            this.per_disp.Name = "per_disp";
-            this.per_disp.Size = new System.Drawing.Size(269, 27);
-            this.per_disp.TabIndex = 27;
-            // 
-            // cd_disp
-            // 
-            this.cd_disp.Enabled = false;
-            this.cd_disp.Location = new System.Drawing.Point(98, 260);
-            this.cd_disp.Name = "cd_disp";
-            this.cd_disp.Size = new System.Drawing.Size(269, 27);
-            this.cd_disp.TabIndex = 34;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(12, 260);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(79, 20);
-            this.label30.TabIndex = 33;
-            this.label30.Text = "Disponível";
-            // 
-            // livro_disp
-            // 
-            this.livro_disp.Enabled = false;
-            this.livro_disp.Location = new System.Drawing.Point(99, 340);
-            this.livro_disp.Name = "livro_disp";
-            this.livro_disp.Size = new System.Drawing.Size(269, 27);
-            this.livro_disp.TabIndex = 34;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(13, 340);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(79, 20);
-            this.label31.TabIndex = 33;
-            this.label31.Text = "Disponível";
-            // 
-            // filme_disp
-            // 
-            this.filme_disp.Enabled = false;
-            this.filme_disp.Location = new System.Drawing.Point(99, 260);
-            this.filme_disp.Name = "filme_disp";
-            this.filme_disp.Size = new System.Drawing.Size(269, 27);
-            this.filme_disp.TabIndex = 30;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(13, 260);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(79, 20);
-            this.label32.TabIndex = 29;
-            this.label32.Text = "Disponível";
-            // 
-            // rev_disp
-            // 
-            this.rev_disp.Enabled = false;
-            this.rev_disp.Location = new System.Drawing.Point(100, 260);
-            this.rev_disp.Name = "rev_disp";
-            this.rev_disp.Size = new System.Drawing.Size(269, 27);
-            this.rev_disp.TabIndex = 34;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(14, 260);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(79, 20);
-            this.label33.TabIndex = 33;
-            this.label33.Text = "Disponível";
-            // 
             // Consultar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(868, 489);
+            this.ClientSize = new System.Drawing.Size(859, 489);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.emprestimo);
             this.Controls.Add(this.periferico);

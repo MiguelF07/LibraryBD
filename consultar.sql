@@ -158,8 +158,9 @@ GO
 CREATE PROC BiblioBD.Disponivel(@id INT,@disp varchar(3) OUTPUT)
 AS 
 DECLARE @count INT
-SELECT @count=COUNT(*) FROM BiblioBD.emprestimoItem JOIN BiblioBD.emprestimo ON BiblioBD.emprestimoItem.numero=BiblioBD.emprestimo.numero WHERE @id=id and limite<GETDATE()
+SELECT @count=COUNT(*) FROM BiblioBD.emprestimo JOIN BiblioBD.emprestimoItem ON BiblioBD.emprestimo.numero = BiblioBD.emprestimoItem.numero WHERE id=@id
 IF @count>0
 	SELECT @disp='Não'
 ELSE
 	SELECT @disp='Sim'
+
