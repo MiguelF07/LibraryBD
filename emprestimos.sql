@@ -175,29 +175,41 @@ END
 GO
 
 --Procedimento que adiciona um item a um certo emprestimo (este procedure utiliza funcoes definidas anteriormente)
+DROP PROCEDURE BiblioBD.AddItemEmprestimo
 CREATE PROCEDURE BiblioBD.AddItemEmprestimo(@num INT, @idItem INT)
 AS
+--Para verificar tem de chamar a funcao pode reservar com o id do membro
 DECLARE @exist AS INT
 DECLARE @itemDisp AS BIT
 DECLARE @podeEmprestar AS BIT
+DECLARE @idM AS INT
+SELECT @idM=membro FROM BiblioBD.emprestimo WHERE numero = @num
+SET @podeEmprestar = BiblioBD.PodeReservar(@idM)
 SET @itemDisp = BiblioBD.VerDisponibilidade(@idItem)
 SELECT @exist = COUNT(*) FROM BiblioBD.emprestimo WHERE BiblioBD.emprestimo.numero=@num
-IF @itemDisp=0
-BEGIN
-	RAISERROR('Este artigo já está emprestado',16,1);
-END
+IF @podeEmprestar = 0
+	BEGIN
+		RAISERROR('O utilizador não pode efetuar mais empréstimos porque já atingiu o limite de itens emprestados (5)',16,1);
+	END
 ELSE
-BEGIN
-IF @exist=0
-BEGIN
-	RAISERROR('O empréstimo ao qual está a tentar adicionar o item não existe.',16,1);
-END
-ELSE
-BEGIN
-	INSERT INTO BiblioBD.emprestimoItem(biblioteca,numero,id)
-	VALUES ('Biblioteca Municipal',@num,@idItem)
-END
-END
+	BEGIN
+		IF @itemDisp=0
+			BEGIN
+				RAISERROR('Este artigo já está emprestado',16,1);
+			END
+		ELSE
+			BEGIN
+			IF @exist=0
+				BEGIN
+					RAISERROR('O empréstimo ao qual está a tentar adicionar o item não existe.',16,1);
+				END
+			ELSE
+				BEGIN
+					INSERT INTO BiblioBD.emprestimoItem(biblioteca,numero,id)
+					VALUES ('Biblioteca Municipal',@num,@idItem)
+			END
+		END
+	END
 GO
 --DROP PROCEDURE BiblioBD.EliminarItemEmprestimo
 --Procedimento que elimina um certo item emprestado da tabela de itens emprestados (funciona como entrega de um item)
