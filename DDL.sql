@@ -1,5 +1,5 @@
 CREATE DATABASE Projeto;
-use Projeto;
+use Projeto2;
 -- criar esquema
 CREATE SCHEMA BiblioBD;
 

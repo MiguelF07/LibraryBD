@@ -1,4 +1,4 @@
-use Projeto;
+use Projeto2;
 --inserir dados
 -- 1 biblioteca:
 INSERT INTO BiblioBD.biblioteca VALUES ('Biblioteca Municipal',925148635,'3288 At, Rd.');
