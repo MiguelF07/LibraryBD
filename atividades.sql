@@ -1,4 +1,4 @@
-use Projeto;
+use p9g4;
 
 -- Adicionar atividade
 GO

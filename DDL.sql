@@ -1,5 +1,4 @@
-CREATE DATABASE Projeto;
-use Projeto2;
+use p9g4;
 -- criar esquema
 CREATE SCHEMA BiblioBD;
 

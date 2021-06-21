@@ -1,3 +1,4 @@
+use p9g4;
 --Indice Non Clustered que vai ordenar o ID do Membro na tabela emprestimo de forma ascendente
 --Achamos este indice importante porque é mais frequente os emprestimos serem pesquisados pelo ID do Membro do que propriamente pelo ID do emprestimo
 CREATE NONCLUSTERED INDEX idMemberIndex
@@ -120,7 +121,7 @@ AS
 	DECLARE @emAtraso AS BIT
 	DECLARE @funcTrabalha AS BIT
 	SET @podeEmprestar = BiblioBD.PodeReservar(@idM)
-	SET @emAtraso = BiblioBD.TemAtraso(@idM,@dataAtual)
+	SET @emAtraso = BiblioBD.TemAtraso(@idM)
 	SET @funcTrabalha = BiblioBD.Trabalha(@idF)
 	IF @funcTrabalha = 0
 	BEGIN

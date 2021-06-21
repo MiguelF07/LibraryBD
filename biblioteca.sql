@@ -1,4 +1,4 @@
-use Projeto;
+use p9g4;
 --Buscar info da biblioteca
 GO
 CREATE PROC sp_Biblioteca(@nome varchar(60),@telefone int	OUTPUT,@morada varchar(60) OUTPUT)

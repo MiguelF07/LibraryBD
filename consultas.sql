@@ -1,4 +1,4 @@
-use Projeto;
+use p9g4;
 -- Exemplos de consultas
 --a)Ver funcionários que ainda trabalham na biblioteca
 	SELECT * FROM BiblioBD.funcionario WHERE fim IS NULL
