@@ -2,6 +2,12 @@
 --Achamos este indice importante porque é mais frequente os emprestimos serem pesquisados pelo ID do Membro do que propriamente pelo ID do emprestimo
 CREATE NONCLUSTERED INDEX idMemberIndex
 ON BiblioBD.emprestimo(membro ASC)
+GO
+
+--Indice Non Clustered que vai ordenar o numero do emprestimo na tabela emprestimoItem de forma ascendente
+CREATE NONCLUSTERED INDEX idEmpIndex
+ON BiblioBD.emprestimoItem(numero ASC)
+GO
 
 -- Procedure para estender a data limite de um empréstimo (incrementa 15 dias)
 CREATE PROCEDURE BiblioBD.EstenderEmprestimo(@num INT)
