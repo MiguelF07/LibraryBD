@@ -114,7 +114,7 @@ END
 GO
 
 --Procedure que adiciona um empréstimo (este procedure vai chamar 3 funções definidas anteriormente) - retorna o nr de emprestimo
-CREATE PROCEDURE BiblioBD.AddEmprestimo(@idF INT, @idM INT)
+CREATE PROCEDURE BiblioBD.AddEmprestimo(@idF INT, @idM INT,@newnumero INT OUTPUT)
 AS
 BEGIN
 	DECLARE @dataLimite AS DATE
@@ -122,7 +122,6 @@ BEGIN
 	DECLARE @emAtraso AS BIT
 	DECLARE @dataAtual AS DATE
 	DECLARE @funcTrabalha AS BIT
-	DECLARE @newnumero AS INT
 	SET @podeEmprestar = BiblioBD.PodeReservar(@idM)
 	SET @emAtraso = BiblioBD.TemAtraso(@idM)
 	SET @funcTrabalha = BiblioBD.Trabalha(@idF)
@@ -223,4 +222,33 @@ AS
 		INSERT BiblioBD.emprestimos_antigos VALUES (@numero,@funcionario,@biblioteca,@membro,@limite,@emprestimo)
 		PRINT 'Log: Emprestimo transferido para Old Emprestimos'
 	END
+GO
+
+CREATE PROC BiblioBD.getItem(@id INT,@nome varchar(60) OUTPUT)
+AS
+	DECLARE @temp AS INT
+	-- pesquisar nos livros
+	SELECT @temp=COUNT(*) FROM BiblioBD.livro WHERE @id=id
+	IF(@temp>0)
+		SELECT @nome=titulo FROM BiblioBD.livro WHERE @id=id
+	--pesquisar nos cds
+	SELECT @temp=COUNT(*) FROM BiblioBD.cd WHERE @id=id
+	IF(@temp>0)
+		SELECT @nome=titulo FROM BiblioBD.cd WHERE @id=id
+	--pesquisar nos filmes
+	SELECT @temp=COUNT(*) FROM BiblioBD.filme WHERE @id=id
+	IF(@temp>0)
+		SELECT @nome=titulo FROM BiblioBD.filme WHERE @id=id
+	--pesquisar nos revistas
+	SELECT @temp=COUNT(*) FROM BiblioBD.revistas WHERE @id=id
+	IF(@temp>0)
+		SELECT @nome=marca FROM BiblioBD.revistas WHERE @id=id
+	--pesquisar nos jornais
+	SELECT @temp=COUNT(*) FROM BiblioBD.jornais WHERE @id=id
+	IF(@temp>0)
+		SELECT @nome=marca FROM BiblioBD.jornais WHERE @id=id
+	--pesquisar nos perifericos
+	SELECT @temp=COUNT(*) FROM BiblioBD.perifericos WHERE @id=id
+	IF(@temp>0)
+		SELECT @nome=tipo FROM BiblioBD.perifericos WHERE @id=id
 GO

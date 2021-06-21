@@ -13,7 +13,7 @@
     <Compile Update="Infobibl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Reservar.cs">
+    <Compile Update="Emprestar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Home.cs">
