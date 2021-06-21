@@ -113,18 +113,21 @@ BEGIN
 END
 GO
 
---Procedure que adiciona um empréstimo (este procedure vai chamar 3 funções definidas anteriormente)
-CREATE PROCEDURE BiblioBD.AddEmprestimo(@num INT,@idF INT, @idM INT)
+--Procedure que adiciona um empréstimo (este procedure vai chamar 3 funções definidas anteriormente) - retorna o nr de emprestimo
+CREATE PROCEDURE BiblioBD.AddEmprestimo(@idF INT, @idM INT)
 AS
+BEGIN
 	DECLARE @dataLimite AS DATE
 	DECLARE @podeEmprestar AS BIT
 	DECLARE @emAtraso AS BIT
 	DECLARE @dataAtual AS DATE
 	DECLARE @funcTrabalha AS BIT
+	DECLARE @newnumero AS INT
 	SET @podeEmprestar = BiblioBD.PodeReservar(@idM)
 	SET @emAtraso = BiblioBD.TemAtraso(@idM)
 	SET @funcTrabalha = BiblioBD.Trabalha(@idF)
 	SET @dataAtual = CAST(GETDATE()AS DATE) 
+	SELECT @newnumero=MAX(numero)+1 FROM BiblioBD.emprestimo 
 	IF @funcTrabalha = 0
 	BEGIN
 		RAISERROR('ID de funcionário inválido. O funcionário já não trabalha na Biblioteca',16,1);
@@ -145,10 +148,12 @@ AS
 			BEGIN
 				SELECT @dataLimite = DATEADD(day,15,@dataAtual)
 				INSERT INTO BiblioBD.emprestimo(numero,funcionario,biblioteca,membro,limite,emprestimo)
-				VALUES (@num,@idF,'Biblioteca Municipal',@idM,@dataLimite,@dataAtual)
+				VALUES (@newnumero,@idF,'Biblioteca Municipal',@idM,@dataLimite,@dataAtual)
 			END
 		END
 	END
+	RETURN @newnumero
+END
 GO
 
 --Procedimento que adiciona um item a um certo emprestimo (este procedure utiliza funcoes definidas anteriormente)
