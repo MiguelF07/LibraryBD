@@ -759,6 +759,7 @@ DELETE FROM BiblioBD.emprestimoItem WHERE BiblioBD.emprestimoItem.numero=@id
 
 
 
+
 -- ATIVIDADES
 --adicionar atividade
 GO
