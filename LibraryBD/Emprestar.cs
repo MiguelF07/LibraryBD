@@ -54,22 +54,28 @@ namespace LibraryBD
             {
                 //chamar funcao de criar emprestimo
                 //retorna @numero
-                
-                if (!verifySGBDConnection())
+                //try
+                //{
+                    if (!verifySGBDConnection())
+                    {
+                        Debug.WriteLine("no conn");
+                        return;
+                    }
+                    itens.Enabled = true;
+                    SqlCommand cmd = new SqlCommand("BiblioBD.AddEmprestimo", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@idF", _idf));
+                    cmd.Parameters.Add(new SqlParameter("@idM", _idm));
+                    cmd.Parameters.Add("@newnumero", SqlDbType.VarChar, 100);
+                    cmd.Parameters["@newnumero"].Direction = ParameterDirection.Output;
+                    cmd.ExecuteNonQuery();
+                    num = Convert.ToString(cmd.Parameters["@newnumero"].Value);
+                    cn.Close();
+                //}
+                /*catch
                 {
-                    Debug.WriteLine("no conn");
-                    return;
-                }
-                itens.Enabled = true;
-                SqlCommand cmd = new SqlCommand("BiblioBD.AddEmprestimo", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@idF",_idf));
-                cmd.Parameters.Add(new SqlParameter("@idM",_idm));
-                cmd.Parameters.Add("@newnumero", SqlDbType.VarChar, 100);
-                cmd.Parameters["@newnumero"].Direction = ParameterDirection.Output;
-                cmd.ExecuteNonQuery();
-                num = Convert.ToString(cmd.Parameters["@newnumero"].Value);
-                cn.Close();
+                    System.Windows.Forms.MessageBox.Show("IDs inválidos ou membro tem emprestimos em atraso.");
+                }*/
 
             }
             else {
@@ -84,7 +90,7 @@ namespace LibraryBD
             if (!String.IsNullOrEmpty(_idi))
             {
                 //chamar func addicionar ao emprestimo
-                lista.Items.Add(_idi);
+                
                 if (!verifySGBDConnection())
                 {
                     Debug.WriteLine("no conn");
@@ -97,9 +103,10 @@ namespace LibraryBD
                 cmd.Parameters.Add(new SqlParameter("@num", num));
                 cmd.Parameters.Add(new SqlParameter("@idItem", _idi));
                 cmd.ExecuteNonQuery();
+                lista.Items.Add(_idi);
                 }
                 catch {
-                    System.Windows.Forms.MessageBox.Show("Esse item não está disponível");
+                    System.Windows.Forms.MessageBox.Show("Esse item não está disponível ou você ultrapassou o número máximo de itens que pode levar.");
                 }
 
                 cn.Close();

@@ -420,6 +420,7 @@ namespace LibraryBD
             this.pesquisar.TabIndex = 28;
             this.pesquisar.Text = "Pesquisar";
             this.pesquisar.UseVisualStyleBackColor = true;
+            this.pesquisar.Click += new System.EventHandler(this.pesquisar_Click_1);
             // 
             // label2
             // 

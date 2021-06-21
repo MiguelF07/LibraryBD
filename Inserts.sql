@@ -106,6 +106,7 @@ INSERT INTO BiblioBD.emprestimoItem VALUES ('Biblioteca Municipal',4,16);
 INSERT INTO BiblioBD.emprestimoItem VALUES ('Biblioteca Municipal',4,7);
 INSERT INTO BiblioBD.emprestimoItem VALUES ('Biblioteca Municipal',5,28);
 INSERT INTO BiblioBD.emprestimoItem VALUES ('Biblioteca Municipal',5,17);
+
 -- 5 jornais:
 INSERT INTO BiblioBD.jornais VALUES ('Biblioteca Municipal',1,'Geral','Publico','diario','2021-06-1',178);
 INSERT INTO BiblioBD.jornais VALUES ('Biblioteca Municipal',2,'Geral','Jornal de Noticias','diario','2021-06-1',178);

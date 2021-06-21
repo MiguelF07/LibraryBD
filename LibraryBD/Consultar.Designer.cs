@@ -172,6 +172,7 @@ namespace LibraryBD
             this.label68 = new System.Windows.Forms.Label();
             this.guardar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.funcionario.SuspendLayout();
             this.emprestimo.SuspendLayout();
             this.membro.SuspendLayout();
@@ -438,6 +439,7 @@ namespace LibraryBD
             // 
             // emprestimo
             // 
+            this.emprestimo.Controls.Add(this.listBox1);
             this.emprestimo.Controls.Add(this.emp_idmem);
             this.emprestimo.Controls.Add(this.label28);
             this.emprestimo.Controls.Add(this.emp_idf);
@@ -1491,6 +1493,15 @@ namespace LibraryBD
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(13, 223);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(354, 124);
+            this.listBox1.TabIndex = 24;
+            // 
             // Consultar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -1685,5 +1696,6 @@ namespace LibraryBD
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox livro_disp;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

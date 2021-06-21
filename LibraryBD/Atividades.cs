@@ -22,6 +22,9 @@ namespace LibraryBD
             add_tipo.Items.Add("Pintura");
             add_tipo.Items.Add("Teatro");
             add_tipo.Items.Add("Leitura");
+            pes_tipo.Items.Add("Pintura");
+            pes_tipo.Items.Add("Teatro");
+            pes_tipo.Items.Add("Leitura");
             carregarAtividades();
 
         }
@@ -247,21 +250,27 @@ namespace LibraryBD
 
             if (atividades_lista.SelectedIndex >= 0)
             {
-                Atividade m = new Atividade();
-                m = (Atividade)atividades_lista.Items[atividades_lista.SelectedIndex];
-                Debug.WriteLine(m.Nome);
-                if (!verifySGBDConnection())
+                try
                 {
-                    Debug.WriteLine("no conn");
-                    return;
+                    Atividade m = new Atividade();
+                    m = (Atividade)atividades_lista.Items[atividades_lista.SelectedIndex];
+                    Debug.WriteLine(m.Nome);
+                    if (!verifySGBDConnection())
+                    {
+                        Debug.WriteLine("no conn");
+                        return;
+                    }
+                    SqlCommand cmd = new SqlCommand("BiblioBD.adicionarMembroAtividade", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@id", add_membro.Text));
+                    cmd.Parameters.Add(new SqlParameter("@nome", m.Nome));
+                    cmd.ExecuteNonQuery();
+                    cn.Close();
+                    add_membro.Text = "";
                 }
-                SqlCommand cmd = new SqlCommand("BiblioBD.adicionarMembroAtividade", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@id", add_membro.Text));
-                cmd.Parameters.Add(new SqlParameter("@nome", m.Nome));
-                cmd.ExecuteNonQuery();
-                cn.Close();
-                add_membro.Text = "";
+                catch {
+                    System.Windows.Forms.MessageBox.Show("O membro já participa numa atividade nesse dia.");
+                }
             }
             else
             {
@@ -281,7 +290,6 @@ namespace LibraryBD
                 result= MessageBox.Show(message, caption, buttons);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
-                    this.Close();
                 Atividade m = new Atividade();
                 m = (Atividade)atividades_lista.Items[atividades_lista.SelectedIndex];
                 Debug.WriteLine(m.Nome);
@@ -302,6 +310,50 @@ namespace LibraryBD
             {
                 System.Windows.Forms.MessageBox.Show("Selecione uma atividade.");
             }
+        }
+
+        private void pesquisar_Click_1(object sender, EventArgs e)
+        {
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            }
+            String _membro = pes_nome.Text;
+            String _tipo = pes_tipo.Text;
+            String comando = "";
+            if (!String.IsNullOrEmpty(_membro) & !String.IsNullOrEmpty(_tipo))
+            {
+                comando = "SELECT * FROM BiblioBD.obterAtividadesMembroTipo(" + _membro + ",'" + _tipo + "');";
+            }
+            else if (!String.IsNullOrEmpty(_membro))
+            {
+                comando = "SELECT * FROM BiblioBD.obterAtividadesMembro(" + _membro + ");";
+            }
+            else if (!String.IsNullOrEmpty(_tipo))
+            {
+                comando = "SELECT * FROM BiblioBD.obterAtividadesTipo('" + _tipo + "');";
+            }
+            else
+            {
+                cn.Close();
+                carregarAtividades();
+                return;
+            }
+            Debug.WriteLine(_membro);
+            SqlCommand cmd = new SqlCommand(comando, cn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            atividades_lista.Items.Clear();
+            while (reader.Read())
+            {
+                Atividade C = new Atividade();
+                C.Nome = reader["nome"].ToString();
+                C.Tipo = reader["tipo"].ToString();
+                C.Data = reader["dataAti"].ToString();
+                C.Hora = reader["horario"].ToString();
+                atividades_lista.Items.Add(C);
+            }
+            cn.Close();
         }
     }
 }

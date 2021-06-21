@@ -13,6 +13,7 @@ namespace LibraryBD
     public partial class Consultar : Form
     {
         private SqlConnection cn;
+        private SqlConnection cn2;
         private int currentEntity;
         private int currentTipo;
         private int guardartype;
@@ -238,6 +239,16 @@ namespace LibraryBD
             adicionar.Enabled = false;
             eliminar.Enabled = false;
         }
+        private bool verifySGBDConnection2()
+        {
+            if (cn2 == null)
+                cn2 = getSGBDConnection();
+
+            if (cn2.State != ConnectionState.Open)
+                cn2.Open();
+
+            return cn2.State == ConnectionState.Open;
+        }
         public void ShowEmp()
         {
             if (elementos.Items.Count == 0 | currentEntity < 0)
@@ -249,6 +260,40 @@ namespace LibraryBD
             emp_idmem.Text = e.Id2;
             emp_limite.Text = e.Limite;
             emp_dataemp.Text = e.Emp;
+            Debug.WriteLine(currentEntity);
+            listBox1.Items.Clear();
+            if (elementos.Items.Count == 0 | currentEntity < 0)
+                return;
+            Emprestimo m = new Emprestimo();
+            m = (Emprestimo)elementos.Items[currentEntity];
+            //executar comandos para ir buscar itens
+            if (!verifySGBDConnection())
+            {
+                Debug.WriteLine("no conn");
+                return;
+            }
+            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.emprestimoItem WHERE numero=" + m.Num, cn);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Item C = new Item();
+                C.Id = reader["id"].ToString();
+                if (!verifySGBDConnection2())
+                {
+                    Debug.WriteLine("no conn");
+                    return;
+                };
+                SqlCommand cmd2 = new SqlCommand("BiblioBD.getItem", cn2);
+                cmd2.CommandType = CommandType.StoredProcedure;
+                cmd2.Parameters.Add(new SqlParameter("@id", reader["id"].ToString()));
+                cmd2.Parameters.Add("@nome", SqlDbType.VarChar, 60);
+                cmd2.Parameters["@nome"].Direction = ParameterDirection.Output;
+                cmd2.ExecuteNonQuery();
+                C.Nome = Convert.ToString(cmd2.Parameters["@nome"].Value);
+                cn2.Close();
+                listBox1.Items.Add(C);
+            }
+            cn.Close();
         }
         private void loadJornData()
         {
@@ -1086,20 +1131,14 @@ namespace LibraryBD
         }
         private void AdicionarFunc()
         {
-            string message = "Deseja mesmo eliminar este funcionario?";
-            string caption = "Confirme";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result;
-            result = MessageBox.Show(message, caption, buttons);
-            if (result == System.Windows.Forms.DialogResult.Yes)
+            try
             {
-
                 if (!verifySGBDConnection())
                 {
                     Debug.WriteLine("no conn");
                     return;
                 };
-
+                Debug.WriteLine("ahh");
                 SqlCommand cmd = new SqlCommand("BiblioBD.AdicionarFunc", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add(new SqlParameter("@nome", fun_nome.Text));
@@ -1115,12 +1154,22 @@ namespace LibraryBD
                 loadFuncData();
                 fun_id.Enabled = true;
             }
-            
+            catch {
+                System.Windows.Forms.MessageBox.Show("Datas incorretas.Tente de novo.");
+            }
+
         }
         
         private void EliminarFunc()
         {
-            if (!verifySGBDConnection())
+            string message = "Deseja mesmo eliminar este funcionario?";
+            string caption = "Confirme";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+            result = MessageBox.Show(message, caption, buttons);
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                if (!verifySGBDConnection())
             {
                 Debug.WriteLine("no conn");
                 return;
@@ -1132,8 +1181,9 @@ namespace LibraryBD
             cmd.Parameters.Add(new SqlParameter("@id", m.Id));
             cmd.ExecuteNonQuery();
             cn.Close();
-            loadMemberData();
-            membro_id.Enabled = true;
+            loadFuncData();
+            fun_id.Enabled = true;
+            }
         }
         private void eliminar_Click(object sender, EventArgs e)
         {
