@@ -74,6 +74,7 @@ END
 GO
 
 --Funcao que verifica se um dado utilizador tem algum emprestimo em atraso (0 se tiver atraso, 1 se nao tiver)
+DROP FUNCTION BiblioBD.TemAtraso
 CREATE FUNCTION BiblioBD.TemAtraso(@num INT) RETURNS BIT
 AS
 BEGIN
@@ -113,7 +114,9 @@ BEGIN
 END
 GO
 
+DROP PROCEDURE BiblioBD.AddEmprestimo
 --Procedure que adiciona um empréstimo (este procedure vai chamar 3 funções definidas anteriormente) - retorna o nr de emprestimo
+
 CREATE PROCEDURE BiblioBD.AddEmprestimo(@idF INT, @idM INT,@newnumero INT OUTPUT)
 AS
 BEGIN
@@ -122,11 +125,27 @@ BEGIN
 	DECLARE @emAtraso AS BIT
 	DECLARE @dataAtual AS DATE
 	DECLARE @funcTrabalha AS BIT
+	DECLARE @newnumeroEmprestimo AS INT
+	DECLARE @newnumeroOldEmprestimo AS INT
+
 	SET @podeEmprestar = BiblioBD.PodeReservar(@idM)
 	SET @emAtraso = BiblioBD.TemAtraso(@idM)
 	SET @funcTrabalha = BiblioBD.Trabalha(@idF)
 	SET @dataAtual = CAST(GETDATE()AS DATE) 
-	SELECT @newnumero=MAX(numero)+1 FROM BiblioBD.emprestimo 
+	SELECT @newnumeroEmprestimo=MAX(numero)+1 FROM BiblioBD.emprestimo 
+	IF (EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES
+		WHERE TABLE_SCHEMA = 'BiblioBD' AND TABLE_NAME = 'emprestimos_antigos'))
+		BEGIN
+			SELECT @newnumeroOldEmprestimo=MAX(numero)+1 FROM BiblioBD.emprestimos_antigos
+			IF (@newnumeroOldEmprestimo > @newnumeroEmprestimo)
+				BEGIN
+					SET @newnumero = @newnumeroOldEmprestimo
+				END
+			ELSE
+				BEGIN
+					SET @newnumero = @newnumeroEmprestimo
+				END
+		END
 	IF @funcTrabalha = 0
 	BEGIN
 		RAISERROR('ID de funcionário inválido. O funcionário já não trabalha na Biblioteca',16,1);
@@ -160,6 +179,7 @@ CREATE PROCEDURE BiblioBD.AddItemEmprestimo(@num INT, @idItem INT)
 AS
 DECLARE @exist AS INT
 DECLARE @itemDisp AS BIT
+DECLARE @podeEmprestar AS BIT
 SET @itemDisp = BiblioBD.VerDisponibilidade(@idItem)
 SELECT @exist = COUNT(*) FROM BiblioBD.emprestimo WHERE BiblioBD.emprestimo.numero=@num
 IF @itemDisp=0
