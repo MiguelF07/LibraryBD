@@ -37,6 +37,16 @@ namespace LibraryBD
             this.detalhes = new System.Windows.Forms.GroupBox();
             this.det_tipo = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
+            this.det_hora = new System.Windows.Forms.TextBox();
+            this.det_data = new System.Windows.Forms.DateTimePicker();
+            this.det__nome = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.det_membros = new System.Windows.Forms.ListBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.adicionargroup = new System.Windows.Forms.GroupBox();
             this.add_tipo = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -49,37 +59,27 @@ namespace LibraryBD
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.det_hora = new System.Windows.Forms.TextBox();
-            this.det_data = new System.Windows.Forms.DateTimePicker();
-            this.det__nome = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.det_membros = new System.Windows.Forms.ListBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.principal = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.pesquisar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.pes_tipo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.pes_nome = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.add_membro = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.rem_membro = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.pes_nome = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.pes_tipo = new System.Windows.Forms.ComboBox();
-            this.pesquisar = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.rem_membro = new System.Windows.Forms.TextBox();
             this.detalhes.SuspendLayout();
             this.adicionargroup.SuspendLayout();
             this.principal.SuspendLayout();
@@ -170,6 +170,95 @@ namespace LibraryBD
             this.label22.Size = new System.Drawing.Size(76, 23);
             this.label22.TabIndex = 13;
             this.label22.Text = "Detalhes";
+            // 
+            // det_hora
+            // 
+            this.det_hora.Enabled = false;
+            this.det_hora.Location = new System.Drawing.Point(75, 172);
+            this.det_hora.Name = "det_hora";
+            this.det_hora.Size = new System.Drawing.Size(290, 27);
+            this.det_hora.TabIndex = 10;
+            // 
+            // det_data
+            // 
+            this.det_data.Enabled = false;
+            this.det_data.Location = new System.Drawing.Point(74, 138);
+            this.det_data.Name = "det_data";
+            this.det_data.Size = new System.Drawing.Size(291, 27);
+            this.det_data.TabIndex = 9;
+            // 
+            // det__nome
+            // 
+            this.det__nome.Enabled = false;
+            this.det__nome.Location = new System.Drawing.Point(74, 72);
+            this.det__nome.Name = "det__nome";
+            this.det__nome.Size = new System.Drawing.Size(291, 27);
+            this.det__nome.TabIndex = 7;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(146, 208);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(72, 20);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "Membros";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(146, 378);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(94, 29);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "Fechar";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // det_membros
+            // 
+            this.det_membros.Enabled = false;
+            this.det_membros.FormattingEnabled = true;
+            this.det_membros.ItemHeight = 20;
+            this.det_membros.Location = new System.Drawing.Point(18, 229);
+            this.det_membros.Name = "det_membros";
+            this.det_membros.Size = new System.Drawing.Size(347, 144);
+            this.det_membros.TabIndex = 4;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(21, 172);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(42, 20);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Hora";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(21, 140);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 20);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "Data";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(21, 105);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(39, 20);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Tipo";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(21, 75);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(50, 20);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Nome";
             // 
             // adicionargroup
             // 
@@ -285,95 +374,6 @@ namespace LibraryBD
             this.label21.TabIndex = 0;
             this.label21.Text = "Nome";
             // 
-            // det_hora
-            // 
-            this.det_hora.Enabled = false;
-            this.det_hora.Location = new System.Drawing.Point(75, 172);
-            this.det_hora.Name = "det_hora";
-            this.det_hora.Size = new System.Drawing.Size(290, 27);
-            this.det_hora.TabIndex = 10;
-            // 
-            // det_data
-            // 
-            this.det_data.Enabled = false;
-            this.det_data.Location = new System.Drawing.Point(74, 138);
-            this.det_data.Name = "det_data";
-            this.det_data.Size = new System.Drawing.Size(291, 27);
-            this.det_data.TabIndex = 9;
-            // 
-            // det__nome
-            // 
-            this.det__nome.Enabled = false;
-            this.det__nome.Location = new System.Drawing.Point(74, 72);
-            this.det__nome.Name = "det__nome";
-            this.det__nome.Size = new System.Drawing.Size(291, 27);
-            this.det__nome.TabIndex = 7;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(146, 208);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(72, 20);
-            this.label16.TabIndex = 6;
-            this.label16.Text = "Membros";
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(146, 378);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(94, 29);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Fechar";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // det_membros
-            // 
-            this.det_membros.Enabled = false;
-            this.det_membros.FormattingEnabled = true;
-            this.det_membros.ItemHeight = 20;
-            this.det_membros.Location = new System.Drawing.Point(18, 229);
-            this.det_membros.Name = "det_membros";
-            this.det_membros.Size = new System.Drawing.Size(347, 144);
-            this.det_membros.TabIndex = 4;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(21, 172);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(42, 20);
-            this.label15.TabIndex = 3;
-            this.label15.Text = "Hora";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(21, 140);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(41, 20);
-            this.label14.TabIndex = 2;
-            this.label14.Text = "Data";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(21, 105);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(39, 20);
-            this.label13.TabIndex = 1;
-            this.label13.Text = "Tipo";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(21, 75);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(50, 20);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Nome";
-            // 
             // principal
             // 
             this.principal.Controls.Add(this.button5);
@@ -402,6 +402,25 @@ namespace LibraryBD
             this.principal.TabIndex = 29;
             this.principal.TabStop = false;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(368, 387);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(31, 29);
+            this.button5.TabIndex = 18;
+            this.button5.Text = "-";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // pesquisar
+            // 
+            this.pesquisar.Location = new System.Drawing.Point(308, 258);
+            this.pesquisar.Name = "pesquisar";
+            this.pesquisar.Size = new System.Drawing.Size(94, 29);
+            this.pesquisar.TabIndex = 28;
+            this.pesquisar.Text = "Pesquisar";
+            this.pesquisar.UseVisualStyleBackColor = true;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -410,6 +429,14 @@ namespace LibraryBD
             this.label2.Size = new System.Drawing.Size(68, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Pesquisa:";
+            // 
+            // pes_tipo
+            // 
+            this.pes_tipo.FormattingEnabled = true;
+            this.pes_tipo.Location = new System.Drawing.Point(140, 94);
+            this.pes_tipo.Name = "pes_tipo";
+            this.pes_tipo.Size = new System.Drawing.Size(262, 28);
+            this.pes_tipo.TabIndex = 27;
             // 
             // label3
             // 
@@ -438,6 +465,13 @@ namespace LibraryBD
             this.label5.TabIndex = 8;
             this.label5.Text = "Nome";
             // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(140, 224);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(262, 27);
+            this.textBox7.TabIndex = 23;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -446,6 +480,13 @@ namespace LibraryBD
             this.label6.Size = new System.Drawing.Size(41, 20);
             this.label6.TabIndex = 9;
             this.label6.Text = "Data";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(140, 181);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(262, 27);
+            this.textBox6.TabIndex = 22;
             // 
             // label7
             // 
@@ -456,6 +497,13 @@ namespace LibraryBD
             this.label7.TabIndex = 10;
             this.label7.Text = "Hora";
             // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(140, 138);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(262, 27);
+            this.textBox5.TabIndex = 21;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -465,6 +513,13 @@ namespace LibraryBD
             this.label8.TabIndex = 11;
             this.label8.Text = "Registar membro:";
             this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // pes_nome
+            // 
+            this.pes_nome.Location = new System.Drawing.Point(140, 50);
+            this.pes_nome.Name = "pes_nome";
+            this.pes_nome.Size = new System.Drawing.Size(262, 27);
+            this.pes_nome.TabIndex = 19;
             // 
             // label9
             // 
@@ -483,31 +538,6 @@ namespace LibraryBD
             this.add_membro.Size = new System.Drawing.Size(222, 27);
             this.add_membro.TabIndex = 13;
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(35, 309);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(85, 20);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "ID Membro";
-            // 
-            // rem_membro
-            // 
-            this.rem_membro.Location = new System.Drawing.Point(140, 388);
-            this.rem_membro.Name = "rem_membro";
-            this.rem_membro.Size = new System.Drawing.Size(222, 27);
-            this.rem_membro.TabIndex = 15;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(35, 395);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(85, 20);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "ID Membro";
-            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(368, 301);
@@ -518,66 +548,36 @@ namespace LibraryBD
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // label10
             // 
-            this.button5.Location = new System.Drawing.Point(368, 387);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(31, 29);
-            this.button5.TabIndex = 18;
-            this.button5.Text = "-";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(35, 309);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(85, 20);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "ID Membro";
             // 
-            // pes_nome
+            // label11
             // 
-            this.pes_nome.Location = new System.Drawing.Point(140, 50);
-            this.pes_nome.Name = "pes_nome";
-            this.pes_nome.Size = new System.Drawing.Size(262, 27);
-            this.pes_nome.TabIndex = 19;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(35, 395);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(85, 20);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "ID Membro";
             // 
-            // textBox5
+            // rem_membro
             // 
-            this.textBox5.Location = new System.Drawing.Point(140, 138);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(262, 27);
-            this.textBox5.TabIndex = 21;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(140, 181);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(262, 27);
-            this.textBox6.TabIndex = 22;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(140, 224);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(262, 27);
-            this.textBox7.TabIndex = 23;
-            // 
-            // pes_tipo
-            // 
-            this.pes_tipo.FormattingEnabled = true;
-            this.pes_tipo.Location = new System.Drawing.Point(140, 94);
-            this.pes_tipo.Name = "pes_tipo";
-            this.pes_tipo.Size = new System.Drawing.Size(262, 28);
-            this.pes_tipo.TabIndex = 27;
-            // 
-            // pesquisar
-            // 
-            this.pesquisar.Location = new System.Drawing.Point(308, 258);
-            this.pesquisar.Name = "pesquisar";
-            this.pesquisar.Size = new System.Drawing.Size(94, 29);
-            this.pesquisar.TabIndex = 28;
-            this.pesquisar.Text = "Pesquisar";
-            this.pesquisar.UseVisualStyleBackColor = true;
+            this.rem_membro.Location = new System.Drawing.Point(140, 388);
+            this.rem_membro.Name = "rem_membro";
+            this.rem_membro.Size = new System.Drawing.Size(222, 27);
+            this.rem_membro.TabIndex = 15;
             // 
             // Atividades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1415, 590);
+            this.ClientSize = new System.Drawing.Size(797, 449);
             this.Controls.Add(this.principal);
             this.Controls.Add(this.adicionargroup);
             this.Controls.Add(this.detalhes);

@@ -18,7 +18,6 @@ namespace LibraryBD
         private int guardartype;
         public Consultar()
         {
-            Debug.WriteLine("Init");
             //this.Load += Home_Load;
             InitializeComponent();
             HideAll();
@@ -49,13 +48,6 @@ namespace LibraryBD
             cd.Hide();
             livro.Hide();
         }
-        /*private void Consultar_Load(Object sender, EventArgs e)
-        {
-            Debug.WriteLine("load entered");
-            cn = getSGBDConnection();
-            Debug.WriteLine("Conexão efetuada");
-            loadMembersToolStripMenuItem_Click(sender, e);
-        }*/
         private SqlConnection getSGBDConnection()
         {
             //Andreia
@@ -76,15 +68,12 @@ namespace LibraryBD
         }
         private void loadMembersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine("Cheguei a funcao load");
             if (!verifySGBDConnection())
             {
                 Debug.WriteLine("no conn");
                 return;
             };
 
-            //Fazer switch(?) para sabermos qual queremos apresentar
-            Debug.WriteLine("Começar a carregar");
 
         }
 
@@ -387,14 +376,14 @@ namespace LibraryBD
         {
             if (elementos.Items.Count == 0 | currentEntity < 0)
                 return;
-            Filme f = new Filme();
-            f = (Filme)elementos.Items[currentEntity];
-            filme_id.Text = f.Id;
-            filme_seccao.Text = f.Seccao;
-            filme_realizador.Text = f.Realizador;
-            filme_genero.Text = f.Genero;
-            filme_ano.Text = f.Ano;
-            filme_titulo.Text = f.Titulo;
+            Filme fil = new Filme();
+            fil = (Filme)elementos.Items[currentEntity];
+            filme_id.Text = fil.Id;
+            filme_seccao.Text = fil.Seccao;
+            filme_realizador.Text = fil.Realizador;
+            filme_genero.Text = fil.Genero;
+            filme_ano.Text = fil.Ano;
+            filme_titulo.Text = fil.Titulo;
             if (!verifySGBDConnection())
             {
                 Debug.WriteLine("no conn");
@@ -419,7 +408,6 @@ namespace LibraryBD
                 return;
             };
             unlockButtons();
-            Debug.WriteLine("Here");
             periferico.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.perifericos", cn);
 
@@ -533,16 +521,13 @@ namespace LibraryBD
                 return;
             };
             unlockButtons();
-            Debug.WriteLine("cheguei ao load livro");
             livro.Show();
             SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.livro", cn);
-            Debug.WriteLine("fiz o select do load livro");
 
             SqlDataReader reader = cmd.ExecuteReader();
             elementos.Items.Clear();
             while (reader.Read())
             {
-                Debug.WriteLine("Estou no while");
                 Livro L = new Livro();
                 L.Id = reader["id"].ToString();
                 L.Titulo = reader["titulo"].ToString();
@@ -641,7 +626,6 @@ namespace LibraryBD
         private void elementos_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             currentEntity = elementos.SelectedIndex;
-            Debug.WriteLine(currentTipo);
             switch (currentTipo)
             {
                 case 0:
@@ -670,6 +654,9 @@ namespace LibraryBD
                     break;
                 case 8:
                     ShowPer();
+                    break;
+                case 9:
+                    ShowFilm();
                     break;
             }
 
@@ -744,47 +731,7 @@ namespace LibraryBD
                     fun_id.Enabled = false;
                     break;}
         }
-        private void guardar_Membro()
-        {
-            String _id = membro_id.Text;//nao sei se é o user a adicionar os ids ou se é automatico com queries sql
-            String _nome = membro_nome.Text;
-            String _morada = membro_morada.Text;
-            String _email = membro_email.Text;
-            String _nif = membro_nif.Text;
-            String _nascimento = membro_nasc.Text;
-            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.livro", cn);// chamar função de add á database com cenas corretas
-            Debug.WriteLine("Adicionar membro");
-        }
-        private void guardar_Func()
-        {
-            String _id = fun_id.Text;
-            String _nome = fun_nome.Text;
-            String _morada = fun_morada.Text;
-            String _email = fun_email.Text;
-            String _nif = fun_nif.Text;
-            String _nascimento = fun_nasc.Text;
-            String _ssn = fun_ssn.Text;
-            String _inicio = fun_i.Text;
-            String _fim = fun_f.Text;
-            SqlCommand cmd = new SqlCommand("SELECT * FROM BiblioBD.livro", cn);// chamar função de add á database com cenas corretas
-            Debug.WriteLine("Adicionar funcionario");
-        }
-        private void guardar_Ger()
-        {
-            String _id = ger_id.Text;//nao sei se é o user a adicionar os ids ou se é automatico com queries sql
-            String _inicio = ger_inicio.Text;
-            String _fim = ger_fim.Text;
-            try //isto nao parece funcionar tho
-            {
-                String command = "INSERT INTO BiblioBD.gerente VALUES('Biblioteca Municipal'," + _id + "'" + _inicio + "','" + _fim + "');";
-                SqlCommand cmd = new SqlCommand(command, cn);// chamar função de add á database com cenas corretas; 
-                Debug.WriteLine("Adicionar gerente");
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show("Operação falhou. Tente de novo.");
-            }
-        }
+       
         public void ProcurarEmprestimo() {
 
             if (!verifySGBDConnection())
@@ -852,11 +799,7 @@ namespace LibraryBD
             String _id = membro_id.Text;
             String _nome = membro_nome.Text;
             String command = "";
-            if (!String.IsNullOrEmpty(_id) & !String.IsNullOrEmpty(_nome)) {
-                command = "SELECT * FROM BiblioBD.ProcurarMembroIDNome(" + _id + ",'"+_nome+"');";
-                
-            }
-            else if (!String.IsNullOrEmpty(_id))
+            if (!String.IsNullOrEmpty(_id))
             {
                 command = "SELECT * FROM BiblioBD.ProcurarMembro(" + _id + ");";
                 
@@ -1038,13 +981,10 @@ namespace LibraryBD
         private void guardar_Click_1(object sender, EventArgs e)
         {
             adicionar.Enabled = true;
-            Debug.WriteLine("clicamos em guardar");
             if (guardartype == 0) {
                 //viemos do adicionar
-                Debug.WriteLine("depois de adicionar");
                 if (currentTipo == 0)
                 {
-                    
                     AdicionarMembro();
                 }
                 if (currentTipo == 1)
