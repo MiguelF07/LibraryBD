@@ -224,6 +224,7 @@ AS
 	END
 GO
 
+-- Obter nome de item de acordo com o id
 CREATE PROC BiblioBD.getItem(@id INT,@nome varchar(60) OUTPUT)
 AS
 	DECLARE @temp AS INT

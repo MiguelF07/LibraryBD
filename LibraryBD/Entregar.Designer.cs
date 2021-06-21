@@ -77,6 +77,7 @@ namespace LibraryBD
             this.ent1.TabIndex = 3;
             this.ent1.Text = "Entregar";
             this.ent1.UseVisualStyleBackColor = true;
+            this.ent1.Click += new System.EventHandler(this.ent1_Click);
             // 
             // enttodos
             // 
@@ -86,6 +87,7 @@ namespace LibraryBD
             this.enttodos.TabIndex = 4;
             this.enttodos.Text = "Entregar Tudo";
             this.enttodos.UseVisualStyleBackColor = true;
+            this.enttodos.Click += new System.EventHandler(this.enttodos_Click);
             // 
             // estender
             // 
