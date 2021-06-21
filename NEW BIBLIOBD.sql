@@ -1,13 +1,28 @@
+CREATE DATABASE Projeto;
 USE Projeto;
+
+-- criar esquema
 CREATE SCHEMA BiblioBD;
 
-/*DROP TABLE BiblioBD.emprestimoItem
+/*
 	DROP TABLE BiblioBD.jornais
 	DROP TABLE BiblioBD.cd
 	DROP TABLE BiblioBD.perifericos
 	DROP TABLE BiblioBD.revistas
 	DROP TABLE BiblioBD.livro
-	DROP TABLE BiblioBD.filme*/
+	DROP TABLE BiblioBD.filme
+	DROP TABLE BiblioBD.emprestimoItem
+	DROP TABLE BiblioBD.item	
+	DROP TABLE BiblioBD.atividadeMembro
+	DROP TABLE BiblioBD.atividade
+	DROP TABLE BiblioBD.tipoAtividade
+	DROP TABLE BiblioBD.emprestimo
+	DROP TABLE BiblioBD.membro
+	DROP TABLE BiblioBD.gerente
+	DROP TABLE BiblioBD.funcionario
+	DROP TABLE BiblioBD.biblioteca
+*/
+
 -- criar tabelas
 CREATE TABLE BiblioBD.biblioteca (
 	nome varchar(60) PRIMARY KEY,
@@ -342,8 +357,6 @@ CREATE FUNCTION BiblioBD.ProcurarReservasMembro(@id INT) RETURNS TABLE
 AS
 	RETURN (SELECT * FROM BiblioBD.emprestimo WHERE membro=@id)
 
-GO
-SELECT * FROM BiblioBD.ProcurarReservasMembro(1)
 -- trigger para as datas
 GO
 CREATE TRIGGER checkDates ON BiblioBD.funcionario AFTER INSERT AS
